@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  Tag.swift
 //  Hover
 //
 //  Created by Aditya Cahyo on 19/06/22.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct Tag: View {
     var body: some View {
-        HomeScreen()
+        Text("Partner Activity")
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct Tag_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Tag()
     }
 }
