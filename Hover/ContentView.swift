@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("isNewUser") private var isNewUser: Bool = true
+    
     var body: some View {
-        HomeScreen()
+        if isNewUser {
+            OnboardingPage()
+        } else {
+            HomeScreen()
+        }
     }
 }
 
