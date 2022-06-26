@@ -9,9 +9,30 @@ import SwiftUI
 
 struct HomeScreen: View {
     var body: some View {
-        VStack {
-            Text("Home Screen")
-            Tag()
+        NavigationView {
+            TabView {
+                Text("Home View")
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "house.fill")
+                            Text("Home")
+                        }
+                    }
+                SpecialDatePage()
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "calendar.badge.exclamationmark")
+                            Text("Special Date")
+                        }
+                    }
+                MemoryPage()
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "folder.fill")
+                            Text("Memories")
+                        }
+                    }
+            }
         }
     }
 }
