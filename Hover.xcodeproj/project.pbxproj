@@ -28,6 +28,8 @@
 		FDD705EC2865DD1A0003D311 /* TestResultPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705EB2865DD1A0003D311 /* TestResultPage.swift */; };
 		FDD705EE2865DD6C0003D311 /* MemoryForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705ED2865DD6C0003D311 /* MemoryForm.swift */; };
 		FDD705F02865DFB10003D311 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705EF2865DFB10003D311 /* OnboardingPage.swift */; };
+		FDD705F22868B0E00003D311 /* LoveLanguageTestOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705F12868B0E00003D311 /* LoveLanguageTestOption.swift */; };
+		FDD705F42868B1130003D311 /* LoveLanguageQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705F32868B1130003D311 /* LoveLanguageQuestion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		FDD705EB2865DD1A0003D311 /* TestResultPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultPage.swift; sourceTree = "<group>"; };
 		FDD705ED2865DD6C0003D311 /* MemoryForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryForm.swift; sourceTree = "<group>"; };
 		FDD705EF2865DFB10003D311 /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
+		FDD705F12868B0E00003D311 /* LoveLanguageTestOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguageTestOption.swift; sourceTree = "<group>"; };
+		FDD705F32868B1130003D311 /* LoveLanguageQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguageQuestion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				0EE23A9B285F633100ACBD61 /* Activity.swift */,
+				FDD705F12868B0E00003D311 /* LoveLanguageTestOption.swift */,
+				FDD705F32868B1130003D311 /* LoveLanguageQuestion.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -286,6 +292,7 @@
 			files = (
 				0EE23A89285F626500ACBD61 /* ContentView.swift in Sources */,
 				FDD705DA2865DB930003D311 /* QuestionLoveLanguage.swift in Sources */,
+				FDD705F22868B0E00003D311 /* LoveLanguageTestOption.swift in Sources */,
 				FDD705F02865DFB10003D311 /* OnboardingPage.swift in Sources */,
 				FDD705EE2865DD6C0003D311 /* MemoryForm.swift in Sources */,
 				FDD705DD2865DBCD0003D311 /* SpecialDatePage.swift in Sources */,
@@ -301,6 +308,7 @@
 				FDD705D52865DB060003D311 /* SpecialDatePrompt.swift in Sources */,
 				0EE23A9C285F633100ACBD61 /* Activity.swift in Sources */,
 				0EE23A98285F62EA00ACBD61 /* HomeScreen.swift in Sources */,
+				FDD705F42868B1130003D311 /* LoveLanguageQuestion.swift in Sources */,
 				FDD705EC2865DD1A0003D311 /* TestResultPage.swift in Sources */,
 				FDD705D72865DB6C0003D311 /* LoveLanguagePrompt.swift in Sources */,
 			);

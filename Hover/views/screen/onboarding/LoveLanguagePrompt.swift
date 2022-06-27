@@ -28,7 +28,11 @@ struct LoveLanguagePrompt: View {
                 } label: {
                     Image(systemName: "chevron.forward")
                 }
-
+            }
+            Text("Don’t know your Love Language yet?")
+                .font(.subheadline)
+            NavigationLink(destination: QuestionLoveLanguage()) {
+                Text("Take the test now")
             }
         }
     }
