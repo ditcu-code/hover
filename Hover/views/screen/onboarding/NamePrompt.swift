@@ -11,17 +11,21 @@ struct NamePrompt: View {
     @Binding var onboardingStep: Int
     
     var body: some View {
-        VStack {
-            Text("Name Prompt")
-            Text("\(onboardingStep)")
-            NavigationLink {
-                if onboardingStep == 0 {
-                    NamePrompt(onboardingStep: .constant(onboardingStep + 1))
-                } else {
-                    SpecialDatePrompt(onboardingStep: .constant(onboardingStep + 1))
+        ZStack {
+            Color("BackgroundColor")
+                .ignoresSafeArea()
+            VStack {
+                Text("Name Prompt")
+                Text("\(onboardingStep)")
+                NavigationLink {
+                    if onboardingStep == 0 {
+                        NamePrompt(onboardingStep: .constant(onboardingStep + 1))
+                    } else {
+                        SpecialDatePrompt(onboardingStep: .constant(onboardingStep + 1))
+                    }
+                } label: {
+                    Image(systemName: "chevron.forward")
                 }
-            } label: {
-                Image(systemName: "chevron.forward")
             }
         }
     }
