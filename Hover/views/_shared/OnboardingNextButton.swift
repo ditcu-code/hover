@@ -15,8 +15,6 @@ struct OnboardingNextButton: View {
                 .foregroundColor(Color("PrimaryColor"))
             Image(systemName: "chevron.right")
                 .font(.title)
-//                .resizable()
-//                .aspectRatio(contentMode: .fit)
                 .padding(10)
                 .frame(width: 37, height: 37)
                 .foregroundColor(Color("PrimaryColor"))

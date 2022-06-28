@@ -19,53 +19,53 @@ struct SpecialDatePrompt: View {
     }
     
     var body: some View {
-        ZStack {
-            Color("BackgroundColor")
-                .ignoresSafeArea()
-            VStack {
-                Spacer()
-                HStack {
-                    Text("Tell me about\nyour special date\nwith your partner")
-                        .font(.title)
+        VStack {
+            Spacer()
+            HStack {
+                Text("Tell me about\nyour special date\nwith your partner")
+                    .font(.title)
                     .bold()
-                    Spacer()
-                }
-                Spacer(minLength: 3)
-                TextField("Special Date", text: $specialDateName)
-                    .padding()
-                    .frame(height: 44)
-                    .background(.white)
-                    .cornerRadius(5)
-                    .shadow(color: .black, radius: 1)
-                DatePicker(
-                    selection: $date,
-                    in: ...Date.now,
-                    displayedComponents: [.date]
-                ) {
-                    Text("Date")
-                }
+                Spacer()
+            }
+            Spacer(minLength: 3)
+            TextField("Special Date", text: $specialDateName)
                 .padding()
                 .frame(height: 44)
                 .background(.white)
                 .cornerRadius(5)
                 .shadow(color: .black, radius: 1)
-                Text("Insert special date, such as wedding anniversary, partner’s birhtday, valentine’s day, etc")
-                    .font(.subheadline)
-                    .foregroundColor(Color("CaptionColor"))
-                Spacer()
-                Button {
-                    saveSpecialDate()
-                    isNavigateActive.toggle()
-                } label: {
-                    OnboardingNextButton()
-                }.disabled(disabledForm)
-                NavigationLink(isActive: $isNavigateActive) {
+            DatePicker(
+                selection: $date,
+                in: ...Date.now,
+                displayedComponents: [.date]
+            ) {
+                Text("Date")
+            }
+            .padding()
+            .frame(height: 44)
+            .background(.white)
+            .cornerRadius(5)
+            .shadow(color: .black, radius: 1)
+            Text("Insert special date, such as wedding anniversary, partner’s birthday, valentine’s day, etc")
+                .font(.subheadline)
+                .foregroundColor(Color("CaptionColor"))
+            Spacer()
+            Button {
+                saveSpecialDate()
+                self.isNavigateActive.toggle()
+            } label: {
+                OnboardingNextButton()
+            }.disabled(disabledForm)
+            NavigationLink(isActive: self.$isNavigateActive) {
+//                if self.onboardingStep == 3 {
                     LoveLanguagePrompt(onboardingStep: .constant(onboardingStep + 1))
-                } label: {
-                }
-                Spacer()
-            }.padding()
+//                }
+            } label: {
+            }
+            Spacer()
         }
+        .padding()
+        .background(Color("BackgroundColor")).ignoresSafeArea()
     }
     
     func saveSpecialDate() {
@@ -80,6 +80,6 @@ struct SpecialDatePrompt: View {
 
 struct SpecialDatePrompt_Previews: PreviewProvider {
     static var previews: some View {
-        SpecialDatePrompt(onboardingStep: .constant(2))
+        SpecialDatePrompt(onboardingStep: .constant(3))
     }
 }

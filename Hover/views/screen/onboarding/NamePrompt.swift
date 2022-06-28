@@ -18,58 +18,56 @@ struct NamePrompt: View {
     }
     
     var body: some View {
-        ZStack {
-            Color("BackgroundColor")
-                .ignoresSafeArea()
-            VStack {
-                Spacer()
-                HStack {
-                    VStack(alignment: .leading) {
-                        if onboardingStep == 0 {
-                            Text("Hello,\nWhat is\nyour name?")
-                                .font(.title)
-                                .bold()
-                        } else {
-                            Text("\nWhat is\nyour partner name?")
-                                .font(.title)
-                                .bold()
-                        }
-                    }
-                    Spacer()
-                }
-                Spacer(minLength: 3)
-                TextField(onboardingStep == 0 ? "Your Name" : "Partner Name", text: $username)
-                    .padding()
-                    .frame(height: 44)
-                    .background(.white)
-                    .cornerRadius(5)
-                    .shadow(color: .black, radius: 1)
-                Spacer()
-                Button {
-                    saveName()
-                    isNavigateActive.toggle()
-                } label: {
-                    OnboardingNextButton()
-                }.disabled(disabledForm)
-                NavigationLink(isActive: $isNavigateActive) {
-                    if onboardingStep == 0 {
-                        NamePrompt(onboardingStep: .constant(onboardingStep + 1))
+        VStack {
+            Spacer()
+            HStack {
+                VStack(alignment: .leading) {
+                    if self.onboardingStep == 0 {
+                        Text("Hello,\nWhat is\nyour name?")
+                            .font(.title)
+                            .bold()
                     } else {
-                        SpecialDatePrompt(onboardingStep: .constant(onboardingStep + 1))
+                        Text("\nWhat is\nyour partner name?")
+                            .font(.title)
+                            .bold()
                     }
-                } label: {
-//                    Image(systemName: "chevron.forward")
                 }
                 Spacer()
-            }.padding()
+            }
+            Spacer(minLength: 3)
+            TextField(self.onboardingStep == 0 ? "Your Name" : "Partner Name", text: $username)
+                .padding()
+                .frame(height: 44)
+                .background(.white)
+                .cornerRadius(5)
+                .shadow(color: .black, radius: 1)
+            Spacer()
+            Button {
+                saveName()
+                self.isNavigateActive.toggle()
+            } label: {
+                OnboardingNextButton()
+            }.disabled(disabledForm)
+            NavigationLink(isActive: self.$isNavigateActive) {
+                if self.onboardingStep == 0 {
+                    NamePrompt(onboardingStep: .constant(onboardingStep + 1))
+                } else if self.onboardingStep == 1 {
+                    SpecialDatePrompt(onboardingStep: .constant(onboardingStep + 1))
+                }
+            } label: {
+                // Image(systemName: "chevron.forward")
+            }
+            Spacer()
         }
+        .padding()
+        .background(Color("BackgroundColor")).ignoresSafeArea()
     }
     
     func saveName() {
         let user = User(context: moc)
         user.id = UUID()
         user.name = username
-        user.type = onboardingStep == 0 ? 0 : 1
+        user.type = onboardingStep == 1 ? 0 : 1
         try? moc.save()
     }
 }
