@@ -7,9 +7,9 @@
 
 import Foundation
 
-func dateToString(_ date: Date) -> String {
+func dateToString(_ date: Date, dateFormat: String = "dd MMM yyyy") -> String {
     let formatter = DateFormatter()
-    formatter.dateFormat = "dd MMM yyyy"
+    formatter.dateFormat = dateFormat
     let someDateTime = formatter.string(from: date)
     return someDateTime
 }
