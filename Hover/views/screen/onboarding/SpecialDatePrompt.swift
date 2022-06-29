@@ -18,17 +18,25 @@ struct SpecialDatePrompt: View {
         specialDateName.isEmpty
     }
     
+    var progress: Int {
+        onboardingStep + 1
+    }
+    
     var body: some View {
         VStack {
-            Spacer()
-            HStack {
-                Text("Tell me about\nyour special date\nwith your partner")
-                    .font(.title)
-                    .bold()
-                Spacer()
-            }
-            Spacer().frame(height: 50)
+            VStack {
+                ProgressView(value: (Float(progress) / Float(onboardingTotalStep)))
+                    .animation(.easeInOut(duration: 1), value: onboardingTotalStep)
+                    .padding(.bottom, 160)
+                HStack {
+                    Text("Tell me about\nyour special date\nwith your partner")
+                        .font(.title)
+                        .bold()
+                    Spacer()
+                }
+            }.padding(.bottom, 50)
             TextField("Special Date", text: $specialDateName)
+                .modifier(ClearButton(text: $specialDateName))
                 .padding()
                 .frame(height: 44)
                 .background(.white)
@@ -55,17 +63,16 @@ struct SpecialDatePrompt: View {
                 self.isNavigateActive.toggle()
             } label: {
                 OnboardingNextButton()
+                    .padding(.bottom, 115)
             }.disabled(disabledForm)
             NavigationLink(isActive: self.$isNavigateActive) {
-//                if self.onboardingStep == 3 {
-                    LoveLanguagePrompt(onboardingStep: .constant(onboardingStep + 1))
-//                }
+                IntroLoveLanguagePrompt(onboardingStep: .constant(onboardingStep + 1))
             } label: {
             }
-            Spacer().frame(height: 70)
         }
         .padding()
-        .background(Color("BackgroundColor")).ignoresSafeArea()
+        .background(Color.backgroundColor)
+        .navigationBarHidden(true)
     }
     
     func saveSpecialDate() {

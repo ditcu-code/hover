@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            Color("BackgroundColor")
+            Color.backgroundColor
                 .ignoresSafeArea()
             if isNewUser {
                 OnboardingPage()

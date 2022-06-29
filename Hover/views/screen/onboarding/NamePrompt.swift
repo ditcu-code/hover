@@ -17,57 +17,62 @@ struct NamePrompt: View {
         username.isEmpty
     }
     
+    var progress: Int {
+        onboardingStep + 1
+    }
+    
     var body: some View {
-        VStack {
-            Spacer()
-            HStack {
-                VStack(alignment: .leading) {
-                    if self.onboardingStep == 0 {
-                        Text("Hello,\nWhat is\nyour name?")
-                            .font(.title)
-                            .bold()
-                    } else {
-                        Text("\nWhat is\nyour partner name?")
-                            .font(.title)
-                            .bold()
+        ZStack {
+            Color.backgroundColor.ignoresSafeArea()
+            VStack {
+                VStack {
+                    ProgressView(value: (Float(progress) / Float(onboardingTotalStep)))
+                        .animation(.easeInOut(duration: 1), value: onboardingTotalStep)
+                        .padding(.bottom, 160)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("\(self.onboardingStep == 0 ? "Hello,\n": "and...\n")What is\n\(self.onboardingStep == 0 ? "your": "your partner") name?")
+                                .font(.title)
+                                .bold()
+                        }
+                        Spacer()
                     }
-                }
+                }.padding(.bottom, 50)
+                TextField(self.onboardingStep == 0 ? "Your Name" : "Partner Name", text: $username)
+                    .modifier(ClearButton(text: $username))
+                    .padding()
+                    .frame(height: 44)
+                    .background(.white)
+                    .cornerRadius(5)
+                    .shadow(color: .black, radius: 1)
                 Spacer()
-            }
-            Spacer().frame(height: 50)
-            TextField(self.onboardingStep == 0 ? "Your Name" : "Partner Name", text: $username)
-                .padding()
-                .frame(height: 44)
-                .background(.white)
-                .cornerRadius(5)
-                .shadow(color: .black, radius: 1)
-            Spacer()
-            Button {
-                saveName()
-                self.isNavigateActive.toggle()
-            } label: {
-                OnboardingNextButton()
-            }.disabled(disabledForm)
-            NavigationLink(isActive: self.$isNavigateActive) {
-                if self.onboardingStep == 0 {
-                    NamePrompt(onboardingStep: .constant(onboardingStep + 1))
-                } else if self.onboardingStep == 1 {
-                    SpecialDatePrompt(onboardingStep: .constant(onboardingStep + 1))
+                NavigationLink(isActive: self.$isNavigateActive) {
+                    if self.onboardingStep == 0 {
+                        NamePrompt(onboardingStep: .constant(onboardingStep + 1))
+                    } else if self.onboardingStep == 1 {
+                        SpecialDatePrompt(onboardingStep: .constant(onboardingStep + 1))
+                    }
+                } label: {
+                }.hidden()
+                Button {
+                    saveName()
+                    self.isNavigateActive.toggle()
+                } label: {
+                    OnboardingNextButton()
+                        .padding(.bottom, 115)
                 }
-            } label: {
-                // Image(systemName: "chevron.forward")
+                .disabled(disabledForm)
             }
-            Spacer().frame(height: 70)
+            .padding()
+            .navigationBarHidden(true)
         }
-        .padding()
-        .background(Color("BackgroundColor")).ignoresSafeArea()
     }
     
     func saveName() {
         let user = User(context: moc)
         user.id = UUID()
         user.name = username
-//        user.type = onboardingStep == 1 ? 0 : 1
+        //        user.type = onboardingStep == 1 ? 0 : 1
         try? moc.save()
     }
 }

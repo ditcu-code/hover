@@ -24,14 +24,14 @@ struct OnboardingPage: View {
                                 .bold()
                         }
                         HStack(spacing: 20) {
-                            LoveLanguageLogoBg(loveLanguageName: LoveLanguage.combination.rawValue)
-                            LoveLanguageLogoBg(loveLanguageName: LoveLanguage.actOfService.rawValue)
-                            LoveLanguageLogoBg(loveLanguageName: LoveLanguage.physicalTouch.rawValue)
+                            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.combination.rawValue)
+                            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.actOfService.rawValue)
+                            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.physicalTouch.rawValue)
                         }.offset(x: -50)
                         HStack(spacing: 20) {
-                            LoveLanguageLogoBg(loveLanguageName: LoveLanguage.receivingGift.rawValue)
-                            LoveLanguageLogoBg(loveLanguageName: LoveLanguage.qualityTime.rawValue)
-                            LoveLanguageLogoBg(loveLanguageName: LoveLanguage.wordsOfAffirmation.rawValue)
+                            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.receivingGift.rawValue)
+                            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.qualityTime.rawValue)
+                            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.wordsOfAffirmation.rawValue)
                         }.offset(x: 50)
                     }
                 }
@@ -46,13 +46,12 @@ struct OnboardingPage: View {
                         .multilineTextAlignment(.center)
                     Spacer()
                     NavigationLink(destination: NamePrompt(onboardingStep: $onboardingStep)) {
-                        OnboardingNextButton()
+                        OnboardingNextButton().padding(.bottom, 160)
                     }
-                    Spacer().frame(height: 150)
                 }.background(
-                    getLoveLanguageIcon(loveLanguage: LoveLanguage.combination.rawValue)
+                    getLoveLanguageIcon(loveLanguage: LoveLanguageEnum.combination.rawValue)
                         .font(Font.system(size: 521))
-                        .foregroundColor(getLoveLanguageColor(loveLanguage: LoveLanguage.combination.rawValue).opacity(0.1))
+                        .foregroundColor(getLoveLanguageColor(loveLanguage: LoveLanguageEnum.combination.rawValue).opacity(0.1))
                         .offset(x: 130, y: 50)
                         .rotationEffect(Angle(degrees: 334))
                 )
