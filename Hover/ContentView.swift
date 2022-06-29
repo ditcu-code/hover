@@ -11,10 +11,14 @@ struct ContentView: View {
     @AppStorage("isNewUser") private var isNewUser: Bool = true
     
     var body: some View {
-        if isNewUser {
-            OnboardingPage()
-        } else {
-            CoreDataTest()
+        ZStack {
+            Color("BackgroundColor")
+                .ignoresSafeArea()
+            if isNewUser {
+                OnboardingPage()
+            } else {
+                HomeScreen()
+            }
         }
     }
 }
