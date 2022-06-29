@@ -34,7 +34,7 @@ struct NamePrompt: View {
                 }
                 Spacer()
             }
-            Spacer(minLength: 3)
+            Spacer().frame(height: 50)
             TextField(self.onboardingStep == 0 ? "Your Name" : "Partner Name", text: $username)
                 .padding()
                 .frame(height: 44)
@@ -57,7 +57,7 @@ struct NamePrompt: View {
             } label: {
                 // Image(systemName: "chevron.forward")
             }
-            Spacer()
+            Spacer().frame(height: 70)
         }
         .padding()
         .background(Color("BackgroundColor")).ignoresSafeArea()

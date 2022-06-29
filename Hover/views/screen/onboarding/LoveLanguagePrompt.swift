@@ -57,7 +57,7 @@ struct LoveLanguagePrompt: View {
                 OnboardingNextButton()
             }
             Spacer()
-                .frame(height: 30)
+                .frame(height: 20)
             Text("Don't know \(self.onboardingStep == 4 ? "your": "your partner") Love Language yet?")
                 .font(.subheadline)
                 .foregroundColor(Color("CaptionColor"))
@@ -66,7 +66,7 @@ struct LoveLanguagePrompt: View {
             } label: {
                 Text("Take the test now")
             }
-            Spacer()
+            Spacer().frame(height: 25)
         }
         .padding()
         //        .frame(height: UIScreen.main.bounds.height)

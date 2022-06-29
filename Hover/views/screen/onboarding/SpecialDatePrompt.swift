@@ -27,7 +27,7 @@ struct SpecialDatePrompt: View {
                     .bold()
                 Spacer()
             }
-            Spacer(minLength: 3)
+            Spacer().frame(height: 50)
             TextField("Special Date", text: $specialDateName)
                 .padding()
                 .frame(height: 44)
@@ -62,7 +62,7 @@ struct SpecialDatePrompt: View {
 //                }
             } label: {
             }
-            Spacer()
+            Spacer().frame(height: 70)
         }
         .padding()
         .background(Color("BackgroundColor")).ignoresSafeArea()
