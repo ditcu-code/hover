@@ -31,6 +31,7 @@
 		FDD705EC2865DD1A0003D311 /* TestResultPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705EB2865DD1A0003D311 /* TestResultPage.swift */; };
 		FDD705EE2865DD6C0003D311 /* MemoryForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705ED2865DD6C0003D311 /* MemoryForm.swift */; };
 		FDD705F02865DFB10003D311 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705EF2865DFB10003D311 /* OnboardingPage.swift */; };
+		FDD70668286AF4850003D311 /* OnboardingNextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD70667286AF4840003D311 /* OnboardingNextButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		FDD705EB2865DD1A0003D311 /* TestResultPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultPage.swift; sourceTree = "<group>"; };
 		FDD705ED2865DD6C0003D311 /* MemoryForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryForm.swift; sourceTree = "<group>"; };
 		FDD705EF2865DFB10003D311 /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
+		FDD70667286AF4840003D311 /* OnboardingNextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNextButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				0EE23A9E285F63B700ACBD61 /* Tag.swift */,
+				FDD70667286AF4840003D311 /* OnboardingNextButton.swift */,
 			);
 			path = _shared;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				FDD705DD2865DBCD0003D311 /* SpecialDatePage.swift in Sources */,
 				FDD705E22865DC5A0003D311 /* MemoryPage.swift in Sources */,
 				FDD705DF2865DC100003D311 /* SpecialDateForm.swift in Sources */,
+				FDD70668286AF4850003D311 /* OnboardingNextButton.swift in Sources */,
 				9384665F2868BCDE00A4CD36 /* DataController.swift in Sources */,
 				9384665D2868B7A600A4CD36 /* datLove.xcdatamodeld in Sources */,
 				0EE23A87285F626500ACBD61 /* HoverApp.swift in Sources */,
