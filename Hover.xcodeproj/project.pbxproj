@@ -15,6 +15,24 @@
 		0EE23A9C285F633100ACBD61 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23A9B285F633100ACBD61 /* Activity.swift */; };
 		0EE23A9F285F63B700ACBD61 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23A9E285F63B700ACBD61 /* Tag.swift */; };
 		0EE23AA2285F646B00ACBD61 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23AA1285F646B00ACBD61 /* Function.swift */; };
+		9384665F2868BCDE00A4CD36 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9384665E2868BCDE00A4CD36 /* DataController.swift */; };
+		938466622868C22F00A4CD36 /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938466612868C22F00A4CD36 /* CoreDataTest.swift */; };
+		93A99663286C4AB100B5F844 /* ActivityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A99662286C4AB100B5F844 /* ActivityTest.swift */; };
+		93A99665286C4BEC00B5F844 /* ShowDataActivityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A99664286C4BEC00B5F844 /* ShowDataActivityTest.swift */; };
+		93A99668286C528700B5F844 /* datLoveModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93A99666286C528700B5F844 /* datLoveModel.xcdatamodeld */; };
+		FDD705D12865DAE80003D311 /* NamePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D02865DAE80003D311 /* NamePrompt.swift */; };
+		FDD705D52865DB060003D311 /* SpecialDatePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D42865DB060003D311 /* SpecialDatePrompt.swift */; };
+		FDD705D72865DB6C0003D311 /* LoveLanguagePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D62865DB6C0003D311 /* LoveLanguagePrompt.swift */; };
+		FDD705DA2865DB930003D311 /* QuestionLoveLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D92865DB930003D311 /* QuestionLoveLanguage.swift */; };
+		FDD705DD2865DBCD0003D311 /* SpecialDatePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705DC2865DBCD0003D311 /* SpecialDatePage.swift */; };
+		FDD705DF2865DC100003D311 /* SpecialDateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705DE2865DC100003D311 /* SpecialDateForm.swift */; };
+		FDD705E22865DC5A0003D311 /* MemoryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705E12865DC5A0003D311 /* MemoryPage.swift */; };
+		FDD705E52865DC9B0003D311 /* ActivityPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705E42865DC9B0003D311 /* ActivityPage.swift */; };
+		FDD705E72865DCBA0003D311 /* ActivityForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705E62865DCBA0003D311 /* ActivityForm.swift */; };
+		FDD705EA2865DD020003D311 /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705E92865DD020003D311 /* ProfilePage.swift */; };
+		FDD705EC2865DD1A0003D311 /* TestResultPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705EB2865DD1A0003D311 /* TestResultPage.swift */; };
+		FDD705EE2865DD6C0003D311 /* MemoryForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705ED2865DD6C0003D311 /* MemoryForm.swift */; };
+		FDD705F02865DFB10003D311 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705EF2865DFB10003D311 /* OnboardingPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +45,24 @@
 		0EE23A9B285F633100ACBD61 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		0EE23A9E285F63B700ACBD61 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		0EE23AA1285F646B00ACBD61 /* Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
+		9384665E2868BCDE00A4CD36 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		938466612868C22F00A4CD36 /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
+		93A99662286C4AB100B5F844 /* ActivityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTest.swift; sourceTree = "<group>"; };
+		93A99664286C4BEC00B5F844 /* ShowDataActivityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDataActivityTest.swift; sourceTree = "<group>"; };
+		93A99667286C528700B5F844 /* datLoveModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = datLoveModel.xcdatamodel; sourceTree = "<group>"; };
+		FDD705D02865DAE80003D311 /* NamePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamePrompt.swift; sourceTree = "<group>"; };
+		FDD705D42865DB060003D311 /* SpecialDatePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialDatePrompt.swift; sourceTree = "<group>"; };
+		FDD705D62865DB6C0003D311 /* LoveLanguagePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguagePrompt.swift; sourceTree = "<group>"; };
+		FDD705D92865DB930003D311 /* QuestionLoveLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionLoveLanguage.swift; sourceTree = "<group>"; };
+		FDD705DC2865DBCD0003D311 /* SpecialDatePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialDatePage.swift; sourceTree = "<group>"; };
+		FDD705DE2865DC100003D311 /* SpecialDateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialDateForm.swift; sourceTree = "<group>"; };
+		FDD705E12865DC5A0003D311 /* MemoryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryPage.swift; sourceTree = "<group>"; };
+		FDD705E42865DC9B0003D311 /* ActivityPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPage.swift; sourceTree = "<group>"; };
+		FDD705E62865DCBA0003D311 /* ActivityForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityForm.swift; sourceTree = "<group>"; };
+		FDD705E92865DD020003D311 /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
+		FDD705EB2865DD1A0003D311 /* TestResultPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultPage.swift; sourceTree = "<group>"; };
+		FDD705ED2865DD6C0003D311 /* MemoryForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryForm.swift; sourceTree = "<group>"; };
+		FDD705EF2865DFB10003D311 /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +95,7 @@
 		0EE23A85285F626500ACBD61 /* Hover */ = {
 			isa = PBXGroup;
 			children = (
+				938466602868C21700A4CD36 /* CoreDataTest */,
 				0EE23AA0285F644A00ACBD61 /* services */,
 				0EE23A99285F631E00ACBD61 /* models */,
 				0EE23A86285F626500ACBD61 /* HoverApp.swift */,
@@ -66,6 +103,7 @@
 				0EE23A94285F62AF00ACBD61 /* views */,
 				0EE23A8A285F626700ACBD61 /* Assets.xcassets */,
 				0EE23A8C285F626700ACBD61 /* Preview Content */,
+				93A99666286C528700B5F844 /* datLoveModel.xcdatamodeld */,
 			);
 			path = Hover;
 			sourceTree = "<group>";
@@ -90,6 +128,12 @@
 		0EE23A95285F62B900ACBD61 /* screen */ = {
 			isa = PBXGroup;
 			children = (
+				FDD705E82865DCF60003D311 /* profile */,
+				FDD705E32865DC8D0003D311 /* activity */,
+				FDD705E02865DC4F0003D311 /* memory */,
+				FDD705DB2865DBB20003D311 /* specialDate */,
+				FDD705D82865DB720003D311 /* loveLanguageTest */,
+				FDD705CF2865DAB10003D311 /* onboarding */,
 				0EE23A96285F62D300ACBD61 /* home */,
 			);
 			path = screen;
@@ -107,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				0EE23A9B285F633100ACBD61 /* Activity.swift */,
+				9384665E2868BCDE00A4CD36 /* DataController.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -125,6 +170,71 @@
 				0EE23AA1285F646B00ACBD61 /* Function.swift */,
 			);
 			path = services;
+			sourceTree = "<group>";
+		};
+		938466602868C21700A4CD36 /* CoreDataTest */ = {
+			isa = PBXGroup;
+			children = (
+				938466612868C22F00A4CD36 /* CoreDataTest.swift */,
+				93A99662286C4AB100B5F844 /* ActivityTest.swift */,
+				93A99664286C4BEC00B5F844 /* ShowDataActivityTest.swift */,
+			);
+			path = CoreDataTest;
+			sourceTree = "<group>";
+		};
+		FDD705CF2865DAB10003D311 /* onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				FDD705D02865DAE80003D311 /* NamePrompt.swift */,
+				FDD705D42865DB060003D311 /* SpecialDatePrompt.swift */,
+				FDD705D62865DB6C0003D311 /* LoveLanguagePrompt.swift */,
+				FDD705EF2865DFB10003D311 /* OnboardingPage.swift */,
+			);
+			path = onboarding;
+			sourceTree = "<group>";
+		};
+		FDD705D82865DB720003D311 /* loveLanguageTest */ = {
+			isa = PBXGroup;
+			children = (
+				FDD705D92865DB930003D311 /* QuestionLoveLanguage.swift */,
+				FDD705EB2865DD1A0003D311 /* TestResultPage.swift */,
+			);
+			path = loveLanguageTest;
+			sourceTree = "<group>";
+		};
+		FDD705DB2865DBB20003D311 /* specialDate */ = {
+			isa = PBXGroup;
+			children = (
+				FDD705DC2865DBCD0003D311 /* SpecialDatePage.swift */,
+				FDD705DE2865DC100003D311 /* SpecialDateForm.swift */,
+			);
+			path = specialDate;
+			sourceTree = "<group>";
+		};
+		FDD705E02865DC4F0003D311 /* memory */ = {
+			isa = PBXGroup;
+			children = (
+				FDD705E12865DC5A0003D311 /* MemoryPage.swift */,
+				FDD705ED2865DD6C0003D311 /* MemoryForm.swift */,
+			);
+			path = memory;
+			sourceTree = "<group>";
+		};
+		FDD705E32865DC8D0003D311 /* activity */ = {
+			isa = PBXGroup;
+			children = (
+				FDD705E42865DC9B0003D311 /* ActivityPage.swift */,
+				FDD705E62865DCBA0003D311 /* ActivityForm.swift */,
+			);
+			path = activity;
+			sourceTree = "<group>";
+		};
+		FDD705E82865DCF60003D311 /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				FDD705E92865DD020003D311 /* ProfilePage.swift */,
+			);
+			path = profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,11 +308,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EE23A89285F626500ACBD61 /* ContentView.swift in Sources */,
+				FDD705DA2865DB930003D311 /* QuestionLoveLanguage.swift in Sources */,
+				FDD705F02865DFB10003D311 /* OnboardingPage.swift in Sources */,
+				93A99663286C4AB100B5F844 /* ActivityTest.swift in Sources */,
+				FDD705EE2865DD6C0003D311 /* MemoryForm.swift in Sources */,
+				FDD705DD2865DBCD0003D311 /* SpecialDatePage.swift in Sources */,
+				FDD705E22865DC5A0003D311 /* MemoryPage.swift in Sources */,
+				FDD705DF2865DC100003D311 /* SpecialDateForm.swift in Sources */,
+				9384665F2868BCDE00A4CD36 /* DataController.swift in Sources */,
 				0EE23A87285F626500ACBD61 /* HoverApp.swift in Sources */,
 				0EE23A9F285F63B700ACBD61 /* Tag.swift in Sources */,
+				FDD705D12865DAE80003D311 /* NamePrompt.swift in Sources */,
 				0EE23AA2285F646B00ACBD61 /* Function.swift in Sources */,
+				93A99668286C528700B5F844 /* datLoveModel.xcdatamodeld in Sources */,
+				FDD705E72865DCBA0003D311 /* ActivityForm.swift in Sources */,
+				FDD705EA2865DD020003D311 /* ProfilePage.swift in Sources */,
+				FDD705E52865DC9B0003D311 /* ActivityPage.swift in Sources */,
+				FDD705D52865DB060003D311 /* SpecialDatePrompt.swift in Sources */,
 				0EE23A9C285F633100ACBD61 /* Activity.swift in Sources */,
 				0EE23A98285F62EA00ACBD61 /* HomeScreen.swift in Sources */,
+				FDD705EC2865DD1A0003D311 /* TestResultPage.swift in Sources */,
+				93A99665286C4BEC00B5F844 /* ShowDataActivityTest.swift in Sources */,
+				938466622868C22F00A4CD36 /* CoreDataTest.swift in Sources */,
+				FDD705D72865DB6C0003D311 /* LoveLanguagePrompt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +531,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		93A99666286C528700B5F844 /* datLoveModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				93A99667286C528700B5F844 /* datLoveModel.xcdatamodel */,
+			);
+			currentVersion = 93A99667286C528700B5F844 /* datLoveModel.xcdatamodel */;
+			path = datLoveModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0EE23A7B285F626500ACBD61 /* Project object */;
 }

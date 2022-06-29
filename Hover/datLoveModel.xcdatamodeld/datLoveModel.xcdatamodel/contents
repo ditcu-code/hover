@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ActivityList" representedClassName="ActivityList" syncable="YES" codeGenerationType="class">
+        <attribute name="activity" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="activityToLL" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LoveLanguages" inverseName="llToActivity" inverseEntity="LoveLanguages"/>
+        <relationship name="activityToSpecial" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SpecialDay" inverseName="specialToActivity" inverseEntity="SpecialDay"/>
+    </entity>
+    <entity name="LoveLanguages" representedClassName="LoveLanguages" syncable="YES" codeGenerationType="class">
+        <attribute name="detail" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="llName" optional="YES" attributeType="String"/>
+        <relationship name="llToActivity" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityList" inverseName="activityToLL" inverseEntity="ActivityList"/>
+    </entity>
+    <entity name="Memory" representedClassName="Memory" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imageName" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="SpecialDay" representedClassName="SpecialDay" syncable="YES" codeGenerationType="class">
+        <attribute name="alert" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="notificationID" optional="YES" attributeType="String"/>
+        <attribute name="repeatNotif" optional="YES" attributeType="String"/>
+        <relationship name="specialToActivity" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityList" inverseName="activityToSpecial" inverseEntity="ActivityList"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="aos" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="pt" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="qt" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rg" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="woa" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="ActivityList" positionX="-36" positionY="9" width="128" height="89"/>
+        <element name="LoveLanguages" positionX="0" positionY="63" width="128" height="89"/>
+        <element name="SpecialDay" positionX="27" positionY="108" width="128" height="134"/>
+        <element name="User" positionX="54" positionY="162" width="128" height="134"/>
+        <element name="Memory" positionX="9" positionY="135" width="128" height="104"/>
+    </elements>
+</model>
