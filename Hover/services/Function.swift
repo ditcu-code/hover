@@ -6,10 +6,13 @@
 //
 
 import Foundation
+import SwiftUI
 
-func dateToString(_ date: Date) -> String {
+let screenSize = UIScreen.main.bounds.width
+
+func dateToString(_ date: Date, dateFormat: String = "dd MMM yyyy") -> String {
     let formatter = DateFormatter()
-    formatter.dateFormat = "dd MMM yyyy"
+    formatter.dateFormat = dateFormat
     let someDateTime = formatter.string(from: date)
     return someDateTime
 }

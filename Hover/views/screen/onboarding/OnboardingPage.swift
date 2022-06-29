@@ -9,6 +9,8 @@ import SwiftUI
 
 struct OnboardingPage: View {
     @State private var onboardingStep: Int = 0
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: []) var loveLanguages : FetchedResults <LoveLanguage>
     
     var body: some View {
         NavigationView {
