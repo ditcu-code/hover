@@ -15,9 +15,11 @@
 		0EE23A9C285F633100ACBD61 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23A9B285F633100ACBD61 /* Activity.swift */; };
 		0EE23A9F285F63B700ACBD61 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23A9E285F63B700ACBD61 /* Tag.swift */; };
 		0EE23AA2285F646B00ACBD61 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23AA1285F646B00ACBD61 /* Function.swift */; };
-		9384665D2868B7A600A4CD36 /* datLove.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9384665B2868B7A600A4CD36 /* datLove.xcdatamodeld */; };
 		9384665F2868BCDE00A4CD36 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9384665E2868BCDE00A4CD36 /* DataController.swift */; };
 		938466622868C22F00A4CD36 /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938466612868C22F00A4CD36 /* CoreDataTest.swift */; };
+		93A99663286C4AB100B5F844 /* ActivityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A99662286C4AB100B5F844 /* ActivityTest.swift */; };
+		93A99665286C4BEC00B5F844 /* ShowDataActivityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A99664286C4BEC00B5F844 /* ShowDataActivityTest.swift */; };
+		93A99668286C528700B5F844 /* datLoveModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93A99666286C528700B5F844 /* datLoveModel.xcdatamodeld */; };
 		FDD705D12865DAE80003D311 /* NamePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D02865DAE80003D311 /* NamePrompt.swift */; };
 		FDD705D52865DB060003D311 /* SpecialDatePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D42865DB060003D311 /* SpecialDatePrompt.swift */; };
 		FDD705D72865DB6C0003D311 /* LoveLanguagePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D62865DB6C0003D311 /* LoveLanguagePrompt.swift */; };
@@ -43,9 +45,11 @@
 		0EE23A9B285F633100ACBD61 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		0EE23A9E285F63B700ACBD61 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		0EE23AA1285F646B00ACBD61 /* Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
-		9384665C2868B7A600A4CD36 /* datLove.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = datLove.xcdatamodel; sourceTree = "<group>"; };
 		9384665E2868BCDE00A4CD36 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		938466612868C22F00A4CD36 /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
+		93A99662286C4AB100B5F844 /* ActivityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTest.swift; sourceTree = "<group>"; };
+		93A99664286C4BEC00B5F844 /* ShowDataActivityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDataActivityTest.swift; sourceTree = "<group>"; };
+		93A99667286C528700B5F844 /* datLoveModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = datLoveModel.xcdatamodel; sourceTree = "<group>"; };
 		FDD705D02865DAE80003D311 /* NamePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamePrompt.swift; sourceTree = "<group>"; };
 		FDD705D42865DB060003D311 /* SpecialDatePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialDatePrompt.swift; sourceTree = "<group>"; };
 		FDD705D62865DB6C0003D311 /* LoveLanguagePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguagePrompt.swift; sourceTree = "<group>"; };
@@ -99,7 +103,7 @@
 				0EE23A94285F62AF00ACBD61 /* views */,
 				0EE23A8A285F626700ACBD61 /* Assets.xcassets */,
 				0EE23A8C285F626700ACBD61 /* Preview Content */,
-				9384665B2868B7A600A4CD36 /* datLove.xcdatamodeld */,
+				93A99666286C528700B5F844 /* datLoveModel.xcdatamodeld */,
 			);
 			path = Hover;
 			sourceTree = "<group>";
@@ -172,6 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				938466612868C22F00A4CD36 /* CoreDataTest.swift */,
+				93A99662286C4AB100B5F844 /* ActivityTest.swift */,
+				93A99664286C4BEC00B5F844 /* ShowDataActivityTest.swift */,
 			);
 			path = CoreDataTest;
 			sourceTree = "<group>";
@@ -304,16 +310,17 @@
 				0EE23A89285F626500ACBD61 /* ContentView.swift in Sources */,
 				FDD705DA2865DB930003D311 /* QuestionLoveLanguage.swift in Sources */,
 				FDD705F02865DFB10003D311 /* OnboardingPage.swift in Sources */,
+				93A99663286C4AB100B5F844 /* ActivityTest.swift in Sources */,
 				FDD705EE2865DD6C0003D311 /* MemoryForm.swift in Sources */,
 				FDD705DD2865DBCD0003D311 /* SpecialDatePage.swift in Sources */,
 				FDD705E22865DC5A0003D311 /* MemoryPage.swift in Sources */,
 				FDD705DF2865DC100003D311 /* SpecialDateForm.swift in Sources */,
 				9384665F2868BCDE00A4CD36 /* DataController.swift in Sources */,
-				9384665D2868B7A600A4CD36 /* datLove.xcdatamodeld in Sources */,
 				0EE23A87285F626500ACBD61 /* HoverApp.swift in Sources */,
 				0EE23A9F285F63B700ACBD61 /* Tag.swift in Sources */,
 				FDD705D12865DAE80003D311 /* NamePrompt.swift in Sources */,
 				0EE23AA2285F646B00ACBD61 /* Function.swift in Sources */,
+				93A99668286C528700B5F844 /* datLoveModel.xcdatamodeld in Sources */,
 				FDD705E72865DCBA0003D311 /* ActivityForm.swift in Sources */,
 				FDD705EA2865DD020003D311 /* ProfilePage.swift in Sources */,
 				FDD705E52865DC9B0003D311 /* ActivityPage.swift in Sources */,
@@ -321,6 +328,7 @@
 				0EE23A9C285F633100ACBD61 /* Activity.swift in Sources */,
 				0EE23A98285F62EA00ACBD61 /* HomeScreen.swift in Sources */,
 				FDD705EC2865DD1A0003D311 /* TestResultPage.swift in Sources */,
+				93A99665286C4BEC00B5F844 /* ShowDataActivityTest.swift in Sources */,
 				938466622868C22F00A4CD36 /* CoreDataTest.swift in Sources */,
 				FDD705D72865DB6C0003D311 /* LoveLanguagePrompt.swift in Sources */,
 			);
@@ -525,13 +533,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9384665B2868B7A600A4CD36 /* datLove.xcdatamodeld */ = {
+		93A99666286C528700B5F844 /* datLoveModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				9384665C2868B7A600A4CD36 /* datLove.xcdatamodel */,
+				93A99667286C528700B5F844 /* datLoveModel.xcdatamodel */,
 			);
-			currentVersion = 9384665C2868B7A600A4CD36 /* datLove.xcdatamodel */;
-			path = datLove.xcdatamodeld;
+			currentVersion = 93A99667286C528700B5F844 /* datLoveModel.xcdatamodel */;
+			path = datLoveModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

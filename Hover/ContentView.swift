@@ -14,7 +14,7 @@ struct ContentView: View {
         if isNewUser {
             OnboardingPage()
         } else {
-            HomeScreen()
+            CoreDataTest()
         }
     }
 }
