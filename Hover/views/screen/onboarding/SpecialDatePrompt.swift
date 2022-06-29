@@ -69,7 +69,7 @@ struct SpecialDatePrompt: View {
     }
     
     func saveSpecialDate() {
-        let specialDate = SpecialDate(context: moc)
+        let specialDate = SpecialDay(context: moc)
         specialDate.id = UUID()
         specialDate.name = specialDateName
         specialDate.date = date

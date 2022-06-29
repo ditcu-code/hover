@@ -67,7 +67,7 @@ struct NamePrompt: View {
         let user = User(context: moc)
         user.id = UUID()
         user.name = username
-        user.type = onboardingStep == 1 ? 0 : 1
+//        user.type = onboardingStep == 1 ? 0 : 1
         try? moc.save()
     }
 }

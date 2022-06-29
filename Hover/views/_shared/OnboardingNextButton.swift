@@ -12,12 +12,12 @@ struct OnboardingNextButton: View {
         ZStack {
             Circle()
                 .frame(width: 90, height: 90)
-                .foregroundColor(Color("PrimaryColor"))
+                .foregroundColor(Color.yellowCorn)
             Image(systemName: "chevron.right")
                 .font(.title)
                 .padding(10)
                 .frame(width: 37, height: 37)
-                .foregroundColor(Color("PrimaryColor"))
+                .foregroundColor(Color.yellowSun)
                 .background(Color.black)
                 .clipShape(Circle())
         }

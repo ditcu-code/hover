@@ -21,6 +21,7 @@
 		93A99663286C4AB100B5F844 /* ActivityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A99662286C4AB100B5F844 /* ActivityTest.swift */; };
 		93A99665286C4BEC00B5F844 /* ShowDataActivityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A99664286C4BEC00B5F844 /* ShowDataActivityTest.swift */; };
 		93A99668286C528700B5F844 /* datLoveModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93A99666286C528700B5F844 /* datLoveModel.xcdatamodeld */; };
+		FD6D951E286C893C00A25687 /* LoveLanguageLogoBg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D951D286C893C00A25687 /* LoveLanguageLogoBg.swift */; };
 		FDD705D12865DAE80003D311 /* NamePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D02865DAE80003D311 /* NamePrompt.swift */; };
 		FDD705D52865DB060003D311 /* SpecialDatePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D42865DB060003D311 /* SpecialDatePrompt.swift */; };
 		FDD705D72865DB6C0003D311 /* LoveLanguagePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D62865DB6C0003D311 /* LoveLanguagePrompt.swift */; };
@@ -34,9 +35,9 @@
 		FDD705EC2865DD1A0003D311 /* TestResultPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705EB2865DD1A0003D311 /* TestResultPage.swift */; };
 		FDD705EE2865DD6C0003D311 /* MemoryForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705ED2865DD6C0003D311 /* MemoryForm.swift */; };
 		FDD705F02865DFB10003D311 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705EF2865DFB10003D311 /* OnboardingPage.swift */; };
-		FDD70668286AF4850003D311 /* OnboardingNextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD70667286AF4840003D311 /* OnboardingNextButton.swift */; };
 		FDD705F22868B0E00003D311 /* LoveLanguageTestOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705F12868B0E00003D311 /* LoveLanguageTestOption.swift */; };
 		FDD705F42868B1130003D311 /* LoveLanguageQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705F32868B1130003D311 /* LoveLanguageQuestion.swift */; };
+		FDD70668286AF4850003D311 /* OnboardingNextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD70667286AF4840003D311 /* OnboardingNextButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		93A99662286C4AB100B5F844 /* ActivityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTest.swift; sourceTree = "<group>"; };
 		93A99664286C4BEC00B5F844 /* ShowDataActivityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDataActivityTest.swift; sourceTree = "<group>"; };
 		93A99667286C528700B5F844 /* datLoveModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = datLoveModel.xcdatamodel; sourceTree = "<group>"; };
+		FD6D951D286C893C00A25687 /* LoveLanguageLogoBg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguageLogoBg.swift; sourceTree = "<group>"; };
 		FDD705D02865DAE80003D311 /* NamePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamePrompt.swift; sourceTree = "<group>"; };
 		FDD705D42865DB060003D311 /* SpecialDatePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialDatePrompt.swift; sourceTree = "<group>"; };
 		FDD705D62865DB6C0003D311 /* LoveLanguagePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguagePrompt.swift; sourceTree = "<group>"; };
@@ -68,9 +70,9 @@
 		FDD705EB2865DD1A0003D311 /* TestResultPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultPage.swift; sourceTree = "<group>"; };
 		FDD705ED2865DD6C0003D311 /* MemoryForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryForm.swift; sourceTree = "<group>"; };
 		FDD705EF2865DFB10003D311 /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
-		FDD70667286AF4840003D311 /* OnboardingNextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNextButton.swift; sourceTree = "<group>"; };
 		FDD705F12868B0E00003D311 /* LoveLanguageTestOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguageTestOption.swift; sourceTree = "<group>"; };
 		FDD705F32868B1130003D311 /* LoveLanguageQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguageQuestion.swift; sourceTree = "<group>"; };
+		FDD70667286AF4840003D311 /* OnboardingNextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNextButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 			children = (
 				0EE23A9E285F63B700ACBD61 /* Tag.swift */,
 				FDD70667286AF4840003D311 /* OnboardingNextButton.swift */,
+				FD6D951D286C893C00A25687 /* LoveLanguageLogoBg.swift */,
 			);
 			path = _shared;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EE23A89285F626500ACBD61 /* ContentView.swift in Sources */,
+				FD6D951E286C893C00A25687 /* LoveLanguageLogoBg.swift in Sources */,
 				FDD705DA2865DB930003D311 /* QuestionLoveLanguage.swift in Sources */,
 				FDD705F22868B0E00003D311 /* LoveLanguageTestOption.swift in Sources */,
 				FDD705F02865DFB10003D311 /* OnboardingPage.swift in Sources */,
@@ -475,7 +479,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hover/Preview Content\"";
-				DEVELOPMENT_TEAM = 474XANH3RF;
+				DEVELOPMENT_TEAM = FANN368M5W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -504,7 +508,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hover/Preview Content\"";
-				DEVELOPMENT_TEAM = 474XANH3RF;
+				DEVELOPMENT_TEAM = FANN368M5W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

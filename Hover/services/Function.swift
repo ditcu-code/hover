@@ -9,6 +9,11 @@ import Foundation
 import SwiftUI
 
 let screenSize = UIScreen.main.bounds.width
+let screenHeight = UIScreen.main.bounds.height
+
+enum LoveLanguage: String {
+    case actOfService = "Act Of Service", qualityTime = "Quality Time", receivingGift = "Receiving Gift", physicalTouch = "Physical Touch", wordsOfAffirmation = "Words Of Affirmation", combination = "Combination"
+}
 
 func dateToString(_ date: Date, dateFormat: String = "dd MMM yyyy") -> String {
     let formatter = DateFormatter()
@@ -54,16 +59,73 @@ func getLoveLanguageSymbolName(code: String) -> String {
 func getLoveLanguageColorName(code: String) -> String {
     switch code {
     case "A":
-        return "WordOfAffirmationColor"
+        return "WordsOfAffirmation"
     case "B":
-        return "QualityTimeColor"
+        return "QualityTime"
     case "C":
-        return "ReceivingGiftColor"
+        return "ReceivingGift"
     case "D":
-        return "ActOfServiceColor"
+        return "ActOfService"
     case "E":
-        return "PhysicalTouchColor"
+        return "PhysicalTouch"
     default:
         return ""
+    }
+}
+
+func getLoveLanguageIcon(loveLanguage: String) -> Image {
+    switch loveLanguage {
+    case LoveLanguage.actOfService.rawValue:
+        return Image(systemName: "fork.knife")
+    case LoveLanguage.receivingGift.rawValue:
+        return Image(systemName: "gift.fill")
+    case LoveLanguage.physicalTouch.rawValue:
+        return Image(systemName: "hand.point.up.fill")
+    case LoveLanguage.qualityTime.rawValue:
+        return Image(systemName: "clock.fill")
+    case LoveLanguage.wordsOfAffirmation.rawValue:
+        return Image(systemName: "character.bubble.fill")
+    case LoveLanguage.combination.rawValue:
+        return Image(systemName: "heart.fill")
+    default:
+        return Image(systemName: "hourglass")
+    }
+}
+
+func getLoveLanguageColor(loveLanguage: String) -> Color {
+    switch loveLanguage {
+    case LoveLanguage.actOfService.rawValue:
+        return Color.actOfService
+    case LoveLanguage.receivingGift.rawValue:
+        return Color.receivingGift
+    case LoveLanguage.physicalTouch.rawValue:
+        return Color.physicalTouch
+    case LoveLanguage.qualityTime.rawValue:
+        return Color.qualityTime
+    case LoveLanguage.wordsOfAffirmation.rawValue:
+        return Color.wordsOfAffirmation
+    case LoveLanguage.combination.rawValue:
+        return Color.combination
+    default:
+        return Color.primary
+    }
+}
+
+func getLoveLanguageBackgroundColor(loveLanguage: String) -> Color {
+    switch loveLanguage {
+    case LoveLanguage.actOfService.rawValue:
+        return Color.bgActOfService
+    case LoveLanguage.receivingGift.rawValue:
+        return Color.bgReceivingGift
+    case LoveLanguage.physicalTouch.rawValue:
+        return Color.bgPhysicalTouch
+    case LoveLanguage.qualityTime.rawValue:
+        return Color.bgQualityTime
+    case LoveLanguage.wordsOfAffirmation.rawValue:
+        return Color.bgWordsOfAffirmation
+    case LoveLanguage.combination.rawValue:
+        return Color.bgCombination
+    default:
+        return Color.primary
     }
 }
