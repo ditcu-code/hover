@@ -22,7 +22,7 @@ struct OnboardingPage: View {
                             Text("Dat LOVE")
                                 .font(.title)
                                 .bold()
-                        }
+                        }.padding(.vertical, 30)
                         HStack(spacing: 20) {
                             LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.combination.rawValue)
                             LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.actOfService.rawValue)
@@ -40,10 +40,11 @@ struct OnboardingPage: View {
                         .font(.title)
                         .bold()
                         .padding(.bottom, 2)
-                    Text("Help partner strenghthen their romance relationship through know the Love Language and get recommendation to plan their date")
+                    Text("Help couples strengthen their romance relationship through knowing the Love Language and get a recommendation to plan their date")
                         .font(.headline)
                         .fontWeight(.semibold)
                         .multilineTextAlignment(.center)
+                        .padding(.horizontal)
                     Spacer()
                     NavigationLink(destination: NamePrompt(onboardingStep: $onboardingStep)) {
                         OnboardingNextButton().padding(.bottom, 160)
