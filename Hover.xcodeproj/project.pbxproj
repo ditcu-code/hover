@@ -25,6 +25,8 @@
 		FD6D9520286CA30700A25687 /* CustomModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D951F286CA30700A25687 /* CustomModifier.swift */; };
 		FD6D9522286CA88A00A25687 /* IntroLoveLanguagePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D9521286CA88A00A25687 /* IntroLoveLanguagePrompt.swift */; };
 		FD6D9526286CB4E000A25687 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D9525286CB4E000A25687 /* Checklist.swift */; };
+		FD6D952B286CCCC200A25687 /* LoveLanguageUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D952A286CCCC200A25687 /* LoveLanguageUser.swift */; };
+		FD8413C2286D5DE800E2C4E8 /* GlobalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8413C1286D5DE800E2C4E8 /* GlobalObject.swift */; };
 		FDD705D12865DAE80003D311 /* NamePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D02865DAE80003D311 /* NamePrompt.swift */; };
 		FDD705D52865DB060003D311 /* SpecialDatePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D42865DB060003D311 /* SpecialDatePrompt.swift */; };
 		FDD705D72865DB6C0003D311 /* LoveLanguagePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D62865DB6C0003D311 /* LoveLanguagePrompt.swift */; };
@@ -63,6 +65,9 @@
 		FD6D951F286CA30700A25687 /* CustomModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifier.swift; sourceTree = "<group>"; };
 		FD6D9521286CA88A00A25687 /* IntroLoveLanguagePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroLoveLanguagePrompt.swift; sourceTree = "<group>"; };
 		FD6D9525286CB4E000A25687 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
+		FD6D9527286CC40B00A25687 /* datLoveModelver2.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = datLoveModelver2.0.xcdatamodel; sourceTree = "<group>"; };
+		FD6D952A286CCCC200A25687 /* LoveLanguageUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguageUser.swift; sourceTree = "<group>"; };
+		FD8413C1286D5DE800E2C4E8 /* GlobalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalObject.swift; sourceTree = "<group>"; };
 		FDD705D02865DAE80003D311 /* NamePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamePrompt.swift; sourceTree = "<group>"; };
 		FDD705D42865DB060003D311 /* SpecialDatePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialDatePrompt.swift; sourceTree = "<group>"; };
 		FDD705D62865DB6C0003D311 /* LoveLanguagePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguagePrompt.swift; sourceTree = "<group>"; };
@@ -170,6 +175,8 @@
 				FDD705F12868B0E00003D311 /* LoveLanguageTestOption.swift */,
 				FDD705F32868B1130003D311 /* LoveLanguageQuestion.swift */,
 				9384665E2868BCDE00A4CD36 /* DataController.swift */,
+				FD6D952A286CCCC200A25687 /* LoveLanguageUser.swift */,
+				FD8413C1286D5DE800E2C4E8 /* GlobalObject.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -331,6 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD6D952B286CCCC200A25687 /* LoveLanguageUser.swift in Sources */,
 				0EE23A89285F626500ACBD61 /* ContentView.swift in Sources */,
 				FD6D951E286C893C00A25687 /* LoveLanguageLogoBg.swift in Sources */,
 				FDD705DA2865DB930003D311 /* QuestionLoveLanguage.swift in Sources */,
@@ -349,6 +357,7 @@
 				0EE23A9F285F63B700ACBD61 /* Tag.swift in Sources */,
 				FDD705D12865DAE80003D311 /* NamePrompt.swift in Sources */,
 				0EE23AA2285F646B00ACBD61 /* Function.swift in Sources */,
+				FD8413C2286D5DE800E2C4E8 /* GlobalObject.swift in Sources */,
 				0E098816286B22DF00469A73 /* Colors.swift in Sources */,
 				93A99668286C528700B5F844 /* datLoveModel.xcdatamodeld in Sources */,
 				FDD705E72865DCBA0003D311 /* ActivityForm.swift in Sources */,
@@ -568,9 +577,10 @@
 		93A99666286C528700B5F844 /* datLoveModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				FD6D9527286CC40B00A25687 /* datLoveModelver2.0.xcdatamodel */,
 				93A99667286C528700B5F844 /* datLoveModel.xcdatamodel */,
 			);
-			currentVersion = 93A99667286C528700B5F844 /* datLoveModel.xcdatamodel */;
+			currentVersion = FD6D9527286CC40B00A25687 /* datLoveModelver2.0.xcdatamodel */;
 			path = datLoveModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

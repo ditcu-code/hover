@@ -8,57 +8,89 @@
 import SwiftUI
 
 struct TestResultPage: View {
-    var result: [String: Int] = [:]
+    @Environment(\.managedObjectContext) var moc
+    @Binding var onboardingStep: Int
+    @State private var selectionPage: String? = nil
     
-    var body: some View {
-        VStack {
-            HStack {
-                VStack(alignment: .leading) {
-                    Text("Your Love Language is")
-                        .font(.title)
-                        .bold()
-                    Text("sadsdasdas")
-                        .font(.title)
-                        .bold()
-                        .foregroundColor(Color(getLoveLanguageColorName(code: "A")))
-                }
-                Spacer()
-            }
-            Spacer()
-            ForEach(result.sorted(by: { first, second in
-                return first.value > second.value
-            }), id: \.key) { key, value in
-                HStack {
-                    Image(systemName: getLoveLanguageSymbolName(code: key))
-                    Text("\(getLoveLanguageByCode(code: key))")
-                    Spacer()
-                    Text("\(calculate(value: value))")
-                }
-                .background(.white)
-//                .frame(width: screenSize * 0.9)
-                .foregroundColor(Color(getLoveLanguageColorName(code: key)))
-                .cornerRadius(15)
-//                .padding()
-            }
-            Text("Ini nanti penjelasan love languagenya")
-                .font(.subheadline)
-            Spacer()
-        }
-        .padding()
+    var user: User = GlobalObject.shared.user
+    var progress: Int {
+        onboardingStep + 1
     }
     
-    func calculate(value: Int) -> Int {
-        var total = 0
-        for option in result {
-            total += option.value
-        }
+    var loveLanguageUser: LoveLanguageUser {
+        let llAoS = LoveLanguageRatio(llName: LoveLanguageEnum.actOfService.rawValue, point: Int(100))
+        let llPT = LoveLanguageRatio(llName: LoveLanguageEnum.physicalTouch.rawValue, point: Int(0))
+        let llQT = LoveLanguageRatio(llName: LoveLanguageEnum.qualityTime.rawValue, point: Int(0))
+        let llWoA = LoveLanguageRatio(llName: LoveLanguageEnum.wordsOfAffirmation.rawValue, point: Int(0))
+        let llRG = LoveLanguageRatio(llName: LoveLanguageEnum.receivingGift.rawValue, point: Int(0))
+        let llRatios: [LoveLanguageRatio] = [llAoS, llPT, llQT, llWoA, llRG]
         
-        return (value * 100 / total)
+        return LoveLanguageUser(user: user, lls: llRatios)
+    }
+    
+    var body: some View {
+        ZStack {
+            ZStack {
+                Color.backgroundColor.ignoresSafeArea()
+                getLoveLanguageIcon(loveLanguage: getPrimaryLoveLanguage())
+                    .font(Font.system(size: 446))
+                    .foregroundColor(getLoveLanguageColor(loveLanguage: getPrimaryLoveLanguage()).opacity(0.1))
+                    .offset(x: 70, y: 50)
+            }
+            VStack {
+                VStack {
+                    ProgressView(value: (Float(progress) / Float(onboardingTotalStep)))
+                        .animation(.easeInOut(duration: 1), value: onboardingTotalStep)
+                        .padding(.bottom, 160)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Your Love Language is")
+                                .font(.title)
+                                .bold()
+                            Text(getPrimaryLoveLanguage())
+                                .foregroundColor(getLoveLanguageColor(loveLanguage: getPrimaryLoveLanguage()))
+                                .font(.title)
+                                .bold()
+                        }
+                        Spacer()
+                    }
+                    Spacer()
+                    Text("People whose love language is physical touch enjoy when their partners express affection for them in physical ways, such as hugs, kisses, and even just a hand on the shoulder.")
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                    Spacer()
+                    NavigationLink(destination: LoveLanguagePrompt(onboardingStep: .constant(onboardingStep + 1), user: GlobalObject.shared.partner), tag: "PartnerLoveLanguage", selection: $selectionPage) { }
+                    NavigationLink(destination: HomeScreen(), tag: "HomePage", selection: $selectionPage) { }
+                    Button {
+                        if onboardingStep == 6 {
+                            selectionPage = "PartnerLoveLanguage"
+                        } else {
+                            selectionPage = "HomePage"
+                        }
+                    } label: {
+                        Text(onboardingStep == 6 ? "Partner Love Language" : "Continue to Home Page")
+                            .fontWeight(.semibold)
+                            .frame(width: 300, height: 50)
+                            .foregroundColor(.black)
+                            .background(Color.yellowSun)
+                            .cornerRadius(30)
+                    }
+                    //                    .padding(.bottom, 50)
+                }.padding()
+            }
+            .padding()
+            .navigationBarHidden(true)
+        }
+    }
+    
+    func getPrimaryLoveLanguage() -> String {
+        //        return loveLanguageUser.getPrimaryLoveLanguage()
+        return LoveLanguageEnum.physicalTouch.rawValue
     }
 }
 
 struct TestResultPage_Previews: PreviewProvider {
     static var previews: some View {
-        TestResultPage(result: ["A": 10])
+        TestResultPage(onboardingStep: .constant(6))
     }
 }

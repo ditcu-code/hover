@@ -9,9 +9,12 @@ import SwiftUI
 
 struct NamePrompt: View {
     @Environment(\.managedObjectContext) var moc
+    
     @Binding var onboardingStep: Int
     @State var username: String = ""
     @State var isNavigateActive: Bool = false
+    var user: User = User()
+    var partner: User = User()
     
     var disabledForm: Bool {
         username.isEmpty
@@ -72,8 +75,14 @@ struct NamePrompt: View {
         let user = User(context: moc)
         user.id = UUID()
         user.name = username
-        //        user.type = onboardingStep == 1 ? 0 : 1
+        user.isUser = onboardingStep == 0 ? true : false
         try? moc.save()
+        
+        if user.isUser {
+            GlobalObject.shared.user = user
+        } else {
+            GlobalObject.shared.partner = user
+        }
     }
 }
 

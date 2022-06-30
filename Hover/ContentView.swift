@@ -14,7 +14,7 @@ struct ContentView: View {
         ZStack {
             Color.backgroundColor
                 .ignoresSafeArea()
-            if isNewUser {
+            if true {
                 OnboardingPage()
             } else {
                 HomeScreen()

@@ -14,6 +14,10 @@ struct IntroLoveLanguagePrompt: View {
         onboardingStep + 1
     }
     
+    var currentUser: User {
+        onboardingStep == 3 ? GlobalObject.shared.user : GlobalObject.shared.partner
+    }
+    
     var body: some View {
         ZStack {
             Color.backgroundColor.ignoresSafeArea()
@@ -32,11 +36,14 @@ struct IntroLoveLanguagePrompt: View {
                     }
                     Spacer()
                     VStack {
-                        NavigationLink(destination: LoveLanguagePrompt(onboardingStep: .constant(onboardingStep + 1))) {
+                        NavigationLink(destination: LoveLanguagePrompt(onboardingStep: .constant(onboardingStep + 1), user: currentUser)) {
                             OnboardingNextButton()
                         }.padding(.bottom, 35)
                         NavigationLink(destination: IntroLoveLanguagePrompt(onboardingStep: .constant(onboardingStep + 2))) {
                             Text("Maybe Later")
+                                .foregroundColor(.black)
+                                .font(.subheadline)
+                                .underline()
                         }
                     }
                 }.padding(.bottom, 50)
@@ -49,6 +56,6 @@ struct IntroLoveLanguagePrompt: View {
 
 struct IntroLoveLanguagePrompt_Previews: PreviewProvider {
     static var previews: some View {
-        IntroLoveLanguagePrompt(onboardingStep: .constant(0))
+        IntroLoveLanguagePrompt(onboardingStep: .constant(3))
     }
 }

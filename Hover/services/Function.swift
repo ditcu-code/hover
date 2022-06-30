@@ -10,7 +10,7 @@ import SwiftUI
 
 let screenSize = UIScreen.main.bounds.width
 let screenHeight = UIScreen.main.bounds.height
-let onboardingTotalStep = 8
+let onboardingTotalStep = 10
 
 enum LoveLanguageEnum: String {
     case actOfService = "Act Of Service", qualityTime = "Quality Time", receivingGift = "Receiving Gift", physicalTouch = "Physical Touch", wordsOfAffirmation = "Words Of Affirmation", combination = "Combination"
