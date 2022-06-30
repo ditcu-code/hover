@@ -12,17 +12,17 @@ struct TestResultPage: View {
     @Binding var onboardingStep: Int
     @State private var selectionPage: String? = nil
     
-    var user: User = GlobalObject.shared.user
+    var user: User
     var progress: Int {
         onboardingStep + 1
     }
     
     var loveLanguageUser: LoveLanguageUser {
-        let llAoS = LoveLanguageRatio(llName: LoveLanguageEnum.actOfService.rawValue, point: Int(100))
-        let llPT = LoveLanguageRatio(llName: LoveLanguageEnum.physicalTouch.rawValue, point: Int(0))
-        let llQT = LoveLanguageRatio(llName: LoveLanguageEnum.qualityTime.rawValue, point: Int(0))
-        let llWoA = LoveLanguageRatio(llName: LoveLanguageEnum.wordsOfAffirmation.rawValue, point: Int(0))
-        let llRG = LoveLanguageRatio(llName: LoveLanguageEnum.receivingGift.rawValue, point: Int(0))
+        let llAoS = LoveLanguageRatio(llName: LoveLanguageEnum.actOfService.rawValue, point: Int(user.aos))
+        let llPT = LoveLanguageRatio(llName: LoveLanguageEnum.physicalTouch.rawValue, point: Int(user.pt))
+        let llQT = LoveLanguageRatio(llName: LoveLanguageEnum.qualityTime.rawValue, point: Int(user.qt))
+        let llWoA = LoveLanguageRatio(llName: LoveLanguageEnum.wordsOfAffirmation.rawValue, point: Int(user.woa))
+        let llRG = LoveLanguageRatio(llName: LoveLanguageEnum.receivingGift.rawValue, point: Int(user.rg))
         let llRatios: [LoveLanguageRatio] = [llAoS, llPT, llQT, llWoA, llRG]
         
         return LoveLanguageUser(user: user, lls: llRatios)
@@ -33,7 +33,8 @@ struct TestResultPage: View {
             ZStack {
                 Color.backgroundColor.ignoresSafeArea()
                 getLoveLanguageIcon(loveLanguage: getPrimaryLoveLanguage())
-                    .font(Font.system(size: 446))
+                    .resizable()
+                    .frame(width: 420, height: 420)
                     .foregroundColor(getLoveLanguageColor(loveLanguage: getPrimaryLoveLanguage()).opacity(0.1))
                     .offset(x: 70, y: 50)
             }
@@ -65,7 +66,11 @@ struct TestResultPage: View {
                         if onboardingStep == 6 {
                             selectionPage = "PartnerLoveLanguage"
                         } else {
-                            selectionPage = "HomePage"
+                            if UserDefaults.standard.bool(forKey: "isNewUser") {
+                                selectionPage = "HomePage"
+                            } else {
+                                UserDefaults.standard.set(true, forKey: "isNewUser")
+                            }
                         }
                     } label: {
                         Text(onboardingStep == 6 ? "Partner Love Language" : "Continue to Home Page")
@@ -75,7 +80,6 @@ struct TestResultPage: View {
                             .background(Color.yellowSun)
                             .cornerRadius(30)
                     }
-                    //                    .padding(.bottom, 50)
                 }.padding()
             }
             .padding()
@@ -84,13 +88,14 @@ struct TestResultPage: View {
     }
     
     func getPrimaryLoveLanguage() -> String {
-        //        return loveLanguageUser.getPrimaryLoveLanguage()
-        return LoveLanguageEnum.physicalTouch.rawValue
+        return loveLanguageUser.getPrimaryLoveLanguage()
+        // just for preview
+//        return LoveLanguageEnum.wordsOfAffirmation.rawValue
     }
 }
 
 struct TestResultPage_Previews: PreviewProvider {
     static var previews: some View {
-        TestResultPage(onboardingStep: .constant(6))
+        TestResultPage(onboardingStep: .constant(6), user: GlobalObject.shared.user)
     }
 }

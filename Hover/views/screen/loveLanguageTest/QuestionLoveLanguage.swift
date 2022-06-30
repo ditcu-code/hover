@@ -10,7 +10,6 @@ import SwiftUI
 struct QuestionLoveLanguage: View {
     @Environment(\.managedObjectContext) var moc
     
-    @State private var questionLabel: String = "It's more meaningful to me when ..."
     @State private var option1Label: String = "Opsi 1"
     @State private var option2Label: String = "Opsi 2"
     @State private var option1Checked: Bool = false
@@ -18,8 +17,8 @@ struct QuestionLoveLanguage: View {
     @State private var counter: Int = 0
     @State private var chosenOptions: [String:Int] = ["A": 0, "B": 0, "C": 0, "D": 0, "E": 0]
     @State private var isTestDone: Bool = false
-        
-    var user: User = GlobalObject.shared.user
+    
+    var user: User
     var onboardingStep: Int = 0
     var loveLanguageQuestion = LoveLanguageQuestion()
     
@@ -30,7 +29,7 @@ struct QuestionLoveLanguage: View {
                 .bold()
             Spacer()
             HStack {
-                Text(questionLabel)
+                Text("It's more meaningful to me when ...")
                     .font(.title)
                     .bold()
                 Spacer()
@@ -45,20 +44,22 @@ struct QuestionLoveLanguage: View {
                     .padding()
                     .frame(width: screenSize * 0.9, height: 100)
                     .foregroundColor(.black)
-                    .background(.white)
+                    .background(option1Checked ? Color.yellowSun:.white)
                     .cornerRadius(15)
                     .shadow(color: option1Checked ? Color.yellowSun: .black, radius: 1)
             }
             Button {
                 option2Checked.toggle()
                 processChoice(chosenOption: loveLanguageQuestion.options[counter].valueOption2)
-                updateUI()
+                DispatchQueue.main.async {
+                    updateUI()
+                }
             } label: {
                 Text(option2Label)
                     .padding()
                     .frame(width: screenSize * 0.9, height: 100)
                     .foregroundColor(.black)
-                    .background(.white)
+                    .background(option2Checked ? Color.yellowSun:.white)
                     .cornerRadius(15)
                     .shadow(color: option2Checked ? Color.yellowSun: .black, radius: 1)
             }
@@ -69,11 +70,7 @@ struct QuestionLoveLanguage: View {
         }
         .background(
             NavigationLink("", isActive: $isTestDone) {
-                if onboardingStep == 0 {
-                    TestResultPage(onboardingStep: .constant(onboardingStep + 1), user: user)
-                } else {
-                    HomeScreen()
-                }
+                TestResultPage(onboardingStep: .constant(onboardingStep + 1), user: user)
             }
         )
         .navigationBarHidden(true)
@@ -85,6 +82,7 @@ struct QuestionLoveLanguage: View {
         if counter+1 < loveLanguageQuestion.options.count {
             counter += 1
         } else {
+            saveUserLL()
             isTestDone.toggle()
         }
     }
@@ -111,13 +109,13 @@ struct QuestionLoveLanguage: View {
         for option in chosenOptions {
             total += option.value
         }
-
+        
         return (value * 100 / total)
     }
 }
 
 struct QuestionLoveLanguage_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionLoveLanguage()
+        QuestionLoveLanguage(user: GlobalObject.shared.user)
     }
 }

@@ -35,7 +35,7 @@ struct LoveLanguagePrompt: View {
                         .animation(.easeInOut(duration: 1), value: onboardingTotalStep)
                         .padding(.bottom, 50)
                     HStack {
-                        Text("What is your\nLove Language? \(onboardingStep)")
+                        Text("What is your\nLove Language?")
                             .font(.title)
                             .bold()
                         Spacer()
@@ -74,7 +74,7 @@ struct LoveLanguagePrompt: View {
                         .font(.subheadline)
                         .foregroundColor(Color("CaptionColor"))
                     NavigationLink {
-                        QuestionLoveLanguage()
+                        QuestionLoveLanguage(user: user, onboardingStep: onboardingStep + 1)
                     } label: {
                         Text("Take the test now")
                             .foregroundColor(.black)
