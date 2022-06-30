@@ -46,6 +46,13 @@ struct ContentView: View {
             }
         }
     }
+    func saveLL(llname: String, detail: String){
+        let loveLanguage = LoveLanguages(context: moc)
+        loveLanguage.id = UUID()
+        loveLanguage.llName = llname
+        loveLanguage.detail = detail
+        try? moc.save()
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

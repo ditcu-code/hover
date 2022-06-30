@@ -10,28 +10,28 @@ import SwiftUI
 struct ShowDataActivityTest: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) var activities : FetchedResults <ActivityList>
-//    @FetchRequest(sortDescriptors: []) var activities_ll : FetchedResults <Activity_LL>
     @FetchRequest(sortDescriptors: []) var loveLanguages : FetchedResults <LoveLanguages>
     var body: some View {
         VStack{
-            List(activities){activity in
-                VStack{
-                    Text(activity.activity ?? "Test")
-                        .bold()
+            List{
+                ForEach(activities, id: \.self){activity in
+                    Section(activity.wrappedActivity){
+                        ForEach(activity.llArray, id:\.self){loveLanguage in
+                            Text(loveLanguage.wrappedLLName)
+                        }
+                    }
+                    Button(action: {
+                        deleteItems(item: activity)}){
+                        Text("Delete")
+                    }
                 }
-                
             }
         }
-        
     }
-//    func callLL(activityID: String, llID: String){
-//        var result: Bool
-//        ForEach(activities_ll){activityll in
-//            if activityID == activityll.idActivity{
-//                
-//            }
-//        }
-//    }
+    private func deleteItems(item:ActivityList) {
+        moc.delete(item)
+        try?moc.save()
+        }
 }
 
 
