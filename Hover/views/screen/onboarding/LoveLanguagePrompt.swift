@@ -105,6 +105,7 @@ struct LoveLanguagePrompt: View {
         default:
             print("Do Nothing")
         }
+        
         try? moc.save()
         if self.onboardingStep == 4 {
             GlobalObject.shared.user = updatedUser

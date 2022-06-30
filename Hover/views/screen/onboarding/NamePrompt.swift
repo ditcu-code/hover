@@ -80,8 +80,10 @@ struct NamePrompt: View {
         
         if user.isUser {
             GlobalObject.shared.user = user
+            UserDefaults.standard.set(user.id?.uuidString ?? "user", forKey: "idUser")
         } else {
             GlobalObject.shared.partner = user
+            UserDefaults.standard.set(user.id?.uuidString ?? "partner", forKey: "idPartner")
         }
     }
 }

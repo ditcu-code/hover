@@ -6,9 +6,14 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) var moc
+    
     @AppStorage("isNewUser") private var isNewUser: Bool = true
+    @AppStorage("idUser") private var idUser: String = ""
+    @AppStorage("idPartner") private var idPartner: String = ""
     
     var body: some View {
         ZStack {
@@ -18,6 +23,26 @@ struct ContentView: View {
                 OnboardingPage()
             } else {
                 HomeScreen()
+                    .onAppear {
+                        initializeSessionUser()
+                    }
+            }
+        }
+    }
+    
+    func initializeSessionUser() {
+        let idUser = UserDefaults.standard.string(forKey: "idUser")
+        let idPartner = UserDefaults.standard.string(forKey: "idPartner")
+        @FetchRequest(
+            sortDescriptors: [],
+            predicate: NSPredicate(format: "id IN %@", [idUser, idPartner])
+        ) var users: FetchedResults<User>
+        
+        for user in users {
+            if user.id?.uuidString == idUser {
+                GlobalObject.shared.user = user
+            } else if user.id?.uuidString == idPartner {
+                GlobalObject.shared.partner = user
             }
         }
     }
