@@ -26,4 +26,6 @@ extension Color {
     static let bgReceivingGift = Color("ReceivingGiftBg")
     static let bgCombination = Color("CombinationBg")
     static let bgWordsOfAffirmation = Color("WordsOfAffirmationBg")
+    
+    static let backgroundColor = Color("BackgroundColor")
 }
