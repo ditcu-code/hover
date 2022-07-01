@@ -45,6 +45,12 @@
 		FDD705F22868B0E00003D311 /* LoveLanguageTestOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705F12868B0E00003D311 /* LoveLanguageTestOption.swift */; };
 		FDD705F42868B1130003D311 /* LoveLanguageQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705F32868B1130003D311 /* LoveLanguageQuestion.swift */; };
 		FDD70668286AF4850003D311 /* OnboardingNextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD70667286AF4840003D311 /* OnboardingNextButton.swift */; };
+		FDFDDDE5286F3FFC00E303E3 /* ActivityList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFDDDDF286F3FFB00E303E3 /* ActivityList+CoreDataClass.swift */; };
+		FDFDDDE6286F3FFC00E303E3 /* LoveLanguages+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFDDDE0286F3FFC00E303E3 /* LoveLanguages+CoreDataClass.swift */; };
+		FDFDDDE7286F3FFC00E303E3 /* LoveLanguages+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFDDDE1286F3FFC00E303E3 /* LoveLanguages+CoreDataProperties.swift */; };
+		FDFDDDE8286F3FFC00E303E3 /* SpecialDay+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFDDDE2286F3FFC00E303E3 /* SpecialDay+CoreDataClass.swift */; };
+		FDFDDDE9286F3FFC00E303E3 /* ActivityList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFDDDE3286F3FFC00E303E3 /* ActivityList+CoreDataProperties.swift */; };
+		FDFDDDEA286F3FFC00E303E3 /* SpecialDay+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFDDDE4286F3FFC00E303E3 /* SpecialDay+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +94,12 @@
 		FDD705F12868B0E00003D311 /* LoveLanguageTestOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguageTestOption.swift; sourceTree = "<group>"; };
 		FDD705F32868B1130003D311 /* LoveLanguageQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguageQuestion.swift; sourceTree = "<group>"; };
 		FDD70667286AF4840003D311 /* OnboardingNextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNextButton.swift; sourceTree = "<group>"; };
+		FDFDDDDF286F3FFB00E303E3 /* ActivityList+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActivityList+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FDFDDDE0286F3FFC00E303E3 /* LoveLanguages+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoveLanguages+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FDFDDDE1286F3FFC00E303E3 /* LoveLanguages+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoveLanguages+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FDFDDDE2286F3FFC00E303E3 /* SpecialDay+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SpecialDay+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FDFDDDE3286F3FFC00E303E3 /* ActivityList+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActivityList+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FDFDDDE4286F3FFC00E303E3 /* SpecialDay+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SpecialDay+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +194,12 @@
 				9384665E2868BCDE00A4CD36 /* DataController.swift */,
 				FD6D952A286CCCC200A25687 /* LoveLanguageUser.swift */,
 				FD8413C1286D5DE800E2C4E8 /* GlobalObject.swift */,
+				FDFDDDDF286F3FFB00E303E3 /* ActivityList+CoreDataClass.swift */,
+				FDFDDDE3286F3FFC00E303E3 /* ActivityList+CoreDataProperties.swift */,
+				FDFDDDE0286F3FFC00E303E3 /* LoveLanguages+CoreDataClass.swift */,
+				FDFDDDE1286F3FFC00E303E3 /* LoveLanguages+CoreDataProperties.swift */,
+				FDFDDDE2286F3FFC00E303E3 /* SpecialDay+CoreDataClass.swift */,
+				FDFDDDE4286F3FFC00E303E3 /* SpecialDay+CoreDataProperties.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -353,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD6D952B286CCCC200A25687 /* LoveLanguageUser.swift in Sources */,
+				FDFDDDE6286F3FFC00E303E3 /* LoveLanguages+CoreDataClass.swift in Sources */,
 				0EE23A89285F626500ACBD61 /* ContentView.swift in Sources */,
 				FD6D951E286C893C00A25687 /* LoveLanguageLogoBg.swift in Sources */,
 				FDD705DA2865DB930003D311 /* QuestionLoveLanguage.swift in Sources */,
@@ -370,14 +389,18 @@
 				0EE23A87285F626500ACBD61 /* HoverApp.swift in Sources */,
 				93DBDADE286CC86800F6AA47 /* ShowSpecialDay.swift in Sources */,
 				0EE23A9F285F63B700ACBD61 /* Tag.swift in Sources */,
+				FDFDDDE5286F3FFC00E303E3 /* ActivityList+CoreDataClass.swift in Sources */,
 				FDD705D12865DAE80003D311 /* NamePrompt.swift in Sources */,
 				0EE23AA2285F646B00ACBD61 /* Function.swift in Sources */,
 				FD8413C2286D5DE800E2C4E8 /* GlobalObject.swift in Sources */,
+				FDFDDDE9286F3FFC00E303E3 /* ActivityList+CoreDataProperties.swift in Sources */,
 				0E098816286B22DF00469A73 /* Colors.swift in Sources */,
 				93A99668286C528700B5F844 /* datLoveModel.xcdatamodeld in Sources */,
+				FDFDDDEA286F3FFC00E303E3 /* SpecialDay+CoreDataProperties.swift in Sources */,
 				FDD705E72865DCBA0003D311 /* ActivityForm.swift in Sources */,
 				FDD705EA2865DD020003D311 /* ProfilePage.swift in Sources */,
 				FDD705E52865DC9B0003D311 /* ActivityPage.swift in Sources */,
+				FDFDDDE8286F3FFC00E303E3 /* SpecialDay+CoreDataClass.swift in Sources */,
 				FDD705D52865DB060003D311 /* SpecialDatePrompt.swift in Sources */,
 				0EE23A9C285F633100ACBD61 /* Activity.swift in Sources */,
 				0EE23A98285F62EA00ACBD61 /* HomeScreen.swift in Sources */,
@@ -386,6 +409,7 @@
 				FDD705EC2865DD1A0003D311 /* TestResultPage.swift in Sources */,
 				93DBDAE0286CD13300F6AA47 /* AddSpecialDateTest.swift in Sources */,
 				93A99665286C4BEC00B5F844 /* ShowDataActivityTest.swift in Sources */,
+				FDFDDDE7286F3FFC00E303E3 /* LoveLanguages+CoreDataProperties.swift in Sources */,
 				938466622868C22F00A4CD36 /* CoreDataTest.swift in Sources */,
 				FDD705D72865DB6C0003D311 /* LoveLanguagePrompt.swift in Sources */,
 			);
