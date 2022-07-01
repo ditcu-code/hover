@@ -11,8 +11,6 @@ import CoreData
 struct HomeScreen: View {
     @Environment(\.managedObjectContext) var moc
     
-    @ObservedObject var globalObject: GlobalObject = GlobalObject()
-    
     var body: some View {
         NavigationView {
             TabView {
@@ -37,6 +35,8 @@ struct HomeScreen: View {
                             Text("Memories")
                         }
                     }
+                    .navigationBarBackButtonHidden(true)
+                    .navigationBarHidden(true)
             }
         }.onAppear {
             loadCurrentUser()
@@ -68,5 +68,6 @@ struct HomeScreen: View {
 struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
         HomeScreen()
+            .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
     }
 }

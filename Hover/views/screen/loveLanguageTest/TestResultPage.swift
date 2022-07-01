@@ -69,6 +69,7 @@ struct TestResultPage: View {
                         } else {
                             if UserDefaults.standard.bool(forKey: "isDoneOnboarding") == false {
                                 UserDefaults.standard.set(true, forKey: "isDoneOnboarding")
+                                selectionPage = "HomePage"
                             } else {
                                 selectionPage = "HomePage"
                             }

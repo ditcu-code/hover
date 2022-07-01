@@ -9,7 +9,7 @@ import Foundation
 
 class CoreDataPreviewHelper {
     static var preview: DataController = {
-        let controller = DataController()
+        let controller = DataController.shared
         
         let user = User(context: controller.container.viewContext)
         user.id = UUID()
@@ -33,7 +33,7 @@ class CoreDataPreviewHelper {
     }()
     
     static var dummyUser: User = {
-        let controller = DataController()
+        let controller = DataController.shared
         let user = User(context: controller.container.viewContext)
         user.id = UUID()
         user.woa = 23
@@ -41,6 +41,19 @@ class CoreDataPreviewHelper {
         user.pt = 21
         user.qt = 20
         user.rg = 14
+        
+        return user
+    }()
+    
+    static var initialUser: User = {
+        let controller = DataController.shared
+        let user = User(context: controller.container.viewContext)
+        user.id = UUID()
+        user.woa = 0
+        user.aos = 0
+        user.pt = 0
+        user.qt = 0
+        user.rg = 0
         
         return user
     }()
