@@ -619,7 +619,7 @@
 				93DBDADC286CC5E700F6AA47 /* datLoveModelver2.0.xcdatamodel */,
 				93A99667286C528700B5F844 /* datLoveModel.xcdatamodel */,
 			);
-			currentVersion = 93A99667286C528700B5F844 /* datLoveModel.xcdatamodel */;
+			currentVersion = 93DBDADC286CC5E700F6AA47 /* datLoveModelver2.0.xcdatamodel */;
 			path = datLoveModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
