@@ -21,12 +21,6 @@
 		93A99663286C4AB100B5F844 /* ActivityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A99662286C4AB100B5F844 /* ActivityTest.swift */; };
 		93A99665286C4BEC00B5F844 /* ShowDataActivityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A99664286C4BEC00B5F844 /* ShowDataActivityTest.swift */; };
 		93A99668286C528700B5F844 /* datLoveModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93A99666286C528700B5F844 /* datLoveModel.xcdatamodeld */; };
-		93A996B7286C6BC300B5F844 /* ActivityList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A996B1286C6BC300B5F844 /* ActivityList+CoreDataClass.swift */; };
-		93A996B8286C6BC300B5F844 /* ActivityList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A996B2286C6BC300B5F844 /* ActivityList+CoreDataProperties.swift */; };
-		93A996B9286C6BC300B5F844 /* LoveLanguages+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A996B3286C6BC300B5F844 /* LoveLanguages+CoreDataClass.swift */; };
-		93A996BA286C6BC300B5F844 /* LoveLanguages+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A996B4286C6BC300B5F844 /* LoveLanguages+CoreDataProperties.swift */; };
-		93A996BB286C6BC300B5F844 /* SpecialDay+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A996B5286C6BC300B5F844 /* SpecialDay+CoreDataClass.swift */; };
-		93A996BC286C6BC300B5F844 /* SpecialDay+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A996B6286C6BC300B5F844 /* SpecialDay+CoreDataProperties.swift */; };
 		93DBDADE286CC86800F6AA47 /* ShowSpecialDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBDADD286CC86800F6AA47 /* ShowSpecialDay.swift */; };
 		93DBDAE0286CD13300F6AA47 /* AddSpecialDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBDADF286CD13300F6AA47 /* AddSpecialDateTest.swift */; };
 		FD6D951E286C893C00A25687 /* LoveLanguageLogoBg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D951D286C893C00A25687 /* LoveLanguageLogoBg.swift */; };
@@ -51,12 +45,6 @@
 		FDD705F22868B0E00003D311 /* LoveLanguageTestOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705F12868B0E00003D311 /* LoveLanguageTestOption.swift */; };
 		FDD705F42868B1130003D311 /* LoveLanguageQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705F32868B1130003D311 /* LoveLanguageQuestion.swift */; };
 		FDD70668286AF4850003D311 /* OnboardingNextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD70667286AF4840003D311 /* OnboardingNextButton.swift */; };
-		FDFDDDD7286E003300E303E3 /* SpecialDay+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFDDDD1286E003300E303E3 /* SpecialDay+CoreDataClass.swift */; };
-		FDFDDDD8286E003300E303E3 /* ActivityList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFDDDD2286E003300E303E3 /* ActivityList+CoreDataClass.swift */; };
-		FDFDDDD9286E003300E303E3 /* ActivityList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFDDDD3286E003300E303E3 /* ActivityList+CoreDataProperties.swift */; };
-		FDFDDDDA286E003300E303E3 /* LoveLanguages+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFDDDD4286E003300E303E3 /* LoveLanguages+CoreDataClass.swift */; };
-		FDFDDDDB286E003300E303E3 /* SpecialDay+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFDDDD5286E003300E303E3 /* SpecialDay+CoreDataProperties.swift */; };
-		FDFDDDDC286E003300E303E3 /* LoveLanguages+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFDDDD6286E003300E303E3 /* LoveLanguages+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,12 +63,6 @@
 		93A99662286C4AB100B5F844 /* ActivityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTest.swift; sourceTree = "<group>"; };
 		93A99664286C4BEC00B5F844 /* ShowDataActivityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDataActivityTest.swift; sourceTree = "<group>"; };
 		93A99667286C528700B5F844 /* datLoveModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = datLoveModel.xcdatamodel; sourceTree = "<group>"; };
-		93A996B1286C6BC300B5F844 /* ActivityList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityList+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		93A996B2286C6BC300B5F844 /* ActivityList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityList+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		93A996B3286C6BC300B5F844 /* LoveLanguages+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoveLanguages+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		93A996B4286C6BC300B5F844 /* LoveLanguages+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoveLanguages+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		93A996B5286C6BC300B5F844 /* SpecialDay+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpecialDay+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		93A996B6286C6BC300B5F844 /* SpecialDay+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpecialDay+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		93DBDADC286CC5E700F6AA47 /* datLoveModelver2.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = datLoveModelver2.0.xcdatamodel; sourceTree = "<group>"; };
 		93DBDADD286CC86800F6AA47 /* ShowSpecialDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSpecialDay.swift; sourceTree = "<group>"; };
 		93DBDADF286CD13300F6AA47 /* AddSpecialDateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpecialDateTest.swift; sourceTree = "<group>"; };
@@ -88,7 +70,6 @@
 		FD6D951F286CA30700A25687 /* CustomModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifier.swift; sourceTree = "<group>"; };
 		FD6D9521286CA88A00A25687 /* IntroLoveLanguagePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroLoveLanguagePrompt.swift; sourceTree = "<group>"; };
 		FD6D9525286CB4E000A25687 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
-		FD6D9527286CC40B00A25687 /* datLoveModelver2.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = datLoveModelver2.0.xcdatamodel; sourceTree = "<group>"; };
 		FD6D952A286CCCC200A25687 /* LoveLanguageUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguageUser.swift; sourceTree = "<group>"; };
 		FD8413C1286D5DE800E2C4E8 /* GlobalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalObject.swift; sourceTree = "<group>"; };
 		FDD705D02865DAE80003D311 /* NamePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamePrompt.swift; sourceTree = "<group>"; };
@@ -107,12 +88,6 @@
 		FDD705F12868B0E00003D311 /* LoveLanguageTestOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguageTestOption.swift; sourceTree = "<group>"; };
 		FDD705F32868B1130003D311 /* LoveLanguageQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguageQuestion.swift; sourceTree = "<group>"; };
 		FDD70667286AF4840003D311 /* OnboardingNextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNextButton.swift; sourceTree = "<group>"; };
-		FDFDDDD1286E003300E303E3 /* SpecialDay+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SpecialDay+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FDFDDDD2286E003300E303E3 /* ActivityList+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActivityList+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FDFDDDD3286E003300E303E3 /* ActivityList+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActivityList+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		FDFDDDD4286E003300E303E3 /* LoveLanguages+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoveLanguages+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FDFDDDD5286E003300E303E3 /* SpecialDay+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SpecialDay+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		FDFDDDD6286E003300E303E3 /* LoveLanguages+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoveLanguages+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +106,7 @@
 			children = (
 				0EE23A85285F626500ACBD61 /* Hover */,
 				0EE23A84285F626500ACBD61 /* Products */,
+				FDFDDDDD286F3F0B00E303E3 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -203,12 +179,6 @@
 				0EE23A9B285F633100ACBD61 /* Activity.swift */,
 				FDD705F12868B0E00003D311 /* LoveLanguageTestOption.swift */,
 				FDD705F32868B1130003D311 /* LoveLanguageQuestion.swift */,
-				FDFDDDD2286E003300E303E3 /* ActivityList+CoreDataClass.swift */,
-				FDFDDDD3286E003300E303E3 /* ActivityList+CoreDataProperties.swift */,
-				FDFDDDD4286E003300E303E3 /* LoveLanguages+CoreDataClass.swift */,
-				FDFDDDD6286E003300E303E3 /* LoveLanguages+CoreDataProperties.swift */,
-				FDFDDDD1286E003300E303E3 /* SpecialDay+CoreDataClass.swift */,
-				FDFDDDD5286E003300E303E3 /* SpecialDay+CoreDataProperties.swift */,
 				9384665E2868BCDE00A4CD36 /* DataController.swift */,
 				FD6D952A286CCCC200A25687 /* LoveLanguageUser.swift */,
 				FD8413C1286D5DE800E2C4E8 /* GlobalObject.swift */,
@@ -305,6 +275,13 @@
 			path = profile;
 			sourceTree = "<group>";
 		};
+		FDFDDDDD286F3F0B00E303E3 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -376,12 +353,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD6D952B286CCCC200A25687 /* LoveLanguageUser.swift in Sources */,
-				FDFDDDDA286E003300E303E3 /* LoveLanguages+CoreDataClass.swift in Sources */,
 				0EE23A89285F626500ACBD61 /* ContentView.swift in Sources */,
-				FDFDDDD9286E003300E303E3 /* ActivityList+CoreDataProperties.swift in Sources */,
 				FD6D951E286C893C00A25687 /* LoveLanguageLogoBg.swift in Sources */,
 				FDD705DA2865DB930003D311 /* QuestionLoveLanguage.swift in Sources */,
-				FDFDDDD8286E003300E303E3 /* ActivityList+CoreDataClass.swift in Sources */,
 				FDD705F22868B0E00003D311 /* LoveLanguageTestOption.swift in Sources */,
 				FD6D9526286CB4E000A25687 /* Checklist.swift in Sources */,
 				FDD705F02865DFB10003D311 /* OnboardingPage.swift in Sources */,
@@ -401,7 +375,6 @@
 				FD8413C2286D5DE800E2C4E8 /* GlobalObject.swift in Sources */,
 				0E098816286B22DF00469A73 /* Colors.swift in Sources */,
 				93A99668286C528700B5F844 /* datLoveModel.xcdatamodeld in Sources */,
-				FDFDDDDC286E003300E303E3 /* LoveLanguages+CoreDataProperties.swift in Sources */,
 				FDD705E72865DCBA0003D311 /* ActivityForm.swift in Sources */,
 				FDD705EA2865DD020003D311 /* ProfilePage.swift in Sources */,
 				FDD705E52865DC9B0003D311 /* ActivityPage.swift in Sources */,
@@ -412,11 +385,8 @@
 				FDD705F42868B1130003D311 /* LoveLanguageQuestion.swift in Sources */,
 				FDD705EC2865DD1A0003D311 /* TestResultPage.swift in Sources */,
 				93DBDAE0286CD13300F6AA47 /* AddSpecialDateTest.swift in Sources */,
-				93A996B8286C6BC300B5F844 /* ActivityList+CoreDataProperties.swift in Sources */,
 				93A99665286C4BEC00B5F844 /* ShowDataActivityTest.swift in Sources */,
-				FDFDDDDB286E003300E303E3 /* SpecialDay+CoreDataProperties.swift in Sources */,
 				938466622868C22F00A4CD36 /* CoreDataTest.swift in Sources */,
-				FDFDDDD7286E003300E303E3 /* SpecialDay+CoreDataClass.swift in Sources */,
 				FDD705D72865DB6C0003D311 /* LoveLanguagePrompt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -625,7 +595,7 @@
 				93DBDADC286CC5E700F6AA47 /* datLoveModelver2.0.xcdatamodel */,
 				93A99667286C528700B5F844 /* datLoveModel.xcdatamodel */,
 			);
-			currentVersion = FD6D9527286CC40B00A25687 /* datLoveModelver2.0.xcdatamodel */;
+			currentVersion = 93A99667286C528700B5F844 /* datLoveModel.xcdatamodel */;
 			path = datLoveModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
