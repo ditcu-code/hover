@@ -103,6 +103,7 @@ struct LoveLanguagePrompt: View {
         case LoveLanguageEnum.receivingGift.rawValue:
             updatedUser.rg = Int32(100)
         default:
+            print(llselections[0].llName ?? "")
             print("Do Nothing")
         }
         

@@ -6,8 +6,13 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct HomeScreen: View {
+    @Environment(\.managedObjectContext) var moc
+    
+    @ObservedObject var globalObject: GlobalObject = GlobalObject()
+    
     var body: some View {
         NavigationView {
             TabView {
@@ -33,6 +38,8 @@ struct HomeScreen: View {
                         }
                     }
             }
+        }.onAppear {
+            DataController.shared.loadCurrentUser()
         }
     }
 }

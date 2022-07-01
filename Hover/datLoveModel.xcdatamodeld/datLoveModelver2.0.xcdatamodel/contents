@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="ActivityList" representedClassName="ActivityList" syncable="YES" codeGenerationType="class">
+    <entity name="ActivityList" representedClassName="ActivityList" syncable="YES">
         <attribute name="activity" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="activityToLL" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LoveLanguages" inverseName="llToActivity" inverseEntity="LoveLanguages"/>
         <relationship name="activityToSpecial" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SpecialDay" inverseName="specialToActivity" inverseEntity="SpecialDay"/>
     </entity>
-    <entity name="LoveLanguages" representedClassName="LoveLanguages" syncable="YES" codeGenerationType="class">
+    <entity name="LoveLanguages" representedClassName="LoveLanguages" syncable="YES">
         <attribute name="detail" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="llName" optional="YES" attributeType="String"/>
@@ -19,7 +19,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="SpecialDay" representedClassName="SpecialDay" syncable="YES" codeGenerationType="class">
+    <entity name="SpecialDay" representedClassName="SpecialDay" syncable="YES">
         <attribute name="alert" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>

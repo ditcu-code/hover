@@ -13,7 +13,7 @@ let screenHeight = UIScreen.main.bounds.height
 let onboardingTotalStep = 10
 
 enum LoveLanguageEnum: String {
-    case actOfService = "Act Of Service", qualityTime = "Quality Time", receivingGift = "Receiving Gift", physicalTouch = "Physical Touch", wordsOfAffirmation = "Words Of Affirmation", combination = "Combination"
+    case actOfService = "Acts of Service", qualityTime = "Quality Time", receivingGift = "Receiving Gifts", physicalTouch = "Physical Touch", wordsOfAffirmation = "Word of Affirmation", combination = "Combination"
 }
 
 func dateToString(_ date: Date, dateFormat: String = "dd MMM yyyy") -> String {

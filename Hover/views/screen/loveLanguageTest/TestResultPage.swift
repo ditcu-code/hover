@@ -18,14 +18,7 @@ struct TestResultPage: View {
     }
     
     var loveLanguageUser: LoveLanguageUser {
-        let llAoS = LoveLanguageRatio(llName: LoveLanguageEnum.actOfService.rawValue, point: Int(user.aos))
-        let llPT = LoveLanguageRatio(llName: LoveLanguageEnum.physicalTouch.rawValue, point: Int(user.pt))
-        let llQT = LoveLanguageRatio(llName: LoveLanguageEnum.qualityTime.rawValue, point: Int(user.qt))
-        let llWoA = LoveLanguageRatio(llName: LoveLanguageEnum.wordsOfAffirmation.rawValue, point: Int(user.woa))
-        let llRG = LoveLanguageRatio(llName: LoveLanguageEnum.receivingGift.rawValue, point: Int(user.rg))
-        let llRatios: [LoveLanguageRatio] = [llAoS, llPT, llQT, llWoA, llRG]
-        
-        return LoveLanguageUser(user: user, lls: llRatios)
+        LoveLanguageUser(user: user)
     }
     
     var body: some View {
@@ -67,9 +60,9 @@ struct TestResultPage: View {
                             selectionPage = "PartnerLoveLanguage"
                         } else {
                             if UserDefaults.standard.bool(forKey: "isNewUser") {
-                                selectionPage = "HomePage"
+                                UserDefaults.standard.set(false, forKey: "isNewUser")
                             } else {
-                                UserDefaults.standard.set(true, forKey: "isNewUser")
+                                selectionPage = "HomePage"
                             }
                         }
                     } label: {

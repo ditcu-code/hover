@@ -20,43 +20,41 @@ struct ActivityTest: View {
         NavigationView{
             VStack{
                 TextField(
-                        "What you want to do? HAH!",
-                        text: $activityTextField
-                    )
-                    .textInputAutocapitalization(.never)
-                    .disableAutocorrection(true)
-                    .border(.secondary)
+                    "What you want to do? HAH!",
+                    text: $activityTextField
+                )
+                .textInputAutocapitalization(.never)
+                .disableAutocorrection(true)
+                .border(.secondary)
                 List {
-                            ForEach(loveLanguages, id: \.self) { lovelanguage in
-                                MultipleSelectionRow(title: lovelanguage.llName ?? "Unknown", isSelected: self.llselections.contains(lovelanguage )) {
-                                    if self.llselections.contains(lovelanguage) {
-                                        self.llselections.removeAll(where: { $0.id?.uuidString == lovelanguage.id?.uuidString ?? "Unknown" })
-                                    }
-                                    else {
-                                        if self.llselections.count <= 1 {
-                                        self.llselections.append(lovelanguage)
-                                        }else{
-                                            self.llselections.removeAll(where: { $0 == self.llselections.first})
-                                            self.llselections.append(lovelanguage)
-                                        }
-                                    }
+                    ForEach(loveLanguages, id: \.self) { lovelanguage in
+                        MultipleSelectionRow(title: lovelanguage.llName ?? "Unknown", isSelected: self.llselections.contains(lovelanguage )) {
+                            if self.llselections.contains(lovelanguage) {
+                                self.llselections.removeAll(where: { $0.id?.uuidString == lovelanguage.id?.uuidString ?? "Unknown" })
+                            }
+                            else {
+                                if self.llselections.count <= 1 {
+                                    self.llselections.append(lovelanguage)
+                                }else{
+                                    self.llselections.removeAll(where: { $0 == self.llselections.first})
+                                    self.llselections.append(lovelanguage)
                                 }
                             }
+                        }
+                    }
                 }
                 
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("Add Activity"){
-                            
-                            
-                                let activity = ActivityList(context: moc)
-                                activity.id = UUID()
-                                activity.activity = activityTextField
-                                let llactivity = Set(llselections)
-                                for ll in llactivity{
-                                    activity.addToActivityToLL(ll)
-                                }
+                        Button("Add Activity"){ 
+                            let activity = ActivityList(context: moc)
+                            activity.id = UUID()
+                            activity.activity = activityTextField
+                            let llactivity = Set(llselections)
+                            for ll in llactivity{
+                                activity.addToActivityToLL(ll)
+                            }
                             
                             if llselections.count != 0 {
                                 try? moc.save()
@@ -73,18 +71,9 @@ struct ActivityTest: View {
                     
                 }
                 
-                //                for i in 0...llselections.count-1{
-                //                    addActivityLL(idActivity: activity.id?.uuidString ?? "Unknown", idLL: llselections[i])
-                //                }
-                if llselections.count != 0 {
-                    try? moc.save()
-                }else{
-                    print("Test")
-                }
             }
         }
     }
-   
 }
 
 struct MultipleSelectionRow: View {
