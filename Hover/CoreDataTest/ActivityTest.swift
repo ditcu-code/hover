@@ -26,22 +26,23 @@ struct ActivityTest: View {
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
                     .border(.secondary)
+                    .cornerRadius(20)
                 List {
-                            ForEach(loveLanguages, id: \.self) { lovelanguage in
-                                MultipleSelectionRow(title: lovelanguage.llName ?? "Unknown", isSelected: self.llselections.contains(lovelanguage )) {
-                                    if self.llselections.contains(lovelanguage) {
-                                        self.llselections.removeAll(where: { $0.id?.uuidString == lovelanguage.id?.uuidString ?? "Unknown" })
-                                    }
-                                    else {
-                                        if self.llselections.count <= 1 {
-                                        self.llselections.append(lovelanguage)
-                                        }else{
-                                            self.llselections.removeAll(where: { $0 == self.llselections.first})
-                                            self.llselections.append(lovelanguage)
-                                        }
-                                    }
+                    ForEach(loveLanguages, id: \.self) { lovelanguage in
+                        MultipleSelectionRow(title: lovelanguage.llName ?? "Unknown", isSelected: self.llselections.contains(lovelanguage )) {
+                            if self.llselections.contains(lovelanguage) {
+                                self.llselections.removeAll(where: { $0.id?.uuidString == lovelanguage.id?.uuidString ?? "Unknown" })
+                            }
+                            else {
+                                if self.llselections.count <= 1 {
+                                self.llselections.append(lovelanguage)
+                                }else{
+                                    self.llselections.removeAll(where: { $0 == self.llselections.first})
+                                    self.llselections.append(lovelanguage)
                                 }
                             }
+                        }
+                    }
                 }
                 
                 .navigationBarTitleDisplayMode(.inline)

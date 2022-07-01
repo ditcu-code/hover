@@ -22,7 +22,7 @@ struct ContentView: View {
                 }
             }
         } else {
-            ActivityTest()
+            ShowSpecialDay()
         }
     }
     func saveLL(llname: String, detail: String){
