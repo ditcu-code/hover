@@ -13,7 +13,7 @@ struct ContentView: View {
     
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \LoveLanguages.llName, ascending: true)]) var loveLanguages : FetchedResults <LoveLanguages>
     
-    @AppStorage("isNewUser") private var isNewUser: Bool = true
+    @AppStorage("isDoneOnboarding") private var isDoneOnboarding: Bool = false
     @AppStorage("idUser") private var idUser: String = ""
     @AppStorage("idPartner") private var idPartner: String = ""
     
@@ -21,7 +21,9 @@ struct ContentView: View {
         ZStack {
             Color.backgroundColor
                 .ignoresSafeArea()
-            if UserDefaults.standard.bool(forKey: "isNewUser") {
+            if UserDefaults.standard.bool(forKey: "isDoneOnboarding") {
+                HomeScreen()
+            } else {
                 OnboardingPage()
                     .onAppear(){
                         if loveLanguages.isEmpty {
@@ -33,8 +35,6 @@ struct ContentView: View {
                             }
                         }
                     }
-            } else {
-                HomeScreen()
             }
         }
     }

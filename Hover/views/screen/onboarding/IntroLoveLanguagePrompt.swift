@@ -51,9 +51,7 @@ struct IntroLoveLanguagePrompt: View {
                             if onboardingStep == 3 {
                                 skip.toggle()
                             } else {
-                                print("masuk pak eko")
-                                UserDefaults.standard.set(false, forKey: "isNewUser")
-                                print(UserDefaults.standard.bool(forKey: "isNewUser"))
+                                UserDefaults.standard.set(true, forKey: "isDoneOnboarding")
                             }
                         } label: {
                             Text("Maybe Later")
