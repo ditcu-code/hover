@@ -30,11 +30,11 @@ struct HomeScreen: View {
                             Text("Special Date")
                         }
                     }
-                MemoryPage()
+                ProfilePage()
                     .tabItem {
                         VStack {
-                            Image(systemName: "folder.fill")
-                            Text("Memories")
+                            Image(systemName: "person.fill")
+                            Text("Profile")
                         }
                     }
             }
