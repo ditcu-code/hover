@@ -21,6 +21,14 @@ struct TestResultPage: View {
         LoveLanguageUser(user: user)
     }
     
+    var loveLanguages: [LoveLanguages] {
+        do {
+            return try moc.fetch(LoveLanguages.fetchRequest()) as! [LoveLanguages]
+        } catch {
+            return []
+        }
+    }
+    
     var body: some View {
         ZStack {
             ZStack {
@@ -49,7 +57,7 @@ struct TestResultPage: View {
                         Spacer()
                     }
                     Spacer()
-                    Text("People whose love language is physical touch enjoy when their partners express affection for them in physical ways, such as hugs, kisses, and even just a hand on the shoulder.")
+                    Text(getLoveLanguageDetail(ll: getPrimaryLoveLanguage()))
                         .font(.headline)
                         .fontWeight(.semibold)
                     Spacer()
@@ -84,6 +92,12 @@ struct TestResultPage: View {
         return loveLanguageUser.getPrimaryLoveLanguage()
         // just for preview
 //        return LoveLanguageEnum.wordsOfAffirmation.rawValue
+    }
+    
+    func getLoveLanguageDetail(ll: String) -> String {
+        let chosen = loveLanguages.first { $0.wrappedLLName == ll }
+        
+        return chosen?.wrappedDetail ?? "No Detail"
     }
 }
 
