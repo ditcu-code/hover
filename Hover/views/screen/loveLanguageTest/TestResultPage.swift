@@ -59,9 +59,12 @@ struct TestResultPage: View {
                         if onboardingStep == 6 {
                             selectionPage = "PartnerLoveLanguage"
                         } else {
-                            if UserDefaults.standard.bool(forKey: "isNewUser") {
+                            if UserDefaults.standard.bool(forKey: "isNewUser") == true {
+                                print("masuk sini")
                                 UserDefaults.standard.set(false, forKey: "isNewUser")
+                                print(UserDefaults.standard.bool(forKey: "isNewUser"))
                             } else {
+                                print(UserDefaults.standard.bool(forKey: "isNewUser"))
                                 selectionPage = "HomePage"
                             }
                         }

@@ -30,7 +30,7 @@ struct HomeScreen: View {
                             Text("Special Date")
                         }
                     }
-                MemoryPage()
+                ProfilePage()
                     .tabItem {
                         VStack {
                             Image(systemName: "folder.fill")
@@ -39,7 +39,28 @@ struct HomeScreen: View {
                     }
             }
         }.onAppear {
-            DataController.shared.loadCurrentUser()
+            loadCurrentUser()
+        }
+    }
+    
+    func loadCurrentUser() {
+        let idUser = UserDefaults.standard.string(forKey: "idUser")
+        let idPartner = UserDefaults.standard.string(forKey: "idPartner")
+        
+        let request: NSFetchRequest<User> = NSFetchRequest<User>(entityName: "User")
+        request.predicate = NSPredicate(format: "id IN %@", [idUser, idPartner])
+        
+        do {
+            let users = try moc.fetch(request)
+            for i in users {
+                if i.id?.uuidString == idUser {
+                    GlobalObject.shared.user = i
+                } else if i.id?.uuidString == idPartner {
+                    GlobalObject.shared.user = i
+                }
+            }
+        } catch {
+            print("gagal query \(error.localizedDescription)")
         }
     }
 }
