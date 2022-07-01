@@ -4,7 +4,7 @@
         <attribute name="activity" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="activityToLL" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LoveLanguages" inverseName="llToActivity" inverseEntity="LoveLanguages"/>
-        <relationship name="activityToSpecial" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SpecialDay" inverseName="specialToActivity" inverseEntity="SpecialDay"/>
+        <relationship name="activityToSpecial" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SpecialDay" inverseName="specialToActivity" inverseEntity="SpecialDay"/>
     </entity>
     <entity name="LoveLanguages" representedClassName="LoveLanguages" syncable="YES">
         <attribute name="detail" optional="YES" attributeType="String"/>

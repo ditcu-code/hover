@@ -20,12 +20,13 @@ struct ActivityTest: View {
         NavigationView{
             VStack{
                 TextField(
-                    "What you want to do? HAH!",
-                    text: $activityTextField
-                )
-                .textInputAutocapitalization(.never)
-                .disableAutocorrection(true)
-                .border(.secondary)
+                        "What you want to do? HAH!",
+                        text: $activityTextField
+                    )
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
+                    .border(.secondary)
+                    .cornerRadius(20)
                 List {
                     ForEach(loveLanguages, id: \.self) { lovelanguage in
                         MultipleSelectionRow(title: lovelanguage.llName ?? "Unknown", isSelected: self.llselections.contains(lovelanguage )) {
@@ -34,7 +35,7 @@ struct ActivityTest: View {
                             }
                             else {
                                 if self.llselections.count <= 1 {
-                                    self.llselections.append(lovelanguage)
+                                self.llselections.append(lovelanguage)
                                 }else{
                                     self.llselections.removeAll(where: { $0 == self.llselections.first})
                                     self.llselections.append(lovelanguage)
