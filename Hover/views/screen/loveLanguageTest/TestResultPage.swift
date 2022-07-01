@@ -103,6 +103,7 @@ struct TestResultPage: View {
 
 struct TestResultPage_Previews: PreviewProvider {
     static var previews: some View {
-        TestResultPage(onboardingStep: .constant(6), user: GlobalObject.shared.user)
+        TestResultPage(onboardingStep: .constant(6), user: CoreDataPreviewHelper.dummyUser)
+            .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
     }
 }

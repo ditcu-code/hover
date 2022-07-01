@@ -29,6 +29,7 @@
 		FD6D9526286CB4E000A25687 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D9525286CB4E000A25687 /* Checklist.swift */; };
 		FD6D952B286CCCC200A25687 /* LoveLanguageUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D952A286CCCC200A25687 /* LoveLanguageUser.swift */; };
 		FD8413C2286D5DE800E2C4E8 /* GlobalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8413C1286D5DE800E2C4E8 /* GlobalObject.swift */; };
+		FDAFBBCD286F89D700627BA6 /* CoreDataPreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAFBBCC286F89D700627BA6 /* CoreDataPreviewHelper.swift */; };
 		FDD705D12865DAE80003D311 /* NamePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D02865DAE80003D311 /* NamePrompt.swift */; };
 		FDD705D52865DB060003D311 /* SpecialDatePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D42865DB060003D311 /* SpecialDatePrompt.swift */; };
 		FDD705D72865DB6C0003D311 /* LoveLanguagePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D62865DB6C0003D311 /* LoveLanguagePrompt.swift */; };
@@ -78,6 +79,7 @@
 		FD6D9525286CB4E000A25687 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		FD6D952A286CCCC200A25687 /* LoveLanguageUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguageUser.swift; sourceTree = "<group>"; };
 		FD8413C1286D5DE800E2C4E8 /* GlobalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalObject.swift; sourceTree = "<group>"; };
+		FDAFBBCC286F89D700627BA6 /* CoreDataPreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPreviewHelper.swift; sourceTree = "<group>"; };
 		FDD705D02865DAE80003D311 /* NamePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamePrompt.swift; sourceTree = "<group>"; };
 		FDD705D42865DB060003D311 /* SpecialDatePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialDatePrompt.swift; sourceTree = "<group>"; };
 		FDD705D62865DB6C0003D311 /* LoveLanguagePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguagePrompt.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			children = (
 				0EE23AA1285F646B00ACBD61 /* Function.swift */,
 				0E098815286B22DF00469A73 /* Colors.swift */,
+				FDAFBBCC286F89D700627BA6 /* CoreDataPreviewHelper.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				FDD705F42868B1130003D311 /* LoveLanguageQuestion.swift in Sources */,
 				FDD705EC2865DD1A0003D311 /* TestResultPage.swift in Sources */,
 				93DBDAE0286CD13300F6AA47 /* AddSpecialDateTest.swift in Sources */,
+				FDAFBBCD286F89D700627BA6 /* CoreDataPreviewHelper.swift in Sources */,
 				93A99665286C4BEC00B5F844 /* ShowDataActivityTest.swift in Sources */,
 				FDFDDDE7286F3FFC00E303E3 /* LoveLanguages+CoreDataProperties.swift in Sources */,
 				938466622868C22F00A4CD36 /* CoreDataTest.swift in Sources */,
