@@ -12,7 +12,53 @@ struct OnboardingPage: View {
     
     var body: some View {
         NavigationView {
-            NamePrompt(onboardingStep: $onboardingStep)
+            VStack {
+                ZStack {
+                    Image("BackgroundImage")
+                        .resizable()
+                        .frame(height: screenHeight / 2)
+                    VStack(spacing: 20) {
+                        VStack {
+                            Text("Dat LOVE")
+                                .font(.title)
+                                .bold()
+                        }.padding(.vertical, 30)
+                        HStack(spacing: 20) {
+                            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.combination.rawValue)
+                            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.actOfService.rawValue)
+                            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.physicalTouch.rawValue)
+                        }.offset(x: -50)
+                        HStack(spacing: 20) {
+                            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.receivingGift.rawValue)
+                            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.qualityTime.rawValue)
+                            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.wordsOfAffirmation.rawValue)
+                        }.offset(x: 50)
+                    }
+                }
+                VStack {
+                    Text("Giving Recommendation")
+                        .font(.title)
+                        .bold()
+                        .padding(.bottom, 2)
+                    Text("Help couples strengthen their romance relationship through knowing the Love Language and get a recommendation to plan their date")
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
+                    Spacer()
+                    NavigationLink(destination: NamePrompt(onboardingStep: $onboardingStep)) {
+                        OnboardingNextButton().padding(.bottom, 160)
+                    }
+                }.background(
+                    getLoveLanguageIcon(loveLanguage: LoveLanguageEnum.combination.rawValue)
+                        .font(Font.system(size: 521))
+                        .foregroundColor(getLoveLanguageColor(loveLanguage: LoveLanguageEnum.combination.rawValue).opacity(0.1))
+                        .offset(x: 130, y: 50)
+                        .rotationEffect(Angle(degrees: 334))
+                )
+            }
+            .background(Color.backgroundColor).ignoresSafeArea()
+            .navigationBarHidden(true)
         }
     }
 }

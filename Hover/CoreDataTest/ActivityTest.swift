@@ -48,16 +48,14 @@ struct ActivityTest: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("Add Activity"){
-                            
-                            
-                                let activity = ActivityList(context: moc)
-                                activity.id = UUID()
-                                activity.activity = activityTextField
-                                let llactivity = Set(llselections)
-                                for ll in llactivity{
-                                    activity.addToActivityToLL(ll)
-                                }
+                        Button("Add Activity"){ 
+                            let activity = ActivityList(context: moc)
+                            activity.id = UUID()
+                            activity.activity = activityTextField
+                            let llactivity = Set(llselections)
+                            for ll in llactivity{
+                                activity.addToActivityToLL(ll)
+                            }
                             
                             if llselections.count != 0 {
                                 try? moc.save()
@@ -77,14 +75,13 @@ struct ActivityTest: View {
             }
         }
     }
-   
 }
 
 struct MultipleSelectionRow: View {
     var title: String
     var isSelected: Bool
     var action: () -> Void
-
+    
     var body: some View {
         Button(action: self.action) {
             HStack {
