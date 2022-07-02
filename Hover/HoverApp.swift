@@ -9,8 +9,9 @@ import SwiftUI
 
 @main
 struct HoverApp: App {
-    @StateObject private var dataController = DataController()
+//    @StateObject private var dataController = DataController()
     let persistentController = DataController.shared
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
