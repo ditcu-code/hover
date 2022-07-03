@@ -17,9 +17,20 @@
 		0EE23A9C285F633100ACBD61 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23A9B285F633100ACBD61 /* Activity.swift */; };
 		0EE23A9F285F63B700ACBD61 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23A9E285F63B700ACBD61 /* Tag.swift */; };
 		0EE23AA2285F646B00ACBD61 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23AA1285F646B00ACBD61 /* Function.swift */; };
-		9384665D2868B7A600A4CD36 /* datLove.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9384665B2868B7A600A4CD36 /* datLove.xcdatamodeld */; };
 		9384665F2868BCDE00A4CD36 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9384665E2868BCDE00A4CD36 /* DataController.swift */; };
 		938466622868C22F00A4CD36 /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938466612868C22F00A4CD36 /* CoreDataTest.swift */; };
+		93A99663286C4AB100B5F844 /* ActivityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A99662286C4AB100B5F844 /* ActivityTest.swift */; };
+		93A99665286C4BEC00B5F844 /* ShowDataActivityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A99664286C4BEC00B5F844 /* ShowDataActivityTest.swift */; };
+		93A99668286C528700B5F844 /* datLoveModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93A99666286C528700B5F844 /* datLoveModel.xcdatamodeld */; };
+		93DBDADE286CC86800F6AA47 /* ShowSpecialDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBDADD286CC86800F6AA47 /* ShowSpecialDay.swift */; };
+		93DBDAE0286CD13300F6AA47 /* AddSpecialDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBDADF286CD13300F6AA47 /* AddSpecialDateTest.swift */; };
+		FD6D951E286C893C00A25687 /* LoveLanguageLogoBg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D951D286C893C00A25687 /* LoveLanguageLogoBg.swift */; };
+		FD6D9520286CA30700A25687 /* CustomModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D951F286CA30700A25687 /* CustomModifier.swift */; };
+		FD6D9522286CA88A00A25687 /* IntroLoveLanguagePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D9521286CA88A00A25687 /* IntroLoveLanguagePrompt.swift */; };
+		FD6D9526286CB4E000A25687 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D9525286CB4E000A25687 /* Checklist.swift */; };
+		FD6D952B286CCCC200A25687 /* LoveLanguageUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D952A286CCCC200A25687 /* LoveLanguageUser.swift */; };
+		FD8413C2286D5DE800E2C4E8 /* GlobalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8413C1286D5DE800E2C4E8 /* GlobalObject.swift */; };
+		FDAFBBCD286F89D700627BA6 /* CoreDataPreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAFBBCC286F89D700627BA6 /* CoreDataPreviewHelper.swift */; };
 		FDD705D12865DAE80003D311 /* NamePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D02865DAE80003D311 /* NamePrompt.swift */; };
 		FDD705D52865DB060003D311 /* SpecialDatePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D42865DB060003D311 /* SpecialDatePrompt.swift */; };
 		FDD705D72865DB6C0003D311 /* LoveLanguagePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D62865DB6C0003D311 /* LoveLanguagePrompt.swift */; };
@@ -33,6 +44,15 @@
 		FDD705EC2865DD1A0003D311 /* TestResultPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705EB2865DD1A0003D311 /* TestResultPage.swift */; };
 		FDD705EE2865DD6C0003D311 /* MemoryForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705ED2865DD6C0003D311 /* MemoryForm.swift */; };
 		FDD705F02865DFB10003D311 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705EF2865DFB10003D311 /* OnboardingPage.swift */; };
+		FDD705F22868B0E00003D311 /* LoveLanguageTestOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705F12868B0E00003D311 /* LoveLanguageTestOption.swift */; };
+		FDD705F42868B1130003D311 /* LoveLanguageQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705F32868B1130003D311 /* LoveLanguageQuestion.swift */; };
+		FDD70668286AF4850003D311 /* OnboardingNextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD70667286AF4840003D311 /* OnboardingNextButton.swift */; };
+		FDFDDDE5286F3FFC00E303E3 /* ActivityList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFDDDDF286F3FFB00E303E3 /* ActivityList+CoreDataClass.swift */; };
+		FDFDDDE6286F3FFC00E303E3 /* LoveLanguages+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFDDDE0286F3FFC00E303E3 /* LoveLanguages+CoreDataClass.swift */; };
+		FDFDDDE7286F3FFC00E303E3 /* LoveLanguages+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFDDDE1286F3FFC00E303E3 /* LoveLanguages+CoreDataProperties.swift */; };
+		FDFDDDE8286F3FFC00E303E3 /* SpecialDay+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFDDDE2286F3FFC00E303E3 /* SpecialDay+CoreDataClass.swift */; };
+		FDFDDDE9286F3FFC00E303E3 /* ActivityList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFDDDE3286F3FFC00E303E3 /* ActivityList+CoreDataProperties.swift */; };
+		FDFDDDEA286F3FFC00E303E3 /* SpecialDay+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFDDDE4286F3FFC00E303E3 /* SpecialDay+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,9 +67,21 @@
 		0EE23A9B285F633100ACBD61 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		0EE23A9E285F63B700ACBD61 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		0EE23AA1285F646B00ACBD61 /* Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
-		9384665C2868B7A600A4CD36 /* datLove.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = datLove.xcdatamodel; sourceTree = "<group>"; };
 		9384665E2868BCDE00A4CD36 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		938466612868C22F00A4CD36 /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
+		93A99662286C4AB100B5F844 /* ActivityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTest.swift; sourceTree = "<group>"; };
+		93A99664286C4BEC00B5F844 /* ShowDataActivityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDataActivityTest.swift; sourceTree = "<group>"; };
+		93A99667286C528700B5F844 /* datLoveModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = datLoveModel.xcdatamodel; sourceTree = "<group>"; };
+		93DBDADC286CC5E700F6AA47 /* datLoveModelver2.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = datLoveModelver2.0.xcdatamodel; sourceTree = "<group>"; };
+		93DBDADD286CC86800F6AA47 /* ShowSpecialDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSpecialDay.swift; sourceTree = "<group>"; };
+		93DBDADF286CD13300F6AA47 /* AddSpecialDateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpecialDateTest.swift; sourceTree = "<group>"; };
+		FD6D951D286C893C00A25687 /* LoveLanguageLogoBg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguageLogoBg.swift; sourceTree = "<group>"; };
+		FD6D951F286CA30700A25687 /* CustomModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifier.swift; sourceTree = "<group>"; };
+		FD6D9521286CA88A00A25687 /* IntroLoveLanguagePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroLoveLanguagePrompt.swift; sourceTree = "<group>"; };
+		FD6D9525286CB4E000A25687 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
+		FD6D952A286CCCC200A25687 /* LoveLanguageUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguageUser.swift; sourceTree = "<group>"; };
+		FD8413C1286D5DE800E2C4E8 /* GlobalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalObject.swift; sourceTree = "<group>"; };
+		FDAFBBCC286F89D700627BA6 /* CoreDataPreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPreviewHelper.swift; sourceTree = "<group>"; };
 		FDD705D02865DAE80003D311 /* NamePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamePrompt.swift; sourceTree = "<group>"; };
 		FDD705D42865DB060003D311 /* SpecialDatePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialDatePrompt.swift; sourceTree = "<group>"; };
 		FDD705D62865DB6C0003D311 /* LoveLanguagePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguagePrompt.swift; sourceTree = "<group>"; };
@@ -63,6 +95,15 @@
 		FDD705EB2865DD1A0003D311 /* TestResultPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultPage.swift; sourceTree = "<group>"; };
 		FDD705ED2865DD6C0003D311 /* MemoryForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryForm.swift; sourceTree = "<group>"; };
 		FDD705EF2865DFB10003D311 /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
+		FDD705F12868B0E00003D311 /* LoveLanguageTestOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguageTestOption.swift; sourceTree = "<group>"; };
+		FDD705F32868B1130003D311 /* LoveLanguageQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguageQuestion.swift; sourceTree = "<group>"; };
+		FDD70667286AF4840003D311 /* OnboardingNextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNextButton.swift; sourceTree = "<group>"; };
+		FDFDDDDF286F3FFB00E303E3 /* ActivityList+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActivityList+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FDFDDDE0286F3FFC00E303E3 /* LoveLanguages+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoveLanguages+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FDFDDDE1286F3FFC00E303E3 /* LoveLanguages+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoveLanguages+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FDFDDDE2286F3FFC00E303E3 /* SpecialDay+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SpecialDay+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FDFDDDE3286F3FFC00E303E3 /* ActivityList+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActivityList+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FDFDDDE4286F3FFC00E303E3 /* SpecialDay+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SpecialDay+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +122,7 @@
 			children = (
 				0EE23A85285F626500ACBD61 /* Hover */,
 				0EE23A84285F626500ACBD61 /* Products */,
+				FDFDDDDD286F3F0B00E303E3 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,7 +145,7 @@
 				0EE23A94285F62AF00ACBD61 /* views */,
 				0EE23A8A285F626700ACBD61 /* Assets.xcassets */,
 				0EE23A8C285F626700ACBD61 /* Preview Content */,
-				9384665B2868B7A600A4CD36 /* datLove.xcdatamodeld */,
+				93A99666286C528700B5F844 /* datLoveModel.xcdatamodeld */,
 			);
 			path = Hover;
 			sourceTree = "<group>";
@@ -152,7 +194,17 @@
 			isa = PBXGroup;
 			children = (
 				0EE23A9B285F633100ACBD61 /* Activity.swift */,
+				FDD705F12868B0E00003D311 /* LoveLanguageTestOption.swift */,
+				FDD705F32868B1130003D311 /* LoveLanguageQuestion.swift */,
 				9384665E2868BCDE00A4CD36 /* DataController.swift */,
+				FD6D952A286CCCC200A25687 /* LoveLanguageUser.swift */,
+				FD8413C1286D5DE800E2C4E8 /* GlobalObject.swift */,
+				FDFDDDDF286F3FFB00E303E3 /* ActivityList+CoreDataClass.swift */,
+				FDFDDDE3286F3FFC00E303E3 /* ActivityList+CoreDataProperties.swift */,
+				FDFDDDE0286F3FFC00E303E3 /* LoveLanguages+CoreDataClass.swift */,
+				FDFDDDE1286F3FFC00E303E3 /* LoveLanguages+CoreDataProperties.swift */,
+				FDFDDDE2286F3FFC00E303E3 /* SpecialDay+CoreDataClass.swift */,
+				FDFDDDE4286F3FFC00E303E3 /* SpecialDay+CoreDataProperties.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -161,6 +213,10 @@
 			isa = PBXGroup;
 			children = (
 				0EE23A9E285F63B700ACBD61 /* Tag.swift */,
+				FDD70667286AF4840003D311 /* OnboardingNextButton.swift */,
+				FD6D951D286C893C00A25687 /* LoveLanguageLogoBg.swift */,
+				FD6D951F286CA30700A25687 /* CustomModifier.swift */,
+				FD6D9525286CB4E000A25687 /* Checklist.swift */,
 			);
 			path = _shared;
 			sourceTree = "<group>";
@@ -170,6 +226,7 @@
 			children = (
 				0EE23AA1285F646B00ACBD61 /* Function.swift */,
 				0E098815286B22DF00469A73 /* Colors.swift */,
+				FDAFBBCC286F89D700627BA6 /* CoreDataPreviewHelper.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -178,6 +235,10 @@
 			isa = PBXGroup;
 			children = (
 				938466612868C22F00A4CD36 /* CoreDataTest.swift */,
+				93A99662286C4AB100B5F844 /* ActivityTest.swift */,
+				93A99664286C4BEC00B5F844 /* ShowDataActivityTest.swift */,
+				93DBDADD286CC86800F6AA47 /* ShowSpecialDay.swift */,
+				93DBDADF286CD13300F6AA47 /* AddSpecialDateTest.swift */,
 			);
 			path = CoreDataTest;
 			sourceTree = "<group>";
@@ -189,6 +250,7 @@
 				FDD705D42865DB060003D311 /* SpecialDatePrompt.swift */,
 				FDD705D62865DB6C0003D311 /* LoveLanguagePrompt.swift */,
 				FDD705EF2865DFB10003D311 /* OnboardingPage.swift */,
+				FD6D9521286CA88A00A25687 /* IntroLoveLanguagePrompt.swift */,
 			);
 			path = onboarding;
 			sourceTree = "<group>";
@@ -235,6 +297,13 @@
 				FDD705E92865DD020003D311 /* ProfilePage.swift */,
 			);
 			path = profile;
+			sourceTree = "<group>";
+		};
+		FDFDDDDD286F3F0B00E303E3 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,28 +376,49 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD6D952B286CCCC200A25687 /* LoveLanguageUser.swift in Sources */,
+				FDFDDDE6286F3FFC00E303E3 /* LoveLanguages+CoreDataClass.swift in Sources */,
 				0EE23A89285F626500ACBD61 /* ContentView.swift in Sources */,
+				FD6D951E286C893C00A25687 /* LoveLanguageLogoBg.swift in Sources */,
 				FDD705DA2865DB930003D311 /* QuestionLoveLanguage.swift in Sources */,
+				FDD705F22868B0E00003D311 /* LoveLanguageTestOption.swift in Sources */,
+				FD6D9526286CB4E000A25687 /* Checklist.swift in Sources */,
 				FDD705F02865DFB10003D311 /* OnboardingPage.swift in Sources */,
+				93A99663286C4AB100B5F844 /* ActivityTest.swift in Sources */,
 				FDD705EE2865DD6C0003D311 /* MemoryForm.swift in Sources */,
 				FDD705DD2865DBCD0003D311 /* SpecialDatePage.swift in Sources */,
 				FDD705E22865DC5A0003D311 /* MemoryPage.swift in Sources */,
 				FDD705DF2865DC100003D311 /* SpecialDateForm.swift in Sources */,
+				FDD70668286AF4850003D311 /* OnboardingNextButton.swift in Sources */,
+				FD6D9520286CA30700A25687 /* CustomModifier.swift in Sources */,
 				9384665F2868BCDE00A4CD36 /* DataController.swift in Sources */,
 				0E505E77287198240070BEFD /* Activities.swift in Sources */,
 				9384665D2868B7A600A4CD36 /* datLove.xcdatamodeld in Sources */,
 				0EE23A87285F626500ACBD61 /* HoverApp.swift in Sources */,
+				93DBDADE286CC86800F6AA47 /* ShowSpecialDay.swift in Sources */,
 				0EE23A9F285F63B700ACBD61 /* Tag.swift in Sources */,
+				FDFDDDE5286F3FFC00E303E3 /* ActivityList+CoreDataClass.swift in Sources */,
 				FDD705D12865DAE80003D311 /* NamePrompt.swift in Sources */,
 				0EE23AA2285F646B00ACBD61 /* Function.swift in Sources */,
+				FD8413C2286D5DE800E2C4E8 /* GlobalObject.swift in Sources */,
+				FDFDDDE9286F3FFC00E303E3 /* ActivityList+CoreDataProperties.swift in Sources */,
 				0E098816286B22DF00469A73 /* Colors.swift in Sources */,
+				93A99668286C528700B5F844 /* datLoveModel.xcdatamodeld in Sources */,
+				FDFDDDEA286F3FFC00E303E3 /* SpecialDay+CoreDataProperties.swift in Sources */,
 				FDD705E72865DCBA0003D311 /* ActivityForm.swift in Sources */,
 				FDD705EA2865DD020003D311 /* ProfilePage.swift in Sources */,
 				FDD705E52865DC9B0003D311 /* ActivityPage.swift in Sources */,
+				FDFDDDE8286F3FFC00E303E3 /* SpecialDay+CoreDataClass.swift in Sources */,
 				FDD705D52865DB060003D311 /* SpecialDatePrompt.swift in Sources */,
 				0EE23A9C285F633100ACBD61 /* Activity.swift in Sources */,
 				0EE23A98285F62EA00ACBD61 /* HomeScreen.swift in Sources */,
+				FD6D9522286CA88A00A25687 /* IntroLoveLanguagePrompt.swift in Sources */,
+				FDD705F42868B1130003D311 /* LoveLanguageQuestion.swift in Sources */,
 				FDD705EC2865DD1A0003D311 /* TestResultPage.swift in Sources */,
+				93DBDAE0286CD13300F6AA47 /* AddSpecialDateTest.swift in Sources */,
+				FDAFBBCD286F89D700627BA6 /* CoreDataPreviewHelper.swift in Sources */,
+				93A99665286C4BEC00B5F844 /* ShowDataActivityTest.swift in Sources */,
+				FDFDDDE7286F3FFC00E303E3 /* LoveLanguages+CoreDataProperties.swift in Sources */,
 				938466622868C22F00A4CD36 /* CoreDataTest.swift in Sources */,
 				FDD705D72865DB6C0003D311 /* LoveLanguagePrompt.swift in Sources */,
 			);
@@ -459,7 +549,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hover/Preview Content\"";
-				DEVELOPMENT_TEAM = 474XANH3RF;
+				DEVELOPMENT_TEAM = FANN368M5W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -472,7 +562,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ditcu.Hover;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahaez.Hover;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -488,8 +578,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hover/Preview Content\"";
-				DEVELOPMENT_TEAM = 474XANH3RF;
-				ENABLE_PREVIEWS = YES;
+				DEVELOPMENT_TEAM = FANN368M5W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -501,7 +590,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ditcu.Hover;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahaez.Hover;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -533,13 +622,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9384665B2868B7A600A4CD36 /* datLove.xcdatamodeld */ = {
+		93A99666286C528700B5F844 /* datLoveModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				9384665C2868B7A600A4CD36 /* datLove.xcdatamodel */,
+				93DBDADC286CC5E700F6AA47 /* datLoveModelver2.0.xcdatamodel */,
+				93A99667286C528700B5F844 /* datLoveModel.xcdatamodel */,
 			);
-			currentVersion = 9384665C2868B7A600A4CD36 /* datLove.xcdatamodel */;
-			path = datLove.xcdatamodeld;
+			currentVersion = 93DBDADC286CC5E700F6AA47 /* datLoveModelver2.0.xcdatamodel */;
+			path = datLoveModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

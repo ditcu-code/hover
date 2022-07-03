@@ -9,9 +9,25 @@ import Foundation
 import CoreData
 
 class DataController: ObservableObject {
-    let container = NSPersistentContainer(name: "datLove")
+    static let shared = DataController()
+    
+    //    let container: NSPersistentContainer = {
+    //        // call the XCDataModel name
+    //        let container = NSPersistentContainer(name: "datLoveModel")
+    //
+    //        // load persistent stores
+    //        container.loadPersistentStores{ description, error in
+    //            if let error = error{
+    //                print("Core datanya gagal di load :( : \(error.localizedDescription)")
+    //            }
+    //        }
+    //        return container
+    //    }()
+    
+    let container : NSPersistentContainer
     
     init(){
+        container = NSPersistentContainer(name: "datLoveModel")
         container.loadPersistentStores{ description, error in
             if let error = error{
                 print("Core datanya gagal di load :( : \(error.localizedDescription)")

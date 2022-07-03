@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Activity_LoveLanguage" representedClassName="Activity_LoveLanguage" syncable="YES" codeGenerationType="class">
-        <attribute name="idActivity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="idLL" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    <entity name="Activity_LL" representedClassName="Activity_LL" syncable="YES" codeGenerationType="class">
+        <attribute name="idActivity" optional="YES" attributeType="String"/>
+        <attribute name="idLL" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="ActivityData" representedClassName="ActivityData" syncable="YES" codeGenerationType="class">
+    <entity name="Activity_SpecialDate" representedClassName="Activity_SpecialDate" syncable="YES" codeGenerationType="class">
+        <attribute name="idActivity" optional="YES" attributeType="String"/>
+        <attribute name="idSD" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="ActivityList" representedClassName="ActivityList" syncable="YES" codeGenerationType="class">
         <attribute name="activity" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="llid" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="LoveLanguage" representedClassName="LoveLanguage" syncable="YES" codeGenerationType="class">
         <attribute name="detail" optional="YES" attributeType="String"/>
@@ -29,26 +32,21 @@
         <attribute name="notificationID" optional="YES" attributeType="String"/>
         <attribute name="repeatNotif" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="SpecialDate_Activity" representedClassName="SpecialDate_Activity" syncable="YES" codeGenerationType="class">
-        <attribute name="idLL" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="idSD" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-    </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
         <attribute name="aos" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="pt" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="rg" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="woa" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="Activity_LoveLanguage" positionX="-36" positionY="45" width="128" height="59"/>
-        <element name="ActivityData" positionX="-63" positionY="-18" width="128" height="74"/>
         <element name="LoveLanguage" positionX="-54" positionY="18" width="128" height="74"/>
         <element name="Memory" positionX="36" positionY="144" width="128" height="104"/>
         <element name="SpecialDate" positionX="-18" positionY="54" width="128" height="119"/>
-        <element name="SpecialDate_Activity" positionX="0" positionY="99" width="128" height="59"/>
         <element name="User" positionX="18" positionY="108" width="128" height="119"/>
+        <element name="Activity_LL" positionX="-9" positionY="99" width="128" height="59"/>
+        <element name="ActivityList" positionX="0" positionY="108" width="128" height="59"/>
+        <element name="Activity_SpecialDate" positionX="9" positionY="117" width="128" height="59"/>
     </elements>
 </model>
