@@ -40,6 +40,12 @@ extension LoveLanguageUser {
         }
         return sortedLLs.first?.llName ?? ""
     }
+    func getSecondaryLoveLanguage() -> String {
+        let sortedLLs = lls.sorted { a, b in
+            a.point > b.point
+        }
+        return sortedLLs[1].llName 
+    }
     
     func transformLLPointToRation() throws -> [LoveLanguageRatio] {
         let llAoS = LoveLanguageRatio(llName: LoveLanguageEnum.actOfService.rawValue, point: Int(user.aos))
