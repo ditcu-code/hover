@@ -10,6 +10,8 @@ import CoreData
 
 struct HomeScreen: View {
     @Environment(\.managedObjectContext) var moc
+    @Environment(\.scenePhase) private var scenePhase
+    @EnvironmentObject var globalObject: GlobalObject
     
     var body: some View {
         NavigationView {
@@ -31,14 +33,14 @@ struct HomeScreen: View {
                 ProfilePage()
                     .tabItem {
                         VStack {
-                            Image(systemName: "person.fill")
+                            Image(systemName: "person.2.wave.2.fill")
                             Text("Profile")
                         }
                     }
                     .navigationBarBackButtonHidden(true)
                     .navigationBarHidden(true)
             }
-        }.onAppear {
+        }.onChange(of: scenePhase) { _ in
             loadCurrentUser()
         }
     }
@@ -54,9 +56,9 @@ struct HomeScreen: View {
             let users = try moc.fetch(request)
             for i in users {
                 if i.id?.uuidString == idUser {
-                    GlobalObject.shared.user = i
+                    globalObject.user = i
                 } else if i.id?.uuidString == idPartner {
-                    GlobalObject.shared.user = i
+                    globalObject.partner = i
                 }
             }
         } catch {
@@ -69,5 +71,6 @@ struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
         HomeScreen()
             .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
+            .environmentObject(GlobalObject.shared)
     }
 }

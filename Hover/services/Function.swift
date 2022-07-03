@@ -12,7 +12,7 @@ let screenSize = UIScreen.main.bounds.width
 let screenHeight = UIScreen.main.bounds.height
 let onboardingTotalStep = 10
 
-enum LoveLanguageEnum: String {
+enum LoveLanguageEnum: String, CaseIterable {
     case actOfService = "Acts of Service", qualityTime = "Quality Time", receivingGift = "Receiving Gifts", physicalTouch = "Physical Touch", wordsOfAffirmation = "Word of Affirmation", combination = "Combination"
 }
 

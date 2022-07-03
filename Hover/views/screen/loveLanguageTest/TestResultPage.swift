@@ -41,9 +41,14 @@ struct TestResultPage: View {
             }
             VStack {
                 VStack {
-                    ProgressView(value: (Float(progress) / Float(onboardingTotalStep)))
-                        .animation(.easeInOut(duration: 1), value: onboardingTotalStep)
-                        .padding(.bottom, 160)
+                    if onboardingStep > 1 {
+                        ProgressView(value: (Float(progress) / Float(onboardingTotalStep)))
+                            .animation(.easeInOut(duration: 1), value: onboardingTotalStep)
+                            .padding(.bottom, 160)
+                    } else {
+                        EmptyView()
+                            .padding(.bottom, 160)
+                    }
                     HStack {
                         VStack(alignment: .leading) {
                             Text("Your Love Language is")
