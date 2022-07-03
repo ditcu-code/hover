@@ -9,6 +9,7 @@ import SwiftUI
 
 struct QuestionLoveLanguage: View {
     @Environment(\.managedObjectContext) var moc
+    @EnvironmentObject var globalObject: GlobalObject
     
     @State private var option1Label: String = "Opsi 1"
     @State private var option2Label: String = "Opsi 2"
@@ -103,6 +104,11 @@ struct QuestionLoveLanguage: View {
         user.rg = Int32(calculate(value: chosenOptions["C"] ?? 0))
         user.aos = Int32(calculate(value: chosenOptions["D"] ?? 0))
         user.pt = Int32(calculate(value: chosenOptions["E"] ?? 0))
+        if user.isUser {
+            globalObject.user = user
+        } else {
+            globalObject.partner = user
+        }
         
         try? moc.save()
     }
@@ -120,5 +126,6 @@ struct QuestionLoveLanguage: View {
 struct QuestionLoveLanguage_Previews: PreviewProvider {
     static var previews: some View {
         QuestionLoveLanguage(user: GlobalObject.shared.user)
+            .environmentObject(GlobalObject.shared)
     }
 }

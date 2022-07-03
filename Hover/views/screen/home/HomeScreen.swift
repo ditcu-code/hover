@@ -10,35 +10,42 @@ import CoreData
 
 struct HomeScreen: View {
     @Environment(\.managedObjectContext) var moc
+    @Environment(\.scenePhase) private var scenePhase
+    @EnvironmentObject var globalObject: GlobalObject
     
     var body: some View {
-        NavigationView {
-            TabView {
+        TabView {
+            NavigationView {
                 ActivityPage()
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "house.fill")
-                            Text("Home")
-                        }
-                    }
-                SpecialDatePage()
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "calendar.badge.exclamationmark")
-                            Text("Special Date")
-                        }
-                    }
-                ProfilePage()
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "folder.fill")
-                            Text("Memories")
-                        }
-                    }
-                    .navigationBarBackButtonHidden(true)
-                    .navigationBarHidden(true)
             }
-        }.onAppear {
+            .tabItem {
+                VStack {
+                    Image(systemName: "house.fill")
+                    Text("Home")
+                }
+            }
+            NavigationView {
+                SpecialDatePage()
+            }
+            .tabItem {
+                VStack {
+                    Image(systemName: "calendar.badge.exclamationmark")
+                    Text("Special Date")
+                }
+            }
+            NavigationView {
+                ProfilePage()
+            }
+            .tabItem {
+                VStack {
+                    Image(systemName: "person.2.wave.2.fill")
+                    Text("Profile")
+                }
+            }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
+        }
+        .onChange(of: scenePhase) { _ in
             loadCurrentUser()
         }
         .navigationBarBackButtonHidden(true)
@@ -55,9 +62,9 @@ struct HomeScreen: View {
             let users = try moc.fetch(request)
             for i in users {
                 if i.id?.uuidString == idUser {
-                    GlobalObject.shared.user = i
+                    globalObject.user = i
                 } else if i.id?.uuidString == idPartner {
-                    GlobalObject.shared.user = i
+                    globalObject.partner = i
                 }
             }
         } catch {
@@ -70,5 +77,6 @@ struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
         HomeScreen()
             .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
+            .environmentObject(GlobalObject.shared)
     }
 }

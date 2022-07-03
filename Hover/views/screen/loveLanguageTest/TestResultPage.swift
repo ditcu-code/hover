@@ -41,9 +41,14 @@ struct TestResultPage: View {
             }
             VStack {
                 VStack {
-                    ProgressView(value: (Float(progress) / Float(onboardingTotalStep)))
-                        .animation(.easeInOut(duration: 1), value: onboardingTotalStep)
-                        .padding(.bottom, 160)
+                    if onboardingStep > 1 {
+                        ProgressView(value: (Float(progress) / Float(onboardingTotalStep)))
+                            .animation(.easeInOut(duration: 1), value: onboardingTotalStep)
+                            .padding(.bottom, 160)
+                    } else {
+                        EmptyView()
+                            .padding(.bottom, 160)
+                    }
                     HStack {
                         VStack(alignment: .leading) {
                             Text("Your Love Language is")
@@ -67,11 +72,11 @@ struct TestResultPage: View {
                         if onboardingStep == 6 {
                             selectionPage = "PartnerLoveLanguage"
                         } else {
-                            if UserDefaults.standard.bool(forKey: "isDoneOnboarding") == false {
-                                UserDefaults.standard.set(true, forKey: "isDoneOnboarding")
+                            if UserDefaults.standard.bool(forKey: "isDoneOnboarding") {
                                 selectionPage = "HomePage"
                             } else {
-                                selectionPage = "HomePage"
+//                                selectionPage = "HomePage"
+                                UserDefaults.standard.set(true, forKey: "isDoneOnboarding")
                             }
                         }
                     } label: {
