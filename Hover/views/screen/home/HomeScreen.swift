@@ -14,7 +14,7 @@ struct HomeScreen: View {
     var body: some View {
         NavigationView {
             TabView {
-                Text("Home View")
+                Activities()
                     .tabItem {
                         VStack {
                             Image(systemName: "house.fill")
@@ -41,6 +41,7 @@ struct HomeScreen: View {
         }.onAppear {
             loadCurrentUser()
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     func loadCurrentUser() {

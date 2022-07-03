@@ -11,8 +11,7 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \LoveLanguages.llName, ascending: true)]) var loveLanguages : FetchedResults <LoveLanguages>
-    
+    @FetchRequest(sortDescriptors: []) var loveLanguages : FetchedResults <LoveLanguages>
     @AppStorage("isDoneOnboarding") private var isDoneOnboarding: Bool = false
     @AppStorage("idUser") private var idUser: String = ""
     @AppStorage("idPartner") private var idPartner: String = ""
