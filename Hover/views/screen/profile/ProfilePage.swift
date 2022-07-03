@@ -14,10 +14,15 @@ struct ProfilePage: View {
     var body: some View {
         ZStack {
             Color.backgroundColor.ignoresSafeArea()
-            VStack(spacing: 30) {
+            ScrollView {
+                HStack{
+                    Spacer()
+                }.frame(height: UINavigationBar.appearance().bounds.height)
                 ProfileCard(user: $globalObject.user)
                 ProfileCard(user: $globalObject.partner)
             }
+            .navigationTitle("Profile")
+            .navigationBarTitleDisplayMode(.large)
         }
     }
 }

@@ -14,33 +14,38 @@ struct HomeScreen: View {
     @EnvironmentObject var globalObject: GlobalObject
     
     var body: some View {
-        NavigationView {
-            TabView {
+        TabView {
+            NavigationView {
                 Activities()
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "house.fill")
-                            Text("Home")
-                        }
-                    }
-                SpecialDatePage()
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "calendar.badge.exclamationmark")
-                            Text("Special Date")
-                        }
-                    }
-                ProfilePage()
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "person.2.wave.2.fill")
-                            Text("Profile")
-                        }
-                    }
-                    .navigationBarBackButtonHidden(true)
-                    .navigationBarHidden(true)
             }
-        }.onChange(of: scenePhase) { _ in
+            .tabItem {
+                VStack {
+                    Image(systemName: "house.fill")
+                    Text("Home")
+                }
+            }
+            NavigationView {
+                SpecialDatePage()
+            }
+            .tabItem {
+                VStack {
+                    Image(systemName: "calendar.badge.exclamationmark")
+                    Text("Special Date")
+                }
+            }
+            NavigationView {
+                ProfilePage()
+            }
+            .tabItem {
+                VStack {
+                    Image(systemName: "person.2.wave.2.fill")
+                    Text("Profile")
+                }
+            }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
+        }
+        .onChange(of: scenePhase) { _ in
             loadCurrentUser()
         }
         .navigationBarBackButtonHidden(true)

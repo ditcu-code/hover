@@ -21,7 +21,7 @@ struct ContentView: View {
         ZStack {
             Color.backgroundColor
                 .ignoresSafeArea()
-            if UserDefaults.standard.bool(forKey: "isDoneOnboarding") {
+            if isDoneOnboarding {
                 HomeScreen()
                     .environmentObject(globalObject)
             } else {
