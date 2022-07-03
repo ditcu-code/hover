@@ -72,11 +72,11 @@ struct TestResultPage: View {
                         if onboardingStep == 6 {
                             selectionPage = "PartnerLoveLanguage"
                         } else {
-                            if UserDefaults.standard.bool(forKey: "isDoneOnboarding") == false {
-                                UserDefaults.standard.set(true, forKey: "isDoneOnboarding")
+                            if UserDefaults.standard.bool(forKey: "isDoneOnboarding") {
                                 selectionPage = "HomePage"
                             } else {
-                                selectionPage = "HomePage"
+//                                selectionPage = "HomePage"
+                                UserDefaults.standard.set(true, forKey: "isDoneOnboarding")
                             }
                         }
                     } label: {
