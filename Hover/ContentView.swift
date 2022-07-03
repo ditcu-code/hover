@@ -10,6 +10,7 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
+    @StateObject var globalObject : GlobalObject = GlobalObject.shared
     
     @FetchRequest(sortDescriptors: []) var loveLanguages : FetchedResults <LoveLanguages>
     @AppStorage("isDoneOnboarding") private var isDoneOnboarding: Bool = false
@@ -22,6 +23,7 @@ struct ContentView: View {
                 .ignoresSafeArea()
             if UserDefaults.standard.bool(forKey: "isDoneOnboarding") {
                 HomeScreen()
+                    .environmentObject(globalObject)
             } else {
                 OnboardingPage()
                     .onAppear(){

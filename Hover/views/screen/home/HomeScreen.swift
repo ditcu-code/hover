@@ -14,7 +14,7 @@ struct HomeScreen: View {
     var body: some View {
         NavigationView {
             TabView {
-                Activities()
+                ActivityPage()
                     .tabItem {
                         VStack {
                             Image(systemName: "house.fill")
