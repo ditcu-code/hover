@@ -21,6 +21,14 @@ struct TestResultPage: View {
         LoveLanguageUser(user: user)
     }
     
+    var loveLanguages: [LoveLanguages] {
+        do {
+            return try moc.fetch(LoveLanguages.fetchRequest()) as! [LoveLanguages]
+        } catch {
+            return []
+        }
+    }
+    
     var body: some View {
         ZStack {
             ZStack {
@@ -49,7 +57,7 @@ struct TestResultPage: View {
                         Spacer()
                     }
                     Spacer()
-                    Text("People whose love language is physical touch enjoy when their partners express affection for them in physical ways, such as hugs, kisses, and even just a hand on the shoulder.")
+                    Text(getLoveLanguageDetail(ll: getPrimaryLoveLanguage()))
                         .font(.headline)
                         .fontWeight(.semibold)
                     Spacer()
@@ -59,8 +67,9 @@ struct TestResultPage: View {
                         if onboardingStep == 6 {
                             selectionPage = "PartnerLoveLanguage"
                         } else {
-                            if UserDefaults.standard.bool(forKey: "isNewUser") {
-                                UserDefaults.standard.set(false, forKey: "isNewUser")
+                            if UserDefaults.standard.bool(forKey: "isDoneOnboarding") == false {
+                                UserDefaults.standard.set(true, forKey: "isDoneOnboarding")
+                                selectionPage = "HomePage"
                             } else {
                                 selectionPage = "HomePage"
                             }
@@ -85,10 +94,17 @@ struct TestResultPage: View {
         // just for preview
 //        return LoveLanguageEnum.wordsOfAffirmation.rawValue
     }
+    
+    func getLoveLanguageDetail(ll: String) -> String {
+        let chosen = loveLanguages.first { $0.wrappedLLName == ll }
+        
+        return chosen?.wrappedDetail ?? "No Detail"
+    }
 }
 
 struct TestResultPage_Previews: PreviewProvider {
     static var previews: some View {
-        TestResultPage(onboardingStep: .constant(6), user: GlobalObject.shared.user)
+        TestResultPage(onboardingStep: .constant(6), user: CoreDataPreviewHelper.dummyUser)
+            .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
     }
 }

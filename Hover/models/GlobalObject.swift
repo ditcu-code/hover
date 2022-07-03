@@ -10,6 +10,6 @@ import Foundation
 class GlobalObject: ObservableObject {
     static let shared: GlobalObject = GlobalObject()
     
-    @Published var user: User = User()
-    @Published var partner: User = User()
+    @Published var user: User = CoreDataPreviewHelper.initialUser
+    @Published var partner: User = CoreDataPreviewHelper.initialUser
 }
