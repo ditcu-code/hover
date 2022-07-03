@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 class DataController: ObservableObject {
-//    static let shared = DataController()
+    static let shared = DataController()
     
 //    let container: NSPersistentContainer = {
 //        // call the XCDataModel name

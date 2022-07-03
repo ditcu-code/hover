@@ -9,22 +9,14 @@ import SwiftUI
 
 struct AddSpecialDateTest: View {
     @Environment(\.presentationMode) var presentationMode
-    @State var navActive: Bool = true
+    @State var navActive: Bool = false
     @State private var specialDateTextField: String = ""
     @State var selectedDate = Date()
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) var activities : FetchedResults <ActivityList>
     @State var actSelections: [ActivityList] = []
-    enum Repeat: String, CaseIterable, Identifiable {
-        case none, monthly, yearly
-        var id: Self { self }
-    }
-    @State private var selectedRepeat: Repeat = .none
     
-    enum Alert: String, CaseIterable, Identifiable {
-        case none, oneDay, twoDay, threeDay, oneWeek
-        var id: Self { self }
-    }
+    @State private var selectedRepeat: Repeat = .none
     @State private var selectedAlert: Alert = .none
     var body: some View {
         NavigationView{
@@ -39,7 +31,7 @@ struct AddSpecialDateTest: View {
                     .cornerRadius(5)
                     .shadow(color: .black, radius: 1)
                 
-                DatePicker("The Date:", selection: $selectedDate, displayedComponents: .date)
+                DatePicker("The Date:", selection: $selectedDate, displayedComponents: [.date])
                     .padding(.top)
                     .padding(.horizontal)
                 HStack{
@@ -59,6 +51,7 @@ struct AddSpecialDateTest: View {
                     Spacer()
                     Picker("Alert", selection: $selectedAlert) {
                             Text("None").tag(Alert.none)
+                        Text("1 Minute").tag(Alert.oneMinute)
                             Text("1 day before").tag(Alert.oneDay)
                             Text("2 days before").tag(Alert.twoDay)
                             Text("3 days before").tag(Alert.threeDay)
@@ -78,11 +71,20 @@ struct AddSpecialDateTest: View {
                         }
                     }
                 }
+                Button("Add Activity"){
+                    navActive = true
+                }
+                NavigationLink(isActive: $navActive) {
+                    ActivityTest()
+                } label: {
+                }
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("Save"){
-                            saveData()
+                            let notificationID = UUID().uuidString
+                            saveData(notifID: notificationID)
+                            createLocalNotification(title: specialDateTextField, date: selectedDate, repeat: selectedRepeat.rawValue, alert: selectedAlert, notifID: notificationID)
                             self.presentationMode.wrappedValue.dismiss()
                         }
                     }
@@ -94,7 +96,20 @@ struct AddSpecialDateTest: View {
             }
         }
     }
-    func saveData(){
+    func createLocalNotification(title: String, date: Date, repeat: String, alert: Alert, notifID: String){
+        if alert != .none{
+            let content = UNMutableNotificationContent()
+            content.title = title
+            content.body = dateCaller(date)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.day, .month, .year], from: alertDate(date, alert)), repeats: false)
+            let request = UNNotificationRequest(identifier: notifID, content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request)
+            UNUserNotificationCenter.current().getPendingNotificationRequests { a in
+                print(a)
+            }
+        }
+    }
+    func saveData(notifID: String){
         let specialDay = SpecialDay(context: moc)
         specialDay.id = UUID()
         specialDay.notificationID = UUID().uuidString
@@ -107,9 +122,6 @@ struct AddSpecialDateTest: View {
             specialDay.addToSpecialToActivity(act)
         }
         try?moc.save()
-    }
-    func addNotification(){
-        
     }
 }
 

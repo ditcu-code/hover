@@ -16,6 +16,9 @@
 		0EE23A9C285F633100ACBD61 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23A9B285F633100ACBD61 /* Activity.swift */; };
 		0EE23A9F285F63B700ACBD61 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23A9E285F63B700ACBD61 /* Tag.swift */; };
 		0EE23AA2285F646B00ACBD61 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23AA1285F646B00ACBD61 /* Function.swift */; };
+		931C01812871C4F5001405CD /* NotificationFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C01802871C4F5001405CD /* NotificationFunction.swift */; };
+		931C01832871C71C001405CD /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C01822871C71C001405CD /* NotificationModel.swift */; };
+		931C01852871DB8E001405CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C01842871DB8E001405CD /* AppDelegate.swift */; };
 		9384665F2868BCDE00A4CD36 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9384665E2868BCDE00A4CD36 /* DataController.swift */; };
 		938466622868C22F00A4CD36 /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938466612868C22F00A4CD36 /* CoreDataTest.swift */; };
 		93A99663286C4AB100B5F844 /* ActivityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A99662286C4AB100B5F844 /* ActivityTest.swift */; };
@@ -64,6 +67,9 @@
 		0EE23A9B285F633100ACBD61 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		0EE23A9E285F63B700ACBD61 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		0EE23AA1285F646B00ACBD61 /* Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
+		931C01802871C4F5001405CD /* NotificationFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationFunction.swift; sourceTree = "<group>"; };
+		931C01822871C71C001405CD /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		931C01842871DB8E001405CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9384665E2868BCDE00A4CD36 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		938466612868C22F00A4CD36 /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
 		93A99662286C4AB100B5F844 /* ActivityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTest.swift; sourceTree = "<group>"; };
@@ -133,6 +139,7 @@
 		0EE23A85285F626500ACBD61 /* Hover */ = {
 			isa = PBXGroup;
 			children = (
+				930DAED328709EC400059842 /* Notification */,
 				938466602868C21700A4CD36 /* CoreDataTest */,
 				0EE23AA0285F644A00ACBD61 /* services */,
 				0EE23A99285F631E00ACBD61 /* models */,
@@ -223,6 +230,16 @@
 				0E098815286B22DF00469A73 /* Colors.swift */,
 			);
 			path = services;
+			sourceTree = "<group>";
+		};
+		930DAED328709EC400059842 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				931C01802871C4F5001405CD /* NotificationFunction.swift */,
+				931C01822871C71C001405CD /* NotificationModel.swift */,
+				931C01842871DB8E001405CD /* AppDelegate.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		938466602868C21700A4CD36 /* CoreDataTest */ = {
@@ -384,12 +401,15 @@
 				FDD705E22865DC5A0003D311 /* MemoryPage.swift in Sources */,
 				FDD705DF2865DC100003D311 /* SpecialDateForm.swift in Sources */,
 				FDD70668286AF4850003D311 /* OnboardingNextButton.swift in Sources */,
+				931C01812871C4F5001405CD /* NotificationFunction.swift in Sources */,
 				FD6D9520286CA30700A25687 /* CustomModifier.swift in Sources */,
 				9384665F2868BCDE00A4CD36 /* DataController.swift in Sources */,
 				0EE23A87285F626500ACBD61 /* HoverApp.swift in Sources */,
+				931C01832871C71C001405CD /* NotificationModel.swift in Sources */,
 				93DBDADE286CC86800F6AA47 /* ShowSpecialDay.swift in Sources */,
 				0EE23A9F285F63B700ACBD61 /* Tag.swift in Sources */,
 				FDFDDDE5286F3FFC00E303E3 /* ActivityList+CoreDataClass.swift in Sources */,
+				931C01852871DB8E001405CD /* AppDelegate.swift in Sources */,
 				FDD705D12865DAE80003D311 /* NamePrompt.swift in Sources */,
 				0EE23AA2285F646B00ACBD61 /* Function.swift in Sources */,
 				FD8413C2286D5DE800E2C4E8 /* GlobalObject.swift in Sources */,
@@ -540,7 +560,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hover/Preview Content\"";
-				DEVELOPMENT_TEAM = FANN368M5W;
+				DEVELOPMENT_TEAM = M6ZNZ32B86;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -569,7 +589,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hover/Preview Content\"";
-				DEVELOPMENT_TEAM = FANN368M5W;
+				DEVELOPMENT_TEAM = M6ZNZ32B86;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
