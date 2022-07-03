@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E098816286B22DF00469A73 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E098815286B22DF00469A73 /* Colors.swift */; };
+		0E505E77287198240070BEFD /* Activities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E505E76287198240070BEFD /* Activities.swift */; };
 		0EE23A87285F626500ACBD61 /* HoverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23A86285F626500ACBD61 /* HoverApp.swift */; };
 		0EE23A89285F626500ACBD61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23A88285F626500ACBD61 /* ContentView.swift */; };
 		0EE23A8B285F626700ACBD61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EE23A8A285F626700ACBD61 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		0E098815286B22DF00469A73 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		0E505E76287198240070BEFD /* Activities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activities.swift; sourceTree = "<group>"; };
 		0EE23A83285F626500ACBD61 /* Hover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EE23A86285F626500ACBD61 /* HoverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverApp.swift; sourceTree = "<group>"; };
 		0EE23A88285F626500ACBD61 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				0EE23A97285F62EA00ACBD61 /* HomeScreen.swift */,
+				0E505E76287198240070BEFD /* Activities.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				FDD705E22865DC5A0003D311 /* MemoryPage.swift in Sources */,
 				FDD705DF2865DC100003D311 /* SpecialDateForm.swift in Sources */,
 				9384665F2868BCDE00A4CD36 /* DataController.swift in Sources */,
+				0E505E77287198240070BEFD /* Activities.swift in Sources */,
 				9384665D2868B7A600A4CD36 /* datLove.xcdatamodeld in Sources */,
 				0EE23A87285F626500ACBD61 /* HoverApp.swift in Sources */,
 				0EE23A9F285F63B700ACBD61 /* Tag.swift in Sources */,
