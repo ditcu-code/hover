@@ -24,7 +24,6 @@
 		938466622868C22F00A4CD36 /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938466612868C22F00A4CD36 /* CoreDataTest.swift */; };
 		93A99663286C4AB100B5F844 /* ActivityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A99662286C4AB100B5F844 /* ActivityTest.swift */; };
 		93A99665286C4BEC00B5F844 /* ShowDataActivityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A99664286C4BEC00B5F844 /* ShowDataActivityTest.swift */; };
-		93A99668286C528700B5F844 /* datLoveModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93A99666286C528700B5F844 /* datLoveModel.xcdatamodeld */; };
 		93DBDADE286CC86800F6AA47 /* ShowSpecialDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBDADD286CC86800F6AA47 /* ShowSpecialDay.swift */; };
 		93DBDAE0286CD13300F6AA47 /* AddSpecialDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBDADF286CD13300F6AA47 /* AddSpecialDateTest.swift */; };
 		FD6D951E286C893C00A25687 /* LoveLanguageLogoBg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D951D286C893C00A25687 /* LoveLanguageLogoBg.swift */; };
@@ -32,6 +31,10 @@
 		FD6D9522286CA88A00A25687 /* IntroLoveLanguagePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D9521286CA88A00A25687 /* IntroLoveLanguagePrompt.swift */; };
 		FD6D9526286CB4E000A25687 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D9525286CB4E000A25687 /* Checklist.swift */; };
 		FD6D952B286CCCC200A25687 /* LoveLanguageUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D952A286CCCC200A25687 /* LoveLanguageUser.swift */; };
+		FD7B63772871C88B00F019F4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7B63762871C88B00F019F4 /* ImagePicker.swift */; };
+		FD7B63802871CBFD00F019F4 /* datLoveModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD7B637C2871CBFD00F019F4 /* datLoveModel.xcdatamodeld */; };
+		FD7B63832871CC2B00F019F4 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7B63812871CC2B00F019F4 /* User+CoreDataClass.swift */; };
+		FD7B63842871CC2B00F019F4 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7B63822871CC2B00F019F4 /* User+CoreDataProperties.swift */; };
 		FD8413C2286D5DE800E2C4E8 /* GlobalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8413C1286D5DE800E2C4E8 /* GlobalObject.swift */; };
 		FDAFBBCD286F89D700627BA6 /* CoreDataPreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAFBBCC286F89D700627BA6 /* CoreDataPreviewHelper.swift */; };
 		FDD705D12865DAE80003D311 /* NamePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D02865DAE80003D311 /* NamePrompt.swift */; };
@@ -77,8 +80,6 @@
 		938466612868C22F00A4CD36 /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
 		93A99662286C4AB100B5F844 /* ActivityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTest.swift; sourceTree = "<group>"; };
 		93A99664286C4BEC00B5F844 /* ShowDataActivityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDataActivityTest.swift; sourceTree = "<group>"; };
-		93A99667286C528700B5F844 /* datLoveModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = datLoveModel.xcdatamodel; sourceTree = "<group>"; };
-		93DBDADC286CC5E700F6AA47 /* datLoveModelver2.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = datLoveModelver2.0.xcdatamodel; sourceTree = "<group>"; };
 		93DBDADD286CC86800F6AA47 /* ShowSpecialDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSpecialDay.swift; sourceTree = "<group>"; };
 		93DBDADF286CD13300F6AA47 /* AddSpecialDateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpecialDateTest.swift; sourceTree = "<group>"; };
 		FD6D951D286C893C00A25687 /* LoveLanguageLogoBg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguageLogoBg.swift; sourceTree = "<group>"; };
@@ -86,6 +87,13 @@
 		FD6D9521286CA88A00A25687 /* IntroLoveLanguagePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroLoveLanguagePrompt.swift; sourceTree = "<group>"; };
 		FD6D9525286CB4E000A25687 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		FD6D952A286CCCC200A25687 /* LoveLanguageUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguageUser.swift; sourceTree = "<group>"; };
+		FD7B63762871C88B00F019F4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		FD7B637D2871CBFD00F019F4 /* datLoveModelver2.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = datLoveModelver2.0.xcdatamodel; sourceTree = "<group>"; };
+		FD7B637E2871CBFD00F019F4 /* datLoveModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = datLoveModel.xcdatamodel; sourceTree = "<group>"; };
+		FD7B63812871CC2B00F019F4 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FD7B63822871CC2B00F019F4 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FD7B63852871DF1E00F019F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FD7B63862871DF9800F019F4 /* datLoveModelver2.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = datLoveModelver2.1.xcdatamodel; sourceTree = "<group>"; };
 		FD8413C1286D5DE800E2C4E8 /* GlobalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalObject.swift; sourceTree = "<group>"; };
 		FDAFBBCC286F89D700627BA6 /* CoreDataPreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPreviewHelper.swift; sourceTree = "<group>"; };
 		FDD705D02865DAE80003D311 /* NamePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamePrompt.swift; sourceTree = "<group>"; };
@@ -143,6 +151,8 @@
 		0EE23A85285F626500ACBD61 /* Hover */ = {
 			isa = PBXGroup;
 			children = (
+				FD7B63852871DF1E00F019F4 /* Info.plist */,
+				FD7B637C2871CBFD00F019F4 /* datLoveModel.xcdatamodeld */,
 				930DAED328709EC400059842 /* Notification */,
 				938466602868C21700A4CD36 /* CoreDataTest */,
 				0EE23AA0285F644A00ACBD61 /* services */,
@@ -152,7 +162,6 @@
 				0EE23A94285F62AF00ACBD61 /* views */,
 				0EE23A8A285F626700ACBD61 /* Assets.xcassets */,
 				0EE23A8C285F626700ACBD61 /* Preview Content */,
-				93A99666286C528700B5F844 /* datLoveModel.xcdatamodeld */,
 			);
 			path = Hover;
 			sourceTree = "<group>";
@@ -200,6 +209,8 @@
 		0EE23A99285F631E00ACBD61 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				FD7B63812871CC2B00F019F4 /* User+CoreDataClass.swift */,
+				FD7B63822871CC2B00F019F4 /* User+CoreDataProperties.swift */,
 				0EE23A9B285F633100ACBD61 /* Activity.swift */,
 				FDD705F12868B0E00003D311 /* LoveLanguageTestOption.swift */,
 				FDD705F32868B1130003D311 /* LoveLanguageQuestion.swift */,
@@ -224,6 +235,7 @@
 				FD6D951D286C893C00A25687 /* LoveLanguageLogoBg.swift */,
 				FD6D951F286CA30700A25687 /* CustomModifier.swift */,
 				FD6D9525286CB4E000A25687 /* Checklist.swift */,
+				FD7B63762871C88B00F019F4 /* ImagePicker.swift */,
 			);
 			path = _shared;
 			sourceTree = "<group>";
@@ -397,6 +409,7 @@
 				FDFDDDE6286F3FFC00E303E3 /* LoveLanguages+CoreDataClass.swift in Sources */,
 				0EE23A89285F626500ACBD61 /* ContentView.swift in Sources */,
 				FD6D951E286C893C00A25687 /* LoveLanguageLogoBg.swift in Sources */,
+				FD7B63802871CBFD00F019F4 /* datLoveModel.xcdatamodeld in Sources */,
 				FDD705DA2865DB930003D311 /* QuestionLoveLanguage.swift in Sources */,
 				FDD705F22868B0E00003D311 /* LoveLanguageTestOption.swift in Sources */,
 				FD6D9526286CB4E000A25687 /* Checklist.swift in Sources */,
@@ -405,6 +418,8 @@
 				FDD705EE2865DD6C0003D311 /* MemoryForm.swift in Sources */,
 				FDD705DD2865DBCD0003D311 /* SpecialDatePage.swift in Sources */,
 				FDD705E22865DC5A0003D311 /* MemoryPage.swift in Sources */,
+				FD7B63772871C88B00F019F4 /* ImagePicker.swift in Sources */,
+				FD7B63832871CC2B00F019F4 /* User+CoreDataClass.swift in Sources */,
 				FDD705DF2865DC100003D311 /* SpecialDateForm.swift in Sources */,
 				FDD70668286AF4850003D311 /* OnboardingNextButton.swift in Sources */,
 				931C01812871C4F5001405CD /* NotificationFunction.swift in Sources */,
@@ -423,7 +438,6 @@
 				FD8413C2286D5DE800E2C4E8 /* GlobalObject.swift in Sources */,
 				FDFDDDE9286F3FFC00E303E3 /* ActivityList+CoreDataProperties.swift in Sources */,
 				0E098816286B22DF00469A73 /* Colors.swift in Sources */,
-				93A99668286C528700B5F844 /* datLoveModel.xcdatamodeld in Sources */,
 				FDFDDDEA286F3FFC00E303E3 /* SpecialDay+CoreDataProperties.swift in Sources */,
 				FDD705E72865DCBA0003D311 /* ActivityForm.swift in Sources */,
 				FDD705EA2865DD020003D311 /* ProfilePage.swift in Sources */,
@@ -438,6 +452,7 @@
 				93DBDAE0286CD13300F6AA47 /* AddSpecialDateTest.swift in Sources */,
 				FDAFBBCD286F89D700627BA6 /* CoreDataPreviewHelper.swift in Sources */,
 				93A99665286C4BEC00B5F844 /* ShowDataActivityTest.swift in Sources */,
+				FD7B63842871CC2B00F019F4 /* User+CoreDataProperties.swift in Sources */,
 				FDFDDDE7286F3FFC00E303E3 /* LoveLanguages+CoreDataProperties.swift in Sources */,
 				938466622868C22F00A4CD36 /* CoreDataTest.swift in Sources */,
 				FDD705D72865DB6C0003D311 /* LoveLanguagePrompt.swift in Sources */,
@@ -572,6 +587,9 @@
 				DEVELOPMENT_TEAM = M6ZNZ32B86;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Hover/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is needed";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Access to Photo Library is needed for saving captured media.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -600,6 +618,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Hover/Preview Content\"";
 				DEVELOPMENT_TEAM = M6ZNZ32B86;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Hover/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is needed";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Access to Photo Library is needed for saving captured media.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -642,13 +663,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		93A99666286C528700B5F844 /* datLoveModel.xcdatamodeld */ = {
+		FD7B637C2871CBFD00F019F4 /* datLoveModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				93DBDADC286CC5E700F6AA47 /* datLoveModelver2.0.xcdatamodel */,
-				93A99667286C528700B5F844 /* datLoveModel.xcdatamodel */,
+				FD7B63862871DF9800F019F4 /* datLoveModelver2.1.xcdatamodel */,
+				FD7B637D2871CBFD00F019F4 /* datLoveModelver2.0.xcdatamodel */,
+				FD7B637E2871CBFD00F019F4 /* datLoveModel.xcdatamodel */,
 			);
-			currentVersion = 93DBDADC286CC5E700F6AA47 /* datLoveModelver2.0.xcdatamodel */;
+			currentVersion = FD7B63862871DF9800F019F4 /* datLoveModelver2.1.xcdatamodel */;
 			path = datLoveModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
