@@ -45,8 +45,8 @@ func alertDate(_ date: Date, _ type: Alert) -> Date {
         return Calendar.current.date(byAdding: .day, value: -3, to: date) ?? date
     case .oneWeek:
         return Calendar.current.date(byAdding: .weekOfMonth, value: -1, to: date) ?? date
-    case .oneMinute:
-        return Calendar.current.date(byAdding: .minute, value: -1, to: date) ?? date
+//    case .oneMinute:
+//        return Calendar.current.date(byAdding: .minute, value: -1, to: date) ?? date
         
         
     default:
