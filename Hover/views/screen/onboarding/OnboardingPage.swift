@@ -19,10 +19,11 @@ struct OnboardingPage: View {
                         .frame(height: screenHeight / 2)
                     VStack(spacing: 20) {
                         VStack {
-                            Text("Dat LOVE")
-                                .font(.title)
-                                .bold()
-                        }.padding(.vertical, 30)
+                            Image("Wordmarks")
+                                .resizable()
+                                .frame(width: 260, height: 90)
+                        }
+                        .padding(.top, 30)
                         HStack(spacing: 20) {
                             LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.combination.rawValue)
                             LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.actOfService.rawValue)

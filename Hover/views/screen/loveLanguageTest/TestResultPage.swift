@@ -83,8 +83,8 @@ struct TestResultPage: View {
                         Text(onboardingStep == 6 ? "Partner Love Language" : "Continue to Home Page")
                             .fontWeight(.semibold)
                             .frame(width: 300, height: 50)
-                            .foregroundColor(.black)
-                            .background(Color.yellowSun)
+                            .foregroundColor(.white)
+                            .background(Color.activeButtonColor)
                             .cornerRadius(30)
                     }
                 }.padding()

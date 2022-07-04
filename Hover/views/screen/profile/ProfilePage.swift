@@ -143,9 +143,9 @@ struct ProfileCard: View {
                     } label: {
                         Text("Retake the test")
                             .fontWeight(.semibold)
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
                             .frame(width: 190, height: 38)
-                            .background(Color.yellowSun)
+                            .background(Color.activeButtonColor)
                             .cornerRadius(30)
                     }
                 }.padding(.horizontal)
