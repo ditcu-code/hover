@@ -13,23 +13,13 @@ struct ActivityPage: View {
     @FetchRequest(sortDescriptors: []) var activities : FetchedResults <ActivityList>
     @FetchRequest(sortDescriptors: []) var loveLanguages : FetchedResults <LoveLanguages>
     @FetchRequest(sortDescriptors: []) var users : FetchedResults <User>
-    @State private var selectedActivity: [(ActivityList,LoveLanguages)] = []
-    @State private var selectedActivity1: [(ActivityList,LoveLanguages)] = []
-    @State private var selectedActivity2: [(ActivityList,LoveLanguages)] = []
-    @State private var selectedActivity3: [(ActivityList,LoveLanguages)] = []
     @State private var listActivities : [[(ActivityList,LoveLanguages)]] = [[]]
     @State private var randomElement: [(ActivityList,LoveLanguages)] = []
     @State private var filteredActivities: [ActivityList] = []
     @State private var randomActivities: [ActivityList] = []
-    //    [
-    //      (ActivityList, LoveLanguages) ?
-    //        ActivityList -> [LoveLanguages]
-    //      let activity = ActivityList
-    //      loveLanguages = activity.llArray
-    //      for i in loveLanguages { }
-    //    ]
-    //    [(ActivityList, LoveLanguages)]
-    //    @Binding var partner: User
+    
+    let maximumRecommendation = 2
+    
     var loveLanguageUser: LoveLanguageUser {
         LoveLanguageUser(user: globalObject.user)
     }
@@ -41,10 +31,14 @@ struct ActivityPage: View {
         ZStack(alignment:.topLeading) {
             Rectangle().fill(.clear)
             Image("bg-home").resizable().aspectRatio(contentMode: .fit).ignoresSafeArea()
-            
-            
-            VStack(alignment: .leading) {
-                Text("Have you done this together 👩‍❤️‍👨 \nwith \(globalObject.partner.wrappedName)?").font(.headline).padding(.horizontal)
+            VStack {
+                HStack{
+                    Spacer()
+                }.frame(height: UINavigationBar.appearance().bounds.height)
+                HStack {
+                    Text("Have you done this together 👩‍❤️‍👨 \nwith \(globalObject.partner.wrappedName)?").font(.headline).padding(.horizontal)
+                    Spacer()
+                }
                 
                 HStack {
                     if !filteredActivities.isEmpty {
@@ -54,12 +48,17 @@ struct ActivityPage: View {
                         RoundedCorner(radius: 8, corners: [.topLeft, .bottomLeft]).fill(.black).opacity(0.5)
                         VStack(alignment: .leading) {
                             if !filteredActivities.isEmpty {
-                                Text(filteredActivities[0].wrappedActivity).font(.title3).bold().shadow(color: .black, radius: 2, x: 1, y: 1)
+                                Text(filteredActivities[0].wrappedActivity)
+                                    .font(.title3)
+                                    .fontWeight(.semibold)
+                                    .shadow(color: .black, radius: 2, x: 1, y: 1)
                                 Spacer()
                                 HStack {
-                                    Spacer()
                                     ForEach(filteredActivities[0].llArray) { ll in
-                                        Text(ll.wrappedLLName).font(.subheadline)
+                                        HStack {
+                                            LoveLanguageLogoBg(loveLanguageName: ll.wrappedLLName, size: 30, cornerRadius: 90)
+                                            Text(ll.wrappedLLName).font(.caption)
+                                        }
                                     }
                                 }
                             }
@@ -69,29 +68,17 @@ struct ActivityPage: View {
                     .frame(height: 120)
                     .foregroundColor(.white)
                 }.padding(.leading)
-                Text("Have you tried these activities to \(globalObject.partner.wrappedName)? \nHe definitely will happy 🤩").font(.headline).padding()
-                    .lineLimit(nil)
-                ForEach(randomActivities, id: \.self) { act in
-                    HStack {
-                        LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: act.llArray) , size: 45, cornerRadius: 8)
-                        ZStack {
-                            getLoveLanguageBg(loveLanguage: getLLLogo(llData: act.llArray))
-                            VStack(alignment: .leading) {
-                                Text(act.wrappedActivity)
-                                    .font(.title3)
-                                    .bold()
-                                    .padding(.leading, 15)
-                                Spacer()
-                                HStack {
-                                    Spacer()
-                                    ForEach(act.llArray, id: \.self) { ll in
-                                        Text(ll.wrappedLLName).font(.subheadline)
-                                    }
-                                }
-                            }
-                        }
-                    }
+                
+                HStack {
+                    Text("Have you tried these activities to \(globalObject.partner.wrappedName)? \nHe definitely will happy 🤩").font(.headline).padding()
+                        .lineLimit(nil)
+                    Spacer()
                 }
+                VStack {
+                    ForEach(randomActivities, id: \.self) { act in
+                        ActivityListItem(activity: act)
+                    }
+                }.padding(.leading, 20)
             }
             
             .navigationTitle("Activities")
@@ -104,7 +91,7 @@ struct ActivityPage: View {
     
     func randomizeActivity() {
         randomActivities = []
-        while randomActivities.count < 3 {
+        while randomActivities.count < maximumRecommendation {
             let random = filteredActivities.randomElement()!
             let isExist = randomActivities.filter { activity in
                 activity.wrappedActivity == random.wrappedActivity || random.wrappedActivity == filteredActivities[0].wrappedActivity
@@ -140,6 +127,43 @@ struct ActivityPage: View {
     }
     func getSecondaryLoveLanguagePartner() -> String {
         return loveLanguagePartner.getSecondaryLoveLanguage()
+    }
+}
+
+struct ActivityListItem: View {
+    let activity: ActivityList
+    
+    var body: some View {
+        HStack {
+            LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: activity.llArray) , size: 45, cornerRadius: 8)
+            ZStack {
+                getLoveLanguageBg(loveLanguage: getLLLogo(llData: activity.llArray))
+                    .resizable()
+                    .frame(width: 308, height: 120)
+                    .overlay {
+                        VStack {
+                            HStack {
+                                Text(activity.wrappedActivity)
+                                    .font(.title3)
+                                    .fontWeight(.semibold)
+                                    .padding(.leading, 15)
+                                Spacer()
+                            }
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                ForEach(activity.llArray, id: \.self) { ll in
+                                    Text(ll.wrappedLLName).font(.subheadline)
+                                        .padding(.trailing, 5)
+                                }
+                            }
+                        }
+                        .padding(.vertical, 10)
+                    }
+                    .padding(.horizontal)
+                    .padding(.top, 5)
+            }
+        }
     }
 }
 

@@ -9,6 +9,8 @@ import Foundation
 
 class CoreDataPreviewHelper {
     static var preview: DataController = {
+        var llActivityRec = ListActivityRecommendation()
+        var lls : [LoveLanguages] = []
         let controller = DataController.shared
         
         let user = User(context: controller.container.viewContext)
@@ -27,6 +29,31 @@ class CoreDataPreviewHelper {
             loveLanguage.id = UUID()
             loveLanguage.llName = llName[i]
             loveLanguage.detail = detail[i]
+            
+            lls.append(loveLanguage)
+        }
+        
+        for a in llActivityRec.activityListLL {
+            saveActivityWithLL(activity: a)
+        }
+        
+        func saveActivityWithLL(activity: ListActivityRecommendationStructure) {
+            let a = ActivityList(context: controller.container.viewContext)
+            var ll : [LoveLanguages] = []
+            for lovelanguage in lls {
+                if lovelanguage.llName == activity.firstLL{
+                    ll.append(lovelanguage)
+                }
+                if lovelanguage.llName == activity.secondLL{
+                    ll.append(lovelanguage)
+                }
+            }
+            a.id = UUID()
+            a.activity = activity.activity
+            let llActivity = Set(ll)
+            for i in llActivity{
+                a.addToActivityToLL(i)
+            }
         }
         
         return controller
