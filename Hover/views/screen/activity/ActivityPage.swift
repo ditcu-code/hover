@@ -19,8 +19,10 @@ struct ActivityPage: View {
     @State private var selectedActivity3: [(ActivityList,LoveLanguages)] = []
     @State private var listActivities : [[(ActivityList,LoveLanguages)]] = [[]]
     @State private var randomElement: [(ActivityList,LoveLanguages)] = []
-    @State private var filteredActivities: [ActivityList] = []
-    @State private var randomActivities: [ActivityList] = []
+    @State private var filteredOneActivities: [ActivityList] = []
+    @State private var filteredTwoActivities: [ActivityList] = []
+    @State private var randomTwoActivities: [ActivityList] = []
+    @State private var randomOneActivities: [ActivityList] = []
     //    [
     //      (ActivityList, LoveLanguages) ?
     //        ActivityList -> [LoveLanguages]
@@ -45,33 +47,32 @@ struct ActivityPage: View {
             
             VStack(alignment: .leading) {
                 Text("Have you done this together 👩‍❤️‍👨 \nwith \(globalObject.partner.wrappedName)?").font(.headline).padding(.horizontal)
-                
-                HStack {
-                    if !filteredActivities.isEmpty {
-                        LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: filteredActivities[0].llArray) , size: 45, cornerRadius: 8)
-                    }
-                    ZStack(alignment: .topLeading) {
-                        RoundedCorner(radius: 8, corners: [.topLeft, .bottomLeft]).fill(.black).opacity(0.5)
-                        VStack(alignment: .leading) {
-                            if !filteredActivities.isEmpty {
-                                Text(filteredActivities[0].wrappedActivity).font(.title3).bold().shadow(color: .black, radius: 2, x: 1, y: 1)
+                ForEach(randomTwoActivities, id: \.self) { act in
+                    HStack {
+                        LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: act.llArray) , size: 45, cornerRadius: 8)
+                        ZStack {
+                            RoundedCorner(radius: 8, corners: [.topLeft, .bottomLeft]).fill(.black).opacity(0.5)
+                            VStack(alignment: .leading) {
+                                Text(act.wrappedActivity)
+                                    .font(.title3)
+                                    .bold()
+                                    .padding(.leading, 15)
                                 Spacer()
                                 HStack {
                                     Spacer()
-                                    ForEach(filteredActivities[0].llArray) { ll in
+                                    ForEach(act.llArray, id: \.self) { ll in
                                         Text(ll.wrappedLLName).font(.subheadline)
                                     }
                                 }
-                            }
-                            
-                        }.padding()
-                    }
-                    .frame(height: 120)
-                    .foregroundColor(.white)
-                }.padding(.leading)
+                            }.padding()
+                        }
+                        .frame(height: 120)
+                        .foregroundColor(.white)
+                    }.padding(.leading)
+                }
                 Text("Have you tried these activities to \(globalObject.partner.wrappedName)? \nHe definitely will happy 🤩").font(.headline).padding()
                     .lineLimit(nil)
-                ForEach(randomActivities, id: \.self) { act in
+                ForEach(randomOneActivities, id: \.self) { act in
                     HStack {
                         LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: act.llArray) , size: 45, cornerRadius: 8)
                             
@@ -99,19 +100,36 @@ struct ActivityPage: View {
         }
         .onAppear{
             getActivity()
-            randomizeActivity()
+            randomizeOneActivity()
+            randomizeTwoActivity()
         }
     }
     
-    func randomizeActivity() {
-        randomActivities = []
-        while randomActivities.count < 3 {
-            let random = filteredActivities.randomElement()!
-            let isExist = randomActivities.filter { activity in
-                activity.wrappedActivity == random.wrappedActivity || random.wrappedActivity == filteredActivities[0].wrappedActivity
+    func randomizeOneActivity() {
+        randomOneActivities = []
+        while randomOneActivities.count < 3 {
+            let random = filteredOneActivities.randomElement()!
+            let isExist = randomOneActivities.filter { activity in
+                activity.wrappedActivity == random.wrappedActivity || random.wrappedActivity == filteredOneActivities[0].wrappedActivity
             }
             if isExist.count == 0 {
-                randomActivities.append(random)
+                if random.llArray.count<2{
+                    randomOneActivities.append(random)
+                }
+            }
+        }
+    }
+    func randomizeTwoActivity() {
+        randomTwoActivities = []
+        while randomTwoActivities.count < 1 {
+            let random = filteredTwoActivities.randomElement()!
+            let isExist = randomTwoActivities.filter { activity in
+                activity.wrappedActivity == random.wrappedActivity || random.wrappedActivity == filteredTwoActivities[0].wrappedActivity
+            }
+            if isExist.count == 0 {
+                if random.llArray.count == 2{
+                    randomTwoActivities.append(random)
+                }
             }
         }
     }
@@ -131,7 +149,8 @@ struct ActivityPage: View {
             a.llArray.count > b.llArray.count
         }
         
-        self.filteredActivities = sortBasedOnLL
+        self.filteredTwoActivities = sortBasedOnLL
+        self.filteredOneActivities = sortBasedOnLL
     }
     func getPrimaryLoveLanguageUser() -> String {
         return loveLanguageUser.getPrimaryLoveLanguage()
