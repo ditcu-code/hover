@@ -16,8 +16,8 @@ struct Checklist: View {
 //            .aspectRatio(contentMode: .fit)
             .padding(2)
             .frame(width: size, height: size)
-            .foregroundColor(Color.black)
-            .background(Color.yellowSun)
+            .foregroundColor(Color.white)
+            .background(Color.activeButtonColor)
             .clipShape(Circle())
     }
 }

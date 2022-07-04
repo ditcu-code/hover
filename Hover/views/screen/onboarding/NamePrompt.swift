@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NamePrompt: View {
     @Environment(\.managedObjectContext) var moc
+    @EnvironmentObject var globalObject: GlobalObject
     
     @Binding var onboardingStep: Int
     @State var username: String = ""
@@ -61,7 +62,7 @@ struct NamePrompt: View {
                     saveName()
                     self.isNavigateActive.toggle()
                 } label: {
-                    OnboardingNextButton()
+                    OnboardingNextButton(isDisabled: disabledForm)
                         .padding(.bottom, 115)
                 }
                 .disabled(disabledForm)
@@ -79,10 +80,12 @@ struct NamePrompt: View {
         try? moc.save()
         
         if user.isUser {
-            GlobalObject.shared.user = user
+//            GlobalObject.shared.user = user
+            globalObject.user = user
             UserDefaults.standard.set(user.id?.uuidString ?? "user", forKey: "idUser")
         } else {
-            GlobalObject.shared.partner = user
+//            GlobalObject.shared.partner = user
+            globalObject.partner = user
             UserDefaults.standard.set(user.id?.uuidString ?? "partner", forKey: "idPartner")
         }
     }
@@ -91,5 +94,6 @@ struct NamePrompt: View {
 struct NamePrompt_Previews: PreviewProvider {
     static var previews: some View {
         NamePrompt(onboardingStep: .constant(0))
+            .environmentObject(GlobalObject.shared)
     }
 }

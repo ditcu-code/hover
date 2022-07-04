@@ -28,7 +28,7 @@
         <attribute name="repeatNotif" optional="YES" attributeType="String"/>
         <relationship name="specialToActivity" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityList" inverseName="activityToSpecial" inverseEntity="ActivityList"/>
     </entity>
-    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+    <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="aos" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>

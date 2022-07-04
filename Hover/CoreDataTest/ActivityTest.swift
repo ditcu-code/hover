@@ -9,14 +9,21 @@ import SwiftUI
 
 
 struct ActivityTest: View {
+    @Environment(\.presentationMode) var presentationMode
     @State private var activityTextField: String = ""
     @State var llselections: [LoveLanguages] = []
+    @EnvironmentObject var globalObject: GlobalObject
     @State var navActive: Bool = false
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) var loveLanguages : FetchedResults <LoveLanguages>
     @FetchRequest(sortDescriptors: []) var activities : FetchedResults <ActivityList>
     @FetchRequest(sortDescriptors: []) var users : FetchedResults <User>
-    
+    var loveLanguageUser: LoveLanguageUser {
+        LoveLanguageUser(user: globalObject.user)
+    }
+    var loveLanguagePartner: LoveLanguageUser {
+        LoveLanguageUser(user: globalObject.partner)
+    }
     var body: some View {
         NavigationView{
             VStack{
@@ -62,17 +69,12 @@ struct ActivityTest: View {
                             
                             if llselections.count != 0 {
                                 try? moc.save()
-                                navActive.toggle()
+                                self.presentationMode.wrappedValue.dismiss()
                             }else{
                                 print("Test")
                             }
                         }
                     }
-                }
-                NavigationLink(isActive: $navActive) {
-                    ShowDataActivityTest()
-                } label: {
-                    
                 }
                 
             }
@@ -82,22 +84,13 @@ struct ActivityTest: View {
     func checkLLUser(llname : String) -> Bool{
         var isLLTrue = false
         var llUserPartner : [String] = []
-        var loveLanguageUser: LoveLanguageUser
-        var loveLanguagePartner: LoveLanguageUser
-        var secondary: String
-        for user in users {
-            if user.isUser {
-                loveLanguageUser = LoveLanguageUser(user: user)
-                llUserPartner.append(loveLanguageUser.getPrimaryLoveLanguage())
-            }else{
-                loveLanguagePartner = LoveLanguageUser(user: user)
-                llUserPartner.append(loveLanguagePartner.getPrimaryLoveLanguage())
-                secondary = loveLanguagePartner.getSecondaryLoveLanguage()
-                if !secondary.isEmpty {
-                    llUserPartner.append(secondary)
-                }
-            }
-            
+        let userPrimaryLL = getPrimaryLoveLanguageUser()
+        let partnerPrimaryLL = getPrimaryLoveLanguagePartner()
+        let partnerSecondaryLL = getSecondaryLoveLanguagePartner()
+        llUserPartner.append(userPrimaryLL)
+        llUserPartner.append(partnerPrimaryLL)
+        if !partnerSecondaryLL.isEmpty{
+            llUserPartner.append(partnerSecondaryLL)
         }
         for ll in llUserPartner {
             if llname == ll{
@@ -106,6 +99,15 @@ struct ActivityTest: View {
         }
         
         return isLLTrue
+    }
+    func getPrimaryLoveLanguageUser() -> String {
+        return loveLanguageUser.getPrimaryLoveLanguage()
+    }
+    func getPrimaryLoveLanguagePartner() -> String {
+        return loveLanguagePartner.getPrimaryLoveLanguage()
+    }
+    func getSecondaryLoveLanguagePartner() -> String {
+        return loveLanguagePartner.getSecondaryLoveLanguage()
     }
 }
 

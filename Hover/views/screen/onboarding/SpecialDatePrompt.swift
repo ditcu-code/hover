@@ -62,7 +62,7 @@ struct SpecialDatePrompt: View {
                 saveSpecialDate()
                 self.isNavigateActive.toggle()
             } label: {
-                OnboardingNextButton()
+                OnboardingNextButton(isDisabled: disabledForm)
                     .padding(.bottom, 115)
             }.disabled(disabledForm)
             NavigationLink(isActive: self.$isNavigateActive) {

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoveLanguagePrompt: View {
     @Environment(\.managedObjectContext) var moc
+    @EnvironmentObject var globalObject: GlobalObject
     
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \LoveLanguages.llName, ascending: true)]) var loveLanguages : FetchedResults <LoveLanguages>
     
@@ -66,7 +67,7 @@ struct LoveLanguagePrompt: View {
                         saveLoveLanguage()
                         self.isNavigationActive.toggle()
                     } label: {
-                        OnboardingNextButton()
+                        OnboardingNextButton(isDisabled: disabledForm)
                             .disabled(disabledForm)
                     }
                     .padding(.bottom, 35)
@@ -109,9 +110,11 @@ struct LoveLanguagePrompt: View {
         
         try? moc.save()
         if self.onboardingStep == 4 {
-            GlobalObject.shared.user = updatedUser
+//            GlobalObject.shared.user = updatedUser
+            globalObject.user = updatedUser
         } else {
-            GlobalObject.shared.partner = updatedUser
+//            GlobalObject.shared.partner = updatedUser
+            globalObject.partner = updatedUser
         }
     }
 }
@@ -134,7 +137,7 @@ private struct LoveLanguageOption: View {
             .frame(height: 44)
             .background(.white)
             .cornerRadius(15)
-            .shadow(color: self.isSelected ? Color.yellowSun : .black, radius: 1)
+            .shadow(color: self.isSelected ? Color.activeButtonColor : .black, radius: 1)
         }
     }
 }
@@ -142,5 +145,7 @@ private struct LoveLanguageOption: View {
 struct LoveLanguagePrompt_Previews: PreviewProvider {
     static var previews: some View {
         LoveLanguagePrompt(onboardingStep: .constant(4))
+            .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
+            .environmentObject(GlobalObject.shared)
     }
 }

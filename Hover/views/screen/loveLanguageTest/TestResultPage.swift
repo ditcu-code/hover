@@ -41,9 +41,14 @@ struct TestResultPage: View {
             }
             VStack {
                 VStack {
-                    ProgressView(value: (Float(progress) / Float(onboardingTotalStep)))
-                        .animation(.easeInOut(duration: 1), value: onboardingTotalStep)
-                        .padding(.bottom, 160)
+                    if onboardingStep > 1 {
+                        ProgressView(value: (Float(progress) / Float(onboardingTotalStep)))
+                            .animation(.easeInOut(duration: 1), value: onboardingTotalStep)
+                            .padding(.bottom, 160)
+                    } else {
+                        EmptyView()
+                            .padding(.bottom, 160)
+                    }
                     HStack {
                         VStack(alignment: .leading) {
                             Text("Your Love Language is")
@@ -67,19 +72,19 @@ struct TestResultPage: View {
                         if onboardingStep == 6 {
                             selectionPage = "PartnerLoveLanguage"
                         } else {
-                            if UserDefaults.standard.bool(forKey: "isDoneOnboarding") == false {
-                                UserDefaults.standard.set(true, forKey: "isDoneOnboarding")
+                            if UserDefaults.standard.bool(forKey: "isDoneOnboarding") {
                                 selectionPage = "HomePage"
                             } else {
-                                selectionPage = "HomePage"
+//                                selectionPage = "HomePage"
+                                UserDefaults.standard.set(true, forKey: "isDoneOnboarding")
                             }
                         }
                     } label: {
                         Text(onboardingStep == 6 ? "Partner Love Language" : "Continue to Home Page")
                             .fontWeight(.semibold)
                             .frame(width: 300, height: 50)
-                            .foregroundColor(.black)
-                            .background(Color.yellowSun)
+                            .foregroundColor(.white)
+                            .background(Color.activeButtonColor)
                             .cornerRadius(30)
                     }
                 }.padding()

@@ -12,7 +12,7 @@ let screenSize = UIScreen.main.bounds.width
 let screenHeight = UIScreen.main.bounds.height
 let onboardingTotalStep = 10
 
-enum LoveLanguageEnum: String {
+enum LoveLanguageEnum: String, CaseIterable {
     case actOfService = "Acts of Service", qualityTime = "Quality Time", receivingGift = "Receiving Gifts", physicalTouch = "Physical Touch", wordsOfAffirmation = "Word of Affirmation", combination = "Combination"
 }
 
@@ -90,6 +90,24 @@ func getLoveLanguageIcon(loveLanguage: String) -> Image {
         return Image(systemName: "heart.fill")
     default:
         return Image(systemName: "hourglass")
+    }
+}
+func getLLIcon(loveLanguage: String) -> String {
+    switch loveLanguage {
+    case LoveLanguageEnum.actOfService.rawValue:
+        return "fork.knife"
+    case LoveLanguageEnum.receivingGift.rawValue:
+        return "gift.fill"
+    case LoveLanguageEnum.physicalTouch.rawValue:
+        return "hand.point.up.fill"
+    case LoveLanguageEnum.qualityTime.rawValue:
+        return "clock.fill"
+    case LoveLanguageEnum.wordsOfAffirmation.rawValue:
+        return "character.bubble.fill"
+    case LoveLanguageEnum.combination.rawValue:
+        return "heart.fill"
+    default:
+        return "hourglass"
     }
 }
 

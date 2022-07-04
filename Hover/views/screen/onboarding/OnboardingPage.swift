@@ -14,24 +14,25 @@ struct OnboardingPage: View {
         NavigationView {
             VStack {
                 ZStack {
-                    Image("BackgroundImage")
-                        .resizable()
-                        .frame(height: screenHeight / 2)
+//                    Image("BackgroundImage")
+//                        .resizable()
+//                        .frame(height: screenHeight / 2)
                     VStack(spacing: 20) {
                         VStack {
-                            Text("Dat LOVE")
-                                .font(.title)
-                                .bold()
-                        }.padding(.vertical, 30)
+                            Image("Wordmarks")
+                                .resizable()
+                                .frame(width: 260, height: 90)
+                        }
+                        .padding(.top, 30)
                         HStack(spacing: 20) {
                             LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.combination.rawValue)
                             LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.actOfService.rawValue)
-                            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.physicalTouch.rawValue)
+                            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.wordsOfAffirmation.rawValue)
                         }.offset(x: -50)
                         HStack(spacing: 20) {
                             LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.receivingGift.rawValue)
                             LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.qualityTime.rawValue)
-                            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.wordsOfAffirmation.rawValue)
+                            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.physicalTouch.rawValue)
                         }.offset(x: 50)
                     }
                 }
