@@ -9,14 +9,24 @@ import SwiftUI
 
 struct AddActivityForm: View {
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var globalObject: GlobalObject
+    @Environment(\.managedObjectContext) var moc
+    @Binding var actSelections: [ActivityList] 
     @State var activityName: String = ""
+    @State var llSelections: [LoveLanguageEnum] = []
+    @FetchRequest(sortDescriptors: []) var loveLanguages : FetchedResults <LoveLanguages>
     @State var loveLanguageSelected: LoveLanguageEnum = .combination
-    
+    var loveLanguageUser: LoveLanguageUser {
+        LoveLanguageUser(user: globalObject.user)
+    }
+    var loveLanguagePartner: LoveLanguageUser {
+        LoveLanguageUser(user: globalObject.partner)
+    }
     var body: some View {
         NavigationView {
             VStack {
                 VStack(alignment: .leading) {
-                    Text("Rohul will happy if I do this")
+                    Text("\(globalObject.partner.wrappedName) will happy if I do this")
                     
                     TextField("", text: $activityName)
                         .textFieldStyle(.roundedBorder)
@@ -24,14 +34,16 @@ struct AddActivityForm: View {
                             .stroke(Color.accentColor))
                     Text("and this activity belongs to")
                     
-                    Menu(loveLanguageSelected.rawValue.lowercased()) {
-                        ForEach(LoveLanguageEnum.allCases, id: \.self) { item in
-                            Button(item.rawValue.lowercased()) {
-                                loveLanguageSelected = item
+                    Menu(loveLanguageSelected.rawValue.lowercased()){
+                        ForEach(LoveLanguageEnum.allCases, id: \.self) { llEnum in
+                            if checkLLtoShow(ll: llEnum.rawValue){
+                                Button(llEnum.rawValue.lowercased()){
+                                    loveLanguageSelected = llEnum
+                                }
                             }
+                            
                         }
-                    }.menuStyle(GrayButtonStyle(width: 220))
-                    
+                    }.menuStyle(GrayButtonStyle(width: 220)) 
                     Text("love language.")
                     
                 }
@@ -51,6 +63,7 @@ struct AddActivityForm: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save"){
+                        saveActivity()
                         dismiss()
                     }
                 }
@@ -59,10 +72,54 @@ struct AddActivityForm: View {
             .navigationBarTitleDisplayMode(.inline)
         }
     }
+    func saveActivity(){
+        let activity = ActivityList(context: moc)
+        activity.id = UUID()
+        activity.activity = activityName
+        var llAct : [LoveLanguages] = []
+        for ll in loveLanguages {
+            if loveLanguageSelected.rawValue == ll.wrappedLLName{
+                llAct.append(ll)
+            }else if loveLanguageSelected == .combination{
+                if ll.wrappedLLName == getPrimaryLoveLanguageUser() || ll.wrappedLLName == getPrimaryLoveLanguagePartner(){
+                    llAct.append(ll)
+                }
+            }
+        }
+        let llactivity = Set(llAct)
+        for ll in llactivity{
+            activity.addToActivityToLL(ll)
+        }
+        
+        if llAct.count != 0 {
+            actSelections.append(activity)
+            try? moc.save()
+        }else{
+            print("Test")
+        }
+    }
+    
+    func checkLLtoShow(ll: String) -> Bool{
+        var isPassed : Bool = false
+        if  ll == getPrimaryLoveLanguagePartner() || ll == getSecondaryLoveLanguagePartner() || ll == LoveLanguageEnum.combination.rawValue {
+            isPassed = true
+        }
+        return isPassed
+    }
+    func getPrimaryLoveLanguageUser() -> String {
+        return loveLanguageUser.getPrimaryLoveLanguage()
+    }
+    func getPrimaryLoveLanguagePartner() -> String {
+        return loveLanguagePartner.getPrimaryLoveLanguage()
+    }
+    func getSecondaryLoveLanguagePartner() -> String {
+        return loveLanguagePartner.getSecondaryLoveLanguage()
+    }
 }
+
 
 struct AddActivityForm_Previews: PreviewProvider {
     static var previews: some View {
-        AddActivityForm()
+        AddActivityForm(actSelections: .constant([]))
     }
 }

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E05E94D2872DC2F0059262A /* LoveLanguageLogoBg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E05E94C2872DC2F0059262A /* LoveLanguageLogoBg.swift */; };
 		0E098816286B22DF00469A73 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E098815286B22DF00469A73 /* Colors.swift */; };
 		0E505E77287198240070BEFD /* Activities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E505E76287198240070BEFD /* Activities.swift */; };
 		0ED794DC28730C9500BE09DF /* AddActivityForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED794DB28730C9500BE09DF /* AddActivityForm.swift */; };
@@ -22,6 +21,9 @@
 		931C01812871C4F5001405CD /* NotificationFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C01802871C4F5001405CD /* NotificationFunction.swift */; };
 		931C01832871C71C001405CD /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C01822871C71C001405CD /* NotificationModel.swift */; };
 		931C01852871DB8E001405CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C01842871DB8E001405CD /* AppDelegate.swift */; };
+		937121A92872E10000019FD5 /* ListActivityRecommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937121A82872E10000019FD5 /* ListActivityRecommendation.swift */; };
+		937121AB2872E43C00019FD5 /* ListActivityRecommendationStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937121AA2872E43C00019FD5 /* ListActivityRecommendationStructure.swift */; };
+		937121AF28731E0900019FD5 /* LoveLanguageLogoBg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937121AE28731E0900019FD5 /* LoveLanguageLogoBg.swift */; };
 		9384665F2868BCDE00A4CD36 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9384665E2868BCDE00A4CD36 /* DataController.swift */; };
 		938466622868C22F00A4CD36 /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938466612868C22F00A4CD36 /* CoreDataTest.swift */; };
 		93A99663286C4AB100B5F844 /* ActivityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A99662286C4AB100B5F844 /* ActivityTest.swift */; };
@@ -63,7 +65,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0E05E94C2872DC2F0059262A /* LoveLanguageLogoBg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoveLanguageLogoBg.swift; path = ../../../../../.Trash/LoveLanguageLogoBg.swift; sourceTree = "<group>"; };
 		0E098815286B22DF00469A73 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0E505E76287198240070BEFD /* Activities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activities.swift; sourceTree = "<group>"; };
 		0ED794DB28730C9500BE09DF /* AddActivityForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityForm.swift; sourceTree = "<group>"; };
@@ -79,6 +80,9 @@
 		931C01802871C4F5001405CD /* NotificationFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationFunction.swift; sourceTree = "<group>"; };
 		931C01822871C71C001405CD /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		931C01842871DB8E001405CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		937121A82872E10000019FD5 /* ListActivityRecommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListActivityRecommendation.swift; sourceTree = "<group>"; };
+		937121AA2872E43C00019FD5 /* ListActivityRecommendationStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListActivityRecommendationStructure.swift; sourceTree = "<group>"; };
+		937121AE28731E0900019FD5 /* LoveLanguageLogoBg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguageLogoBg.swift; sourceTree = "<group>"; };
 		9384665E2868BCDE00A4CD36 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		938466612868C22F00A4CD36 /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
 		93A99662286C4AB100B5F844 /* ActivityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTest.swift; sourceTree = "<group>"; };
@@ -225,6 +229,8 @@
 				FDFDDDE1286F3FFC00E303E3 /* LoveLanguages+CoreDataProperties.swift */,
 				FDFDDDE2286F3FFC00E303E3 /* SpecialDay+CoreDataClass.swift */,
 				FDFDDDE4286F3FFC00E303E3 /* SpecialDay+CoreDataProperties.swift */,
+				937121A82872E10000019FD5 /* ListActivityRecommendation.swift */,
+				937121AA2872E43C00019FD5 /* ListActivityRecommendationStructure.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -233,11 +239,11 @@
 			isa = PBXGroup;
 			children = (
 				0EE23A9E285F63B700ACBD61 /* Tag.swift */,
-				0E05E94C2872DC2F0059262A /* LoveLanguageLogoBg.swift */,
 				FDD70667286AF4840003D311 /* OnboardingNextButton.swift */,
 				FD6D951F286CA30700A25687 /* CustomModifier.swift */,
 				FD6D9525286CB4E000A25687 /* Checklist.swift */,
 				FD7B63762871C88B00F019F4 /* ImagePicker.swift */,
+				937121AE28731E0900019FD5 /* LoveLanguageLogoBg.swift */,
 			);
 			path = _shared;
 			sourceTree = "<group>";
@@ -426,7 +432,6 @@
 				FDD705DF2865DC100003D311 /* SpecialDateForm.swift in Sources */,
 				FDD70668286AF4850003D311 /* OnboardingNextButton.swift in Sources */,
 				931C01812871C4F5001405CD /* NotificationFunction.swift in Sources */,
-				0E05E94D2872DC2F0059262A /* LoveLanguageLogoBg.swift in Sources */,
 				FD6D9520286CA30700A25687 /* CustomModifier.swift in Sources */,
 				9384665F2868BCDE00A4CD36 /* DataController.swift in Sources */,
 				0E505E77287198240070BEFD /* Activities.swift in Sources */,
@@ -450,7 +455,9 @@
 				0EE23A9C285F633100ACBD61 /* Activity.swift in Sources */,
 				0EE23A98285F62EA00ACBD61 /* HomeScreen.swift in Sources */,
 				FD6D9522286CA88A00A25687 /* IntroLoveLanguagePrompt.swift in Sources */,
+				937121A92872E10000019FD5 /* ListActivityRecommendation.swift in Sources */,
 				FDD705F42868B1130003D311 /* LoveLanguageQuestion.swift in Sources */,
+				937121AB2872E43C00019FD5 /* ListActivityRecommendationStructure.swift in Sources */,
 				FDD705EC2865DD1A0003D311 /* TestResultPage.swift in Sources */,
 				93DBDAE0286CD13300F6AA47 /* AddSpecialDateTest.swift in Sources */,
 				FDAFBBCD286F89D700627BA6 /* CoreDataPreviewHelper.swift in Sources */,
@@ -458,6 +465,7 @@
 				FD7B63842871CC2B00F019F4 /* User+CoreDataProperties.swift in Sources */,
 				FDFDDDE7286F3FFC00E303E3 /* LoveLanguages+CoreDataProperties.swift in Sources */,
 				938466622868C22F00A4CD36 /* CoreDataTest.swift in Sources */,
+				937121AF28731E0900019FD5 /* LoveLanguageLogoBg.swift in Sources */,
 				FDD705D72865DB6C0003D311 /* LoveLanguagePrompt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
