@@ -84,6 +84,7 @@ struct SpecialDayDetail: View {
                     
                 } label: {
                     Text("Update this event")
+                        .bold()
                         .frame(width: 300, height: 50)
                         .foregroundColor(.white)
                         .background(Color.activeButtonColor)

@@ -22,8 +22,13 @@ struct ContentView: View {
             Color.backgroundColor
                 .ignoresSafeArea()
             if isDoneOnboarding {
-                HomeScreen()
-                    .environmentObject(globalObject)
+                if globalObject.showCongrats {
+                    Congrats()
+                        .environmentObject(globalObject)
+                } else {
+                    HomeScreen()
+                        .environmentObject(globalObject)
+                }
             } else {
                 OnboardingPage()
                     .onAppear(){
