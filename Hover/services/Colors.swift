@@ -32,4 +32,5 @@ extension Color {
     
     static let activeButtonColor = Color("ActiveButtonColor")
     static let disabledButtonColor = Color("DisabledButtonColor")
+    static let captionColor = Color("CaptionColor")
 }
