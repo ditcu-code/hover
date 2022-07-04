@@ -44,6 +44,7 @@ struct QuestionLoveLanguage: View {
                 }
             } label: {
                 Text(option1Label)
+                    .lineLimit(nil)
                     .padding()
                     .frame(width: screenSize * 0.9, height: 100)
                     .foregroundColor(.black)
@@ -60,6 +61,7 @@ struct QuestionLoveLanguage: View {
                 }
             } label: {
                 Text(option2Label)
+                    .lineLimit(nil)
                     .padding()
                     .frame(width: screenSize * 0.9, height: 100)
                     .foregroundColor(.black)
