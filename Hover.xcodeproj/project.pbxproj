@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0E098816286B22DF00469A73 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E098815286B22DF00469A73 /* Colors.swift */; };
-		0E505E77287198240070BEFD /* Activities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E505E76287198240070BEFD /* Activities.swift */; };
 		0ED794DC28730C9500BE09DF /* AddActivityForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED794DB28730C9500BE09DF /* AddActivityForm.swift */; };
 		0EE23A87285F626500ACBD61 /* HoverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23A86285F626500ACBD61 /* HoverApp.swift */; };
 		0EE23A89285F626500ACBD61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23A88285F626500ACBD61 /* ContentView.swift */; };
@@ -66,7 +65,6 @@
 
 /* Begin PBXFileReference section */
 		0E098815286B22DF00469A73 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		0E505E76287198240070BEFD /* Activities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activities.swift; sourceTree = "<group>"; };
 		0ED794DB28730C9500BE09DF /* AddActivityForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityForm.swift; sourceTree = "<group>"; };
 		0EE23A83285F626500ACBD61 /* Hover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EE23A86285F626500ACBD61 /* HoverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverApp.swift; sourceTree = "<group>"; };
@@ -207,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				0EE23A97285F62EA00ACBD61 /* HomeScreen.swift */,
-				0E505E76287198240070BEFD /* Activities.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -434,7 +431,6 @@
 				931C01812871C4F5001405CD /* NotificationFunction.swift in Sources */,
 				FD6D9520286CA30700A25687 /* CustomModifier.swift in Sources */,
 				9384665F2868BCDE00A4CD36 /* DataController.swift in Sources */,
-				0E505E77287198240070BEFD /* Activities.swift in Sources */,
 				0EE23A87285F626500ACBD61 /* HoverApp.swift in Sources */,
 				931C01832871C71C001405CD /* NotificationModel.swift in Sources */,
 				93DBDADE286CC86800F6AA47 /* ShowSpecialDay.swift in Sources */,
