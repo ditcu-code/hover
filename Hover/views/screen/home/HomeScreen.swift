@@ -16,7 +16,8 @@ struct HomeScreen: View {
     var body: some View {
         TabView {
             NavigationView {
-                Activities()
+                ActivityPage()
+                    .environmentObject(globalObject)
             }
             .tabItem {
                 VStack {
@@ -57,6 +58,8 @@ struct HomeScreen: View {
         
         let request: NSFetchRequest<User> = NSFetchRequest<User>(entityName: "User")
         request.predicate = NSPredicate(format: "id IN %@", [idUser, idPartner])
+        print(idUser)
+        print(idPartner)
         
         do {
             let users = try moc.fetch(request)
