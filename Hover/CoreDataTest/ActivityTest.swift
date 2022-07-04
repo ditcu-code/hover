@@ -36,23 +36,23 @@ struct ActivityTest: View {
                     .border(.secondary)
                     .cornerRadius(20)
                 List {
-                    ForEach(loveLanguages, id: \.self) { lovelanguage in
-                        if checkLLUser(llname: lovelanguage.llName ?? "Unknown"){
-                            MultipleSelectionRow(title: lovelanguage.llName ?? "Unknown", isSelected: self.llselections.contains(lovelanguage )) {
-                                if self.llselections.contains(lovelanguage) {
-                                    self.llselections.removeAll(where: { $0.id?.uuidString == lovelanguage.id?.uuidString ?? "Unknown" })
-                                }
-                                else {
-                                    if self.llselections.count <= 1 {
-                                    self.llselections.append(lovelanguage)
-                                    }else{
-                                        self.llselections.removeAll(where: { $0 == self.llselections.first})
-                                        self.llselections.append(lovelanguage)
-                                    }
-                                }
-                            }
-                        }
-                    }
+//                    ForEach(loveLanguages, id: \.self) { lovelanguage in
+//                        if checkLLUser(llname: lovelanguage.llName ?? "Unknown"){
+//                            MultipleSelectionRow(title: lovelanguage.llName ?? "Unknown", isSelected: self.llselections.contains(lovelanguage )) {
+//                                if self.llselections.contains(lovelanguage) {
+//                                    self.llselections.removeAll(where: { $0.id?.uuidString == lovelanguage.id?.uuidString ?? "Unknown" })
+//                                }
+//                                else {
+//                                    if self.llselections.count <= 1 {
+//                                    self.llselections.append(lovelanguage)
+//                                    }else{
+//                                        self.llselections.removeAll(where: { $0 == self.llselections.first})
+//                                        self.llselections.append(lovelanguage)
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
                 }
                 
                 .navigationBarTitleDisplayMode(.inline)
@@ -111,23 +111,23 @@ struct ActivityTest: View {
     }
 }
 
-struct MultipleSelectionRow: View {
-    var title: String
-    var isSelected: Bool
-    var action: () -> Void
-    
-    var body: some View {
-        Button(action: self.action) {
-            HStack {
-                Text(self.title)
-                if self.isSelected {
-                    Spacer()
-                    Image(systemName: "checkmark")
-                }
-            }
-        }
-    }
-}
+//struct MultipleSelectionRow: View {
+//    var title: String
+//    var isSelected: Bool
+//    var action: () -> Void
+//    
+//    var body: some View {
+//        Button(action: self.action) {
+//            HStack {
+//                Text(self.title)
+//                if self.isSelected {
+//                    Spacer()
+//                    Image(systemName: "checkmark")
+//                }
+//            }
+//        }
+//    }
+//}
 struct ActivityTest_Previews: PreviewProvider {
     static var previews: some View {
         ActivityTest()

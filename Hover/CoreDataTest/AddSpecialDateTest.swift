@@ -60,16 +60,16 @@ struct AddSpecialDateTest: View {
                     .padding(.horizontal)
                 }
                 List {
-                    ForEach(activities, id: \.self) { activity in
-                        MultipleSelectionRow(title: activity.activity ?? "Unknown", isSelected: self.actSelections.contains(activity )) {
-                            if self.actSelections.contains(activity) {
-                                self.actSelections.removeAll(where: { $0.id?.uuidString == activity.id?.uuidString ?? "Unknown" })
-                            }
-                            else {
-                                self.actSelections.append(activity)
-                            }
-                        }
-                    }
+//                    ForEach(activities, id: \.self) { activity in
+//                        MultipleSelectionRow(title: activity.activity ?? "Unknown", isSelected: self.actSelections.contains(activity )) {
+//                            if self.actSelections.contains(activity) {
+//                                self.actSelections.removeAll(where: { $0.id?.uuidString == activity.id?.uuidString ?? "Unknown" })
+//                            }
+//                            else {
+//                                self.actSelections.append(activity)
+//                            }
+//                        }
+//                    }
                 }
                 Button("Add Activity"){
                     navActive = true
