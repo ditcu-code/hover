@@ -9,68 +9,185 @@ import SwiftUI
 
 struct SpecialDateForm: View {
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
+    
     @State var navActive: Bool = false
-    @State private var specialDateTextField: String = ""
+    
+    @State private var specialDayName: String = ""
+    @State private var isRepeated: Bool = true
+    @State private var isActivityWanted: Bool = true
+    
     @State var selectedDate = Date()
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) var activities : FetchedResults <ActivityList>
     @State var actSelections: [ActivityList] = []
-    @State private var selectedRepeat: Repeat = .none
-    @State private var selectedAlert: Alert = .none
+    @State private var selectedRepeat: Repeat = .monthly
+    @State private var selectedAlert: Alert = .oneDay
+    
+    @State var chatTextInput: String = ""
+    @State var oldChatValue: String = ""
+    @State var newChatValue: String = ""
+    
+    @State var textEntryFlag = true
+    
+    @State var showAddPlan: Bool = false
+    
     var body: some View {
-        NavigationView{
-            ScrollView{
-                ZStack{
-                    Section{
-                        TextField(
-                                "I want to celebrate",
-                                text: $specialDateTextField
-                            )
-                            .padding()
-                            .frame(width: screenSize-50, height: 100, alignment: .top)
-                            .background(.white)
-                            .cornerRadius(5)
-                            //.border(Colo)
-                            .shadow(color: .black, radius: 1)
+        let nameNotEmpty = specialDayName.count > 0
+        
+        NavigationView {
+            VStack(alignment: .center) {
+                
+                VStack(alignment: .leading) {
+                    
+                    Text("I want to **celebrate**")
+                    
+                    TextField("", text: $specialDayName)
+                        .textFieldStyle(.roundedBorder)
+                        .overlay(RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.accentColor))
+                    
+                    if nameNotEmpty {
+                        HStack {
+                            
+                            Text("on").bold()
+                            DatePicker("", selection: $selectedDate, displayedComponents: [.date])
+                                .labelsHidden()
+                                .scaleEffect(1.1)
+                                .padding(.horizontal, 5)
+                            
+                            Text("and")
+                            Button(isRepeated ? "would" : "wouldn't") {
+                                withAnimation(.easeInOut) {
+                                    isRepeated.toggle()
+                                }
+                            }.buttonStyle(.bordered)
+                        }
+                        
+                        HStack {
+                            
+                            Text("be repeated\(isRepeated ? "" : ".")")
+                            if isRepeated {
+                                Menu(selectedRepeat.rawValue) {
+                                    ForEach(Repeat.allCases, id: \.self) { item in
+                                        Button(item.rawValue) {
+                                            selectedRepeat = item
+                                        }
+                                    }
+                                }.menuStyle(GrayButtonStyle())
+                            }
+                            
+                        }
+                        
+                        HStack {
+                            Text("Please **remind** me")
+                            Menu(selectedAlert.rawValue) {
+                                ForEach(Alert.allCases, id: \.self) { a in
+                                    Button(a.rawValue) {
+                                        selectedAlert = a
+                                    }
+                                }
+                            }.menuStyle(GrayButtonStyle(width: 115))
+                        }
+                        
+                        Text("before the date.")
                     }
-                    .frame(width: screenSize-20, height: 120, alignment: .center)
-                    .background(.white)
-                    .navigationBarTitleDisplayMode(.inline)
+                    
                 }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("Save"){
-//                            let notificationID = UUID().uuidString
-//                            saveData(notifID: notificationID)
-//                            createLocalNotification(title: specialDateTextField, date: selectedDate, repeat: selectedRepeat.rawValue, alert: selectedAlert, notifID: notificationID)
-                            self.presentationMode.wrappedValue.dismiss()
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 8).fill(.white))
+                
+                if nameNotEmpty {
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Text("I think, I")
+                            Button(isActivityWanted ? "want" : "haven't") {
+                                withAnimation(.easeInOut) {
+                                    isActivityWanted.toggle()
+                                }
+                            }.buttonStyle(.bordered)
+                            Text("to do some")
+                        }
+                        HStack {
+                            Text("activities during the celebration.")
+                            Spacer()
+                        }
+                        
+                        if isActivityWanted {
+                            ScrollView() {
+                                ForEach((1...10), id: \.self) {_ in
+                                    ActivityItem()
+                                }
+                            }
+                        }
+                        
+                    }
+                    .padding()
+                    .background(RoundedRectangle(cornerRadius: 8).fill(.white))
+                }
+                Spacer()
+                
+            }
+            .padding()
+            .font(.title2)
+            .background(Color.backgroundColor)
+            .animation(.default, value: nameNotEmpty)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancel"){
+                        dismiss()
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Save"){
+                        dismiss()
+                    }
+                }
+                
+                ToolbarItem(placement: .bottomBar) {
+                    if isActivityWanted {
+                        withAnimation {
+                            Button(action: {showAddPlan.toggle()}) {
+                                Label("I have my own activitiy plan", systemImage: "plus.circle.fill").labelStyle(.titleAndIcon)
+                            }
                         }
                     }
                 }
+                ToolbarItem(placement: .bottomBar) {
+                    if isActivityWanted {
+                        Spacer()
+                    }
+                }
             }
-            .background(Color.backgroundColor)
-            .frame(width: screenSize, height: screenHeight)
+            .navigationTitle("New Special Day")
+            .navigationBarTitleDisplayMode(.inline)
+        }
+        
+        .sheet(isPresented: $showAddPlan) {
+            AddActivityForm()
         }
     }
+    
     func createLocalNotification(title: String, date: Date, repeat: String, alert: Alert, notifID: String){
-        if alert != .none{
-            let content = UNMutableNotificationContent()
-            content.title = title
-            content.body = dateCaller(date)
-            let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.day, .month, .year], from: alertDate(date, alert)), repeats: false)
-            let request = UNNotificationRequest(identifier: notifID, content: content, trigger: trigger)
-            UNUserNotificationCenter.current().add(request)
-            UNUserNotificationCenter.current().getPendingNotificationRequests { a in
-                print(a)
-            }
+        //        if alert != .none{
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = dateCaller(date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.day, .month, .year], from: alertDate(date, alert)), repeats: false)
+        let request = UNNotificationRequest(identifier: notifID, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
+        UNUserNotificationCenter.current().getPendingNotificationRequests { a in
+            print(a)
         }
+        //        }
     }
+    
     func saveData(notifID: String){
         let specialDay = SpecialDay(context: moc)
         specialDay.id = UUID()
         specialDay.notificationID = UUID().uuidString
         specialDay.date = selectedDate
-        specialDay.name = specialDateTextField
+        specialDay.name = specialDayName
         specialDay.repeatNotif = selectedRepeat.rawValue
         specialDay.alert = selectedAlert.rawValue
         let sdActivity = Set(actSelections)
@@ -79,10 +196,34 @@ struct SpecialDateForm: View {
         }
         try?moc.save()
     }
+    
 }
 
 struct SpecialDateForm_Previews: PreviewProvider {
     static var previews: some View {
         SpecialDateForm()
+    }
+}
+
+struct ActivityItem: View {
+    @State var selected: Bool = false
+    
+    var body: some View {
+        HStack {
+            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.combination.rawValue, size: 45, cornerRadius: 8)
+            Text("Warm Hug Together").font(.body).bold()
+            Spacer()
+            if selected {
+                Image(systemName: "checkmark.circle.fill").foregroundColor(.accentColor)
+            }
+        }
+        .padding()
+        .overlay(RoundedRectangle(cornerRadius: 8)
+            .stroke(selected ? Color.accentColor : Color.gray))
+        
+        .onTapGesture {
+            selected.toggle()
+        }
+        .animation(.default, value: selected)
     }
 }

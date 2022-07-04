@@ -16,8 +16,8 @@ struct AddSpecialDateTest: View {
     @FetchRequest(sortDescriptors: []) var activities : FetchedResults <ActivityList>
     @State var actSelections: [ActivityList] = []
     
-    @State private var selectedRepeat: Repeat = .none
-    @State private var selectedAlert: Alert = .none
+    @State private var selectedRepeat: Repeat = .monthly
+    @State private var selectedAlert: Alert = .oneDay
     var body: some View {
         NavigationView{
             VStack{
@@ -39,7 +39,7 @@ struct AddSpecialDateTest: View {
                         .padding(.horizontal)
                     Spacer()
                     Picker("Repeat", selection: $selectedRepeat) {
-                            Text("None").tag(Repeat.none)
+//                            Text("None").tag(Repeat.none)
                             Text("Monthly").tag(Repeat.monthly)
                             Text("Yearly").tag(Repeat.yearly)
                         }
@@ -50,8 +50,8 @@ struct AddSpecialDateTest: View {
                         .padding(.horizontal)
                     Spacer()
                     Picker("Alert", selection: $selectedAlert) {
-                            Text("None").tag(Alert.none)
-                        Text("1 Minute").tag(Alert.oneMinute)
+//                            Text("None").tag(Alert.none)
+//                        Text("1 Minute").tag(Alert.oneMinute)
                             Text("1 day before").tag(Alert.oneDay)
                             Text("2 days before").tag(Alert.twoDay)
                             Text("3 days before").tag(Alert.threeDay)
@@ -97,7 +97,7 @@ struct AddSpecialDateTest: View {
         }
     }
     func createLocalNotification(title: String, date: Date, repeat: String, alert: Alert, notifID: String){
-        if alert != .none{
+//        if alert != .none{
             let content = UNMutableNotificationContent()
             content.title = title
             content.body = dateCaller(date)
@@ -107,7 +107,7 @@ struct AddSpecialDateTest: View {
             UNUserNotificationCenter.current().getPendingNotificationRequests { a in
                 print(a)
             }
-        }
+//        }
     }
     func saveData(notifID: String){
         let specialDay = SpecialDay(context: moc)

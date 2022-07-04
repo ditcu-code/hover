@@ -28,6 +28,7 @@ extension Color {
     static let bgWordsOfAffirmation = Color("WordsOfAffirmationBg")
     
     static let backgroundColor = Color("BackgroundColor")
+    static let bgButton = Color("BgButtonColor")
     
     static let activeButtonColor = Color("ActiveButtonColor")
     static let disabledButtonColor = Color("DisabledButtonColor")
