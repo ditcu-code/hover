@@ -74,6 +74,7 @@ struct ActivityPage: View {
                 ForEach(randomActivities, id: \.self) { act in
                     HStack {
                         LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: act.llArray) , size: 45, cornerRadius: 8)
+                            
                         ZStack {
                             getLoveLanguageBg(loveLanguage: getLLLogo(llData: act.llArray))
                             VStack(alignment: .leading) {
@@ -88,9 +89,9 @@ struct ActivityPage: View {
                                         Text(ll.wrappedLLName).font(.subheadline)
                                     }
                                 }
-                            }
+                            }.padding(10)
                         }
-                    }
+                    }.padding(.leading).frame(height: 120)
                 }
             }
             
