@@ -103,6 +103,7 @@
 		FD8413C1286D5DE800E2C4E8 /* GlobalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalObject.swift; sourceTree = "<group>"; };
 		FDAF4E55287337510023E153 /* LoveLanguageLogoBg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoveLanguageLogoBg.swift; sourceTree = "<group>"; };
 		FDAF4E5928735F030023E153 /* SpecialDayDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialDayDetail.swift; sourceTree = "<group>"; };
+		FDAF4E5B287367890023E153 /* datLoveModelver2.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = datLoveModelver2.2.xcdatamodel; sourceTree = "<group>"; };
 		FDAFBBCC286F89D700627BA6 /* CoreDataPreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPreviewHelper.swift; sourceTree = "<group>"; };
 		FDD705D02865DAE80003D311 /* NamePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamePrompt.swift; sourceTree = "<group>"; };
 		FDD705D42865DB060003D311 /* SpecialDatePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialDatePrompt.swift; sourceTree = "<group>"; };
@@ -689,11 +690,12 @@
 		FD7B637C2871CBFD00F019F4 /* datLoveModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				FDAF4E5B287367890023E153 /* datLoveModelver2.2.xcdatamodel */,
 				FD7B63862871DF9800F019F4 /* datLoveModelver2.1.xcdatamodel */,
 				FD7B637D2871CBFD00F019F4 /* datLoveModelver2.0.xcdatamodel */,
 				FD7B637E2871CBFD00F019F4 /* datLoveModel.xcdatamodel */,
 			);
-			currentVersion = FD7B63862871DF9800F019F4 /* datLoveModelver2.1.xcdatamodel */;
+			currentVersion = FDAF4E5B287367890023E153 /* datLoveModelver2.2.xcdatamodel */;
 			path = datLoveModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
