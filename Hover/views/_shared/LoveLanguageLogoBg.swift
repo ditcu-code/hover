@@ -2,7 +2,7 @@
 //  LoveLanguageLogoBg.swift
 //  Hover
 //
-//  Created by Eddo Careera Iriyanto Putra on 29/06/22.
+//  Created by Muhammad Aleandro on 04/07/22.
 //
 
 import SwiftUI

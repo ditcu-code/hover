@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0E098816286B22DF00469A73 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E098815286B22DF00469A73 /* Colors.swift */; };
-		0E505E77287198240070BEFD /* Activities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E505E76287198240070BEFD /* Activities.swift */; };
 		0ED794DC28730C9500BE09DF /* AddActivityForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED794DB28730C9500BE09DF /* AddActivityForm.swift */; };
 		0EE23A87285F626500ACBD61 /* HoverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23A86285F626500ACBD61 /* HoverApp.swift */; };
 		0EE23A89285F626500ACBD61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23A88285F626500ACBD61 /* ContentView.swift */; };
@@ -21,6 +20,9 @@
 		931C01812871C4F5001405CD /* NotificationFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C01802871C4F5001405CD /* NotificationFunction.swift */; };
 		931C01832871C71C001405CD /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C01822871C71C001405CD /* NotificationModel.swift */; };
 		931C01852871DB8E001405CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C01842871DB8E001405CD /* AppDelegate.swift */; };
+		937121A92872E10000019FD5 /* ListActivityRecommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937121A82872E10000019FD5 /* ListActivityRecommendation.swift */; };
+		937121AB2872E43C00019FD5 /* ListActivityRecommendationStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937121AA2872E43C00019FD5 /* ListActivityRecommendationStructure.swift */; };
+		937121AF28731E0900019FD5 /* LoveLanguageLogoBg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937121AE28731E0900019FD5 /* LoveLanguageLogoBg.swift */; };
 		9384665F2868BCDE00A4CD36 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9384665E2868BCDE00A4CD36 /* DataController.swift */; };
 		938466622868C22F00A4CD36 /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938466612868C22F00A4CD36 /* CoreDataTest.swift */; };
 		93A99663286C4AB100B5F844 /* ActivityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A99662286C4AB100B5F844 /* ActivityTest.swift */; };
@@ -65,7 +67,6 @@
 
 /* Begin PBXFileReference section */
 		0E098815286B22DF00469A73 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		0E505E76287198240070BEFD /* Activities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activities.swift; sourceTree = "<group>"; };
 		0ED794DB28730C9500BE09DF /* AddActivityForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityForm.swift; sourceTree = "<group>"; };
 		0EE23A83285F626500ACBD61 /* Hover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EE23A86285F626500ACBD61 /* HoverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverApp.swift; sourceTree = "<group>"; };
@@ -79,6 +80,9 @@
 		931C01802871C4F5001405CD /* NotificationFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationFunction.swift; sourceTree = "<group>"; };
 		931C01822871C71C001405CD /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		931C01842871DB8E001405CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		937121A82872E10000019FD5 /* ListActivityRecommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListActivityRecommendation.swift; sourceTree = "<group>"; };
+		937121AA2872E43C00019FD5 /* ListActivityRecommendationStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListActivityRecommendationStructure.swift; sourceTree = "<group>"; };
+		937121AE28731E0900019FD5 /* LoveLanguageLogoBg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguageLogoBg.swift; sourceTree = "<group>"; };
 		9384665E2868BCDE00A4CD36 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		938466612868C22F00A4CD36 /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
 		93A99662286C4AB100B5F844 /* ActivityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTest.swift; sourceTree = "<group>"; };
@@ -205,7 +209,6 @@
 			isa = PBXGroup;
 			children = (
 				0EE23A97285F62EA00ACBD61 /* HomeScreen.swift */,
-				0E505E76287198240070BEFD /* Activities.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -227,6 +230,8 @@
 				FDFDDDE1286F3FFC00E303E3 /* LoveLanguages+CoreDataProperties.swift */,
 				FDFDDDE2286F3FFC00E303E3 /* SpecialDay+CoreDataClass.swift */,
 				FDFDDDE4286F3FFC00E303E3 /* SpecialDay+CoreDataProperties.swift */,
+				937121A82872E10000019FD5 /* ListActivityRecommendation.swift */,
+				937121AA2872E43C00019FD5 /* ListActivityRecommendationStructure.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 				FD6D951F286CA30700A25687 /* CustomModifier.swift */,
 				FD6D9525286CB4E000A25687 /* Checklist.swift */,
 				FD7B63762871C88B00F019F4 /* ImagePicker.swift */,
+				937121AE28731E0900019FD5 /* LoveLanguageLogoBg.swift */,
 			);
 			path = _shared;
 			sourceTree = "<group>";
@@ -432,7 +438,6 @@
 				931C01812871C4F5001405CD /* NotificationFunction.swift in Sources */,
 				FD6D9520286CA30700A25687 /* CustomModifier.swift in Sources */,
 				9384665F2868BCDE00A4CD36 /* DataController.swift in Sources */,
-				0E505E77287198240070BEFD /* Activities.swift in Sources */,
 				0EE23A87285F626500ACBD61 /* HoverApp.swift in Sources */,
 				931C01832871C71C001405CD /* NotificationModel.swift in Sources */,
 				93DBDADE286CC86800F6AA47 /* ShowSpecialDay.swift in Sources */,
@@ -454,7 +459,9 @@
 				0EE23A9C285F633100ACBD61 /* Activity.swift in Sources */,
 				0EE23A98285F62EA00ACBD61 /* HomeScreen.swift in Sources */,
 				FD6D9522286CA88A00A25687 /* IntroLoveLanguagePrompt.swift in Sources */,
+				937121A92872E10000019FD5 /* ListActivityRecommendation.swift in Sources */,
 				FDD705F42868B1130003D311 /* LoveLanguageQuestion.swift in Sources */,
+				937121AB2872E43C00019FD5 /* ListActivityRecommendationStructure.swift in Sources */,
 				FDD705EC2865DD1A0003D311 /* TestResultPage.swift in Sources */,
 				93DBDAE0286CD13300F6AA47 /* AddSpecialDateTest.swift in Sources */,
 				FDAFBBCD286F89D700627BA6 /* CoreDataPreviewHelper.swift in Sources */,
@@ -462,6 +469,7 @@
 				FD7B63842871CC2B00F019F4 /* User+CoreDataProperties.swift in Sources */,
 				FDFDDDE7286F3FFC00E303E3 /* LoveLanguages+CoreDataProperties.swift in Sources */,
 				938466622868C22F00A4CD36 /* CoreDataTest.swift in Sources */,
+				937121AF28731E0900019FD5 /* LoveLanguageLogoBg.swift in Sources */,
 				FDD705D72865DB6C0003D311 /* LoveLanguagePrompt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

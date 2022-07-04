@@ -115,9 +115,7 @@ struct SpecialDateForm: View {
                         
                         if isActivityWanted {
                             ScrollView() {
-                                ForEach((1...10), id: \.self) {_ in
-                                    ActivityItem()
-                                }
+                                ActivityItem(actSelections: $actSelections)
                             }
                         }
                         
@@ -140,15 +138,18 @@ struct SpecialDateForm: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save"){
+                        saveData()
                         dismiss()
                     }
                 }
                 
                 ToolbarItem(placement: .bottomBar) {
-                    if isActivityWanted {
-                        withAnimation {
-                            Button(action: {showAddPlan.toggle()}) {
-                                Label("I have my own activitiy plan", systemImage: "plus.circle.fill").labelStyle(.titleAndIcon)
+                    if nameNotEmpty {
+                        if isActivityWanted {
+                            withAnimation {
+                                Button(action: {showAddPlan.toggle()}) {
+                                    Label("I have my own activitiy plan", systemImage: "plus.circle.fill").labelStyle(.titleAndIcon)
+                                }
                             }
                         }
                     }
@@ -164,7 +165,7 @@ struct SpecialDateForm: View {
         }
         
         .sheet(isPresented: $showAddPlan) {
-            AddActivityForm()
+            AddActivityForm( actSelections: $actSelections)
         }
     }
     
@@ -182,7 +183,7 @@ struct SpecialDateForm: View {
         //        }
     }
     
-    func saveData(notifID: String){
+    func saveData(){
         let specialDay = SpecialDay(context: moc)
         specialDay.id = UUID()
         specialDay.notificationID = UUID().uuidString
@@ -206,24 +207,92 @@ struct SpecialDateForm_Previews: PreviewProvider {
 }
 
 struct ActivityItem: View {
-    @State var selected: Bool = false
-    
+    @EnvironmentObject var globalObject: GlobalObject
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: []) var activities : FetchedResults <ActivityList>
+    var loveLanguageUser: LoveLanguageUser {
+        LoveLanguageUser(user: globalObject.user)
+    }
+    var loveLanguagePartner: LoveLanguageUser {
+        LoveLanguageUser(user: globalObject.partner)
+    }
+    @Binding var actSelections: [ActivityList]
     var body: some View {
-        HStack {
-            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.combination.rawValue, size: 45, cornerRadius: 8)
-            Text("Warm Hug Together").font(.body).bold()
-            Spacer()
-            if selected {
-                Image(systemName: "checkmark.circle.fill").foregroundColor(.accentColor)
+        ForEach(activities){activity in
+            if checkActivityToShow(llList: activity.llArray){
+                MultipleSelectionRow(title: activity.activity ?? "Unknown", isSelected: self.actSelections.contains(activity ), llData: activity.llArray) {
+                    if self.actSelections.contains(activity) {
+                        self.actSelections.removeAll(where: { $0.id?.uuidString == activity.id?.uuidString ?? "Unknown" })
+                    }
+                    else {
+                        self.actSelections.append(activity)
+                    }
+                }
             }
         }
-        .padding()
-        .overlay(RoundedRectangle(cornerRadius: 8)
-            .stroke(selected ? Color.accentColor : Color.gray))
-        
-        .onTapGesture {
-            selected.toggle()
+    }
+    func getPrimaryLoveLanguageUser() -> String {
+        return loveLanguageUser.getPrimaryLoveLanguage()
+    }
+    func getPrimaryLoveLanguagePartner() -> String {
+        return loveLanguagePartner.getPrimaryLoveLanguage()
+    }
+    func getSecondaryLoveLanguagePartner() -> String {
+        return loveLanguagePartner.getSecondaryLoveLanguage()
+    }
+    func checkActivityToShow(llList: [LoveLanguages]) -> Bool{
+        var isPassed: Bool = false
+        for ll in llList {
+            if ll.wrappedLLName == getPrimaryLoveLanguageUser(){
+                isPassed = true
+            }else if ll.wrappedLLName == getPrimaryLoveLanguagePartner(){
+                isPassed = true
+            }else if ll.wrappedLLName == getSecondaryLoveLanguagePartner(){
+                isPassed = true
+            }else{
+                isPassed = false
+            }
         }
-        .animation(.default, value: selected)
+        return isPassed
+    }
+}
+struct MultipleSelectionRow: View {
+    var title: String
+    @State var isSelected: Bool
+    @State var llData:[LoveLanguages]
+    var action: () -> Void
+    
+    var body: some View {
+        Button(action: self.action) {
+            HStack {
+                LoveLanguageLogoBg(loveLanguageName: getLLLogo(), size: 45, cornerRadius: 8)
+                Text(title).font(.body).bold()
+                Spacer()
+                if self.isSelected {
+                    Image(systemName: "checkmark.circle.fill").foregroundColor(.accentColor)
+                }
+            }
+            .padding()
+            .overlay(RoundedRectangle(cornerRadius: 8)
+                .stroke(self.isSelected ? Color.accentColor : Color.gray))
+            
+            .onTapGesture {
+                self.isSelected.toggle()
+            }
+            .animation(.default, value: self.isSelected)
+        }
+    }
+    func getLLLogo()-> String{
+        var counter: Int = 1
+        var LLName: String = ""
+        for ll in llData{
+            if counter == 1{
+                LLName = ll.wrappedLLName
+            }else if counter == 2{
+                LLName = LoveLanguageEnum.combination.rawValue
+            }
+            counter += 1
+        }
+        return LLName
     }
 }

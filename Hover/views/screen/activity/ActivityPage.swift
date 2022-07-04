@@ -62,6 +62,7 @@ struct ActivityPage: View {
                         .foregroundColor(.white)
                     }.padding(.leading)
                     Text("Have you tried these activities to \(globalObject.partner.wrappedName)? \nHe definitely will happy 🤩").font(.headline).padding()
+                        .lineLimit(nil)
                     HStack {
                         IconLL()
                         ZStack {
