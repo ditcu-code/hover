@@ -17,7 +17,7 @@ struct SpecialDateForm: View {
     
     @State private var specialDayName: String = ""
     @State private var isRepeated: Bool = true
-    @State private var isTaskWanted: Bool = true
+    @State private var isActivityWanted: Bool = true
     
     @State var selectedDate = Date()
     @Environment(\.managedObjectContext) var moc
@@ -34,110 +34,124 @@ struct SpecialDateForm: View {
     
     
     var body: some View {
-        
         //        let nameNotEmpty = specialDayName.count > 0
         
         NavigationView {
-            ScrollView {
-                VStack {
-                    ZStack(alignment: .leading) {
-                        RoundedRectangle(cornerRadius: 8).fill(.white)
+            VStack(alignment: .center) {
+                
+                VStack(alignment: .leading) {
+                    
+                    Text("I want to **celebrate**")
+                    
+                    TextField("", text: $specialDayName)
+                        .textFieldStyle(.roundedBorder)
+                        .overlay(RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.accentColor))
+                    
+                    HStack {
                         
-                        VStack(alignment: .leading) {
-                            
-                            Text("I want to **celebrate**")
-                            
-                            TextField("", text: $specialDayName)
-                                .textFieldStyle(.roundedBorder)
-                                .overlay(RoundedRectangle(cornerRadius: 8)
-                                    .stroke(Color.accentColor))
-                            
-                            HStack {
-                                
-                                Text("on").bold()
-                                DatePicker("", selection: $selectedDate, displayedComponents: [.date])
-                                    .labelsHidden()
-                                    .scaleEffect(1.1)
-                                    .padding(.horizontal, 5)
-                                
-                                Text("and")
-                                Button(isRepeated ? "would" : "wouldn't") {
-                                    withAnimation(.easeInOut) {
-                                        isRepeated.toggle()
+                        Text("on").bold()
+                        DatePicker("", selection: $selectedDate, displayedComponents: [.date])
+                            .labelsHidden()
+                            .scaleEffect(1.1)
+                            .padding(.horizontal, 5)
+                        
+                        Text("and")
+                        Button(isRepeated ? "would" : "wouldn't") {
+                            withAnimation(.easeInOut) {
+                                isRepeated.toggle()
+                            }
+                        }.buttonStyle(.bordered)
+                    }
+                    
+                    HStack {
+                        
+                        Text("be repeated\(isRepeated ? "" : ".")")
+                        if isRepeated {
+                            Menu(selectedRepeat.rawValue) {
+                                ForEach(Repeat.allCases, id: \.self) { a in
+                                    Button(a.rawValue) {
+                                        selectedRepeat = a
                                     }
-                                }.buttonStyle(.bordered)
-                                Text("be")
-                                
-                            }.font(.title3)
-                            
-                            HStack {
-                                
-                                Text("repeated\(isRepeated ? "" : ".")")
-                                if isRepeated {
-                                    Menu(selectedRepeat.rawValue) {
-                                        ForEach(Repeat.allCases, id: \.self) { a in
-                                            Button(a.rawValue) {
-                                                selectedRepeat = a
-                                            }
-                                        }
-                                    }.menuStyle(GrayButtonStyle())
                                 }
-                                
-                            }.font(.title3)
-                            
-                            HStack {
-                                Text("Please **remind** me")
-                                Menu(selectedAlert.rawValue) {
-                                    ForEach(Alert.allCases, id: \.self) { a in
-                                        Button(a.rawValue) {
-                                            selectedAlert = a
-                                        }
-                                    }
-                                }.menuStyle(GrayButtonStyle(width: 115))
-                            }.font(.title3)
-                            
-                            Text("before the date.")
-                            
-                        }.padding().font(.title2)
+                            }.menuStyle(GrayButtonStyle())
+                        }
                         
-                    }.padding(.horizontal)
+                    }
+                    
+                    HStack {
+                        Text("Please **remind** me")
+                        Menu(selectedAlert.rawValue) {
+                            ForEach(Alert.allCases, id: \.self) { a in
+                                Button(a.rawValue) {
+                                    selectedAlert = a
+                                }
+                            }
+                        }.menuStyle(GrayButtonStyle(width: 115))
+                    }
+                    
+                    Text("before the date.")
                     
                 }
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 8).fill(.white))
                 
-                ZStack(alignment: .leading) {
-                    RoundedRectangle(cornerRadius: 8).fill(.white)
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text("I think, I")
+                        Button(isActivityWanted ? "want" : "haven't") {
+                            withAnimation(.easeInOut) {
+                                isActivityWanted.toggle()
+                            }
+                        }.buttonStyle(.bordered)
+                        Text("to do some")
+                    }
+                    HStack {
+                        Text("activities during the celebration.")
+                        Spacer()
+                    }
                     
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Text("I think, I")
-                            Button(isTaskWanted ? "want" : "haven't") {
-                                withAnimation(.easeInOut) {
-                                    isTaskWanted.toggle()
-                                }
-                            }.buttonStyle(.bordered)
-                            Text("to do some")
-                            
-                        }
-                        HStack{
-                            Text("activities during the celebration.")
-                        }
-                        List {
-                            HStack {
-                                
+                    if isActivityWanted {
+                        ScrollView() {
+                            ForEach((1...10), id: \.self) {_ in
+                                ActivityItem()
                             }
                         }
-                    }.padding().font(.title2)
+                    }
                     
-                }.padding(.horizontal)
+                }
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 8).fill(.white))
+                
+                Spacer()
                 
             }
+            .padding()
+            .font(.title2)
             .background(Color.backgroundColor)
+            
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save"){
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 }
+                
+                ToolbarItem(placement: .bottomBar) {
+                    if isActivityWanted {
+                        withAnimation {
+                            Button(action: {}) {
+                                Label("I have my own activitiy plan", systemImage: "plus.circle.fill").labelStyle(.titleAndIcon)
+                            }
+                        }
+                    }
+                }
+                ToolbarItem(placement: .bottomBar) {
+                    if isActivityWanted {
+                        Spacer()
+                    }
+                }
+                
             }
         }
     }
@@ -179,12 +193,25 @@ struct SpecialDateForm_Previews: PreviewProvider {
     }
 }
 
-struct GrayButtonStyle: MenuStyle {
-    var width: CGFloat = 130
-    func makeBody(configuration: Configuration) -> some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 8).fill(Color.bgButton).frame(width: width, height: 38)
-            Menu(configuration)
+struct ActivityItem: View {
+    @State var selected: Bool = false
+    
+    var body: some View {
+        HStack {
+            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.combination.rawValue, size: 45, cornerRadius: 8)
+            Text("Warm Hug Together").font(.body).bold()
+            Spacer()
+            if selected {
+                Image(systemName: "checkmark.circle.fill").foregroundColor(.accentColor)
+            }
         }
+        .padding()
+        .overlay(RoundedRectangle(cornerRadius: 8)
+            .stroke(selected ? Color.accentColor : Color.gray))
+        
+        .onTapGesture {
+            selected.toggle()
+        }
+        .animation(.default, value: selected)
     }
 }
