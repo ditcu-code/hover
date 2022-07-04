@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E098816286B22DF00469A73 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E098815286B22DF00469A73 /* Colors.swift */; };
+		0E6B25A52873650B0006B7BA /* Congrats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B25A42873650B0006B7BA /* Congrats.swift */; };
 		0ED794DC28730C9500BE09DF /* AddActivityForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED794DB28730C9500BE09DF /* AddActivityForm.swift */; };
 		0EE23A87285F626500ACBD61 /* HoverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23A86285F626500ACBD61 /* HoverApp.swift */; };
 		0EE23A89285F626500ACBD61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23A88285F626500ACBD61 /* ContentView.swift */; };
@@ -65,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		0E098815286B22DF00469A73 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		0E6B25A42873650B0006B7BA /* Congrats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Congrats.swift; sourceTree = "<group>"; };
 		0ED794DB28730C9500BE09DF /* AddActivityForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityForm.swift; sourceTree = "<group>"; };
 		0EE23A83285F626500ACBD61 /* Hover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EE23A86285F626500ACBD61 /* HoverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverApp.swift; sourceTree = "<group>"; };
@@ -135,6 +137,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E6B25A3287364FC0006B7BA /* congrats */ = {
+			isa = PBXGroup;
+			children = (
+				0E6B25A42873650B0006B7BA /* Congrats.swift */,
+			);
+			path = congrats;
+			sourceTree = "<group>";
+		};
 		0EE23A7A285F626500ACBD61 = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +200,7 @@
 		0EE23A95285F62B900ACBD61 /* screen */ = {
 			isa = PBXGroup;
 			children = (
+				0E6B25A3287364FC0006B7BA /* congrats */,
 				FDD705E82865DCF60003D311 /* profile */,
 				FDD705E32865DC8D0003D311 /* activity */,
 				FDD705E02865DC4F0003D311 /* memory */,
@@ -448,6 +459,7 @@
 				FDD705E52865DC9B0003D311 /* ActivityPage.swift in Sources */,
 				FDFDDDE8286F3FFC00E303E3 /* SpecialDay+CoreDataClass.swift in Sources */,
 				FDD705D52865DB060003D311 /* SpecialDatePrompt.swift in Sources */,
+				0E6B25A52873650B0006B7BA /* Congrats.swift in Sources */,
 				0EE23A9C285F633100ACBD61 /* Activity.swift in Sources */,
 				0EE23A98285F62EA00ACBD61 /* HomeScreen.swift in Sources */,
 				FD6D9522286CA88A00A25687 /* IntroLoveLanguagePrompt.swift in Sources */,
