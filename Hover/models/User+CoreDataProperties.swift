@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  Hover
 //
-//  Created by Eddo Careera Iriyanto Putra on 03/07/22.
+//  Created by Eddo Careera Iriyanto Putra on 05/07/22.
 //
 //
 
@@ -18,20 +18,16 @@ extension User {
 
     @NSManaged public var aos: Int32
     @NSManaged public var id: UUID?
+    @NSManaged public var imageData: Data?
     @NSManaged public var isUser: Bool
     @NSManaged public var name: String?
     @NSManaged public var pt: Int32
     @NSManaged public var qt: Int32
     @NSManaged public var rg: Int32
     @NSManaged public var woa: Int32
-    @NSManaged public var imageUrl: String?
 
     public var wrappedName: String {
         name ?? "Unknown Name"
-    }
-    
-    public var wrappedUrl: String {
-        imageUrl ?? ""
     }
 }
 

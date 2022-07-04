@@ -52,11 +52,11 @@ struct ProfilePicture: View {
     @State private var showConfirmationDialog: Bool = false
     @State private var imagePickerMode: Int = 0
     @State private var showImagePicker: Bool = false
-    @State private var imageUrl: String = ""
+    @State private var imageData: Data? = nil
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            ProfileImage(url: user.wrappedUrl)
+            ProfileImage(imageData: user.imageData ?? nil)
             Text("EDIT")
                 .font(.caption2)
                 .frame(width: 76)
@@ -67,10 +67,10 @@ struct ProfilePicture: View {
             showConfirmationDialog.toggle()
         }
         .sheet(isPresented: self.$showImagePicker) {
-            ImagePicker(isShown: $showImagePicker, imageUrl: $imageUrl, pickerMode: self.imagePickerMode)
+            ImagePicker(isShown: $showImagePicker, imageData: $imageData, pickerMode: self.imagePickerMode)
         }
-        .onChange(of: imageUrl, perform: { _ in
-            user.imageUrl = imageUrl
+        .onChange(of: imageData, perform: { _ in
+            user.imageData = imageData
             try? moc.save()
             if user.isUser {
                 globalObject.user = user
@@ -95,34 +95,26 @@ struct ProfilePicture: View {
 }
 
 struct ProfileImage: View {
-    var url: String
+    var imageData: Data?
     
     var body: some View {
-        let pngURL = URL(fileURLWithPath: url)
-        if url.isEmpty {
+        if imageData == nil {
             Image(systemName: "camera")
                 .frame(width: 76, height: 76)
                 .foregroundColor(.black)
                 .background(Color.darkGrey)
         } else {
-            if let data = try? Data(contentsOf: pngURL, options: [.mappedIfSafe, .uncached]) {
-                Image(uiImage: UIImage(data: data)!)
+                Image(uiImage: UIImage(data: imageData!)!)
                     .resizable()
                     .frame(width: 76, height: 76)
                     .scaledToFit()
-            } else {
-                Image(systemName: "camera")
-                    .frame(width: 76, height: 76)
-                    .foregroundColor(.black)
-                    .background(Color.darkGrey)
-            }
         }
     }
 }
 
 struct ProfileCard: View {
     @Binding var user: User
-    
+    @EnvironmentObject var globalObject: GlobalObject
     @State private var isNavigationActive: Bool = false
     
     var body: some View {
@@ -139,6 +131,7 @@ struct ProfileCard: View {
                 HStack {
                     Spacer()
                     Button {
+                        globalObject.onboardingStep = 0
                         isNavigationActive.toggle()
                     } label: {
                         Text("Retake the test")
@@ -153,7 +146,8 @@ struct ProfileCard: View {
         }
         .background {
             NavigationLink(isActive: $isNavigationActive) {
-                QuestionLoveLanguage(user: user)
+//                QuestionLoveLanguage(user: user)
+                LoveLanguagePageController(user: user)
             } label: {
                 
             }
