@@ -26,7 +26,7 @@ struct HomeScreen: View {
                 }
             }
             NavigationView {
-                SpecialDatePage()
+                ShowSpecialDay()
             }
             .tabItem {
                 VStack {

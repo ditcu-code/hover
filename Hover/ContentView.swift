@@ -12,7 +12,7 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     @StateObject var globalObject = GlobalObject.shared
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \LoveLanguages.llName, ascending: true)]) var loveLanguages : FetchedResults <LoveLanguages>
-    
+    var llActivityRec = ListActivityRecommendation()
     @AppStorage("isDoneOnboarding") private var isDoneOnboarding: Bool = false
     @AppStorage("idUser") private var idUser: String = ""
     @AppStorage("idPartner") private var idPartner: String = ""
@@ -35,7 +35,7 @@ struct ContentView: View {
                                 saveLL(llname: llName[i], detail: detail[i])
                             }
                             
-                            for a in ["Duh", "Gw", "Bingung"] {
+                            for a in llActivityRec.activityListLL {
                                 saveActivityWithLL(activity: a)
                             }
                         }
@@ -53,24 +53,22 @@ struct ContentView: View {
         try? moc.save()
     }
     
-    func saveActivityWithLL(activity: String) {
+    func saveActivityWithLL(activity: ListActivityRecommendationStructure) {
         let a = ActivityList(context: moc)
+        var ll : [LoveLanguages] = []
+        for lovelanguage in loveLanguages {
+            if lovelanguage.llName == activity.firstLL{
+                ll.append(lovelanguage)
+            }
+            if lovelanguage.llName == activity.secondLL{
+                ll.append(lovelanguage)
+            }
+        }
         a.id = UUID()
-        a.activity = activity
-        for s in 0...1 {
-            var llActivity = Set([loveLanguages.randomElement()!])
-            if s % 2 == 0 {
-                llActivity = Set(loveLanguages.filter({ f in
-                    f.wrappedLLName == LoveLanguageEnum.qualityTime.rawValue || f.wrappedLLName == LoveLanguageEnum.receivingGift.rawValue
-                }))
-            } else {
-                llActivity = Set(loveLanguages.filter({ f in
-                    f.wrappedLLName == LoveLanguageEnum.qualityTime.rawValue
-                }))
-            }
-            for ll in llActivity {
-                a.addToActivityToLL(ll)
-            }
+        a.activity = activity.activity
+        let llActivity = Set(ll)
+        for i in llActivity{
+            a.addToActivityToLL(i)
         }
         
         try? moc.save()
