@@ -10,11 +10,11 @@ import SwiftUI
 
 class ImagePickerCoordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     @Binding var isShown: Bool
-    @Binding var imageUrl: String
+    @Binding var imageData: Data?
     
-    init(isShown: Binding<Bool>, imageUrl: Binding<String>) {
+    init(isShown: Binding<Bool>, imageData: Binding<Data?>) {
         _isShown = isShown
-        _imageUrl = imageUrl
+        _imageData = imageData
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -28,6 +28,7 @@ class ImagePickerCoordinator: NSObject, UINavigationControllerDelegate, UIImageP
         // Create URL
         let url = documents.appendingPathComponent(fileName)
         // Convert to Data
+        let data = uiImage.jpegData(compressionQuality: 1.0)
         if let data = uiImage.jpegData(compressionQuality: 1) {
             do {
                 try data.write(to: url)
@@ -37,7 +38,7 @@ class ImagePickerCoordinator: NSObject, UINavigationControllerDelegate, UIImageP
         }
 
         isShown = false
-        imageUrl = url.path
+        imageData = data
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -48,7 +49,7 @@ class ImagePickerCoordinator: NSObject, UINavigationControllerDelegate, UIImageP
 struct ImagePicker: UIViewControllerRepresentable {
     
     @Binding var isShown: Bool
-    @Binding var imageUrl: String
+    @Binding var imageData: Data?
     
     var pickerMode: Int = 0 // 0 -> album, 1 -> camera
     
@@ -56,7 +57,7 @@ struct ImagePicker: UIViewControllerRepresentable {
     }
     
     func makeCoordinator() -> ImagePickerCoordinator {
-        return ImagePickerCoordinator(isShown: $isShown, imageUrl: $imageUrl)
+        return ImagePickerCoordinator(isShown: $isShown, imageData: $imageData)
     }
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {

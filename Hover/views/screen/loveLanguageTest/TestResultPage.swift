@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct TestResultPage: View {
+    @EnvironmentObject var globalObject: GlobalObject
     @Environment(\.managedObjectContext) var moc
-    @Binding var onboardingStep: Int
+    @Environment(\.dismiss) var dismiss
+//    @Binding var onboardingStep: Int
     @State private var selectionPage: String? = nil
     
     var user: User
+    
+    var onboardingStep: Int {
+        globalObject.onboardingStep
+    }
     var progress: Int {
         onboardingStep + 1
     }
@@ -66,21 +72,23 @@ struct TestResultPage: View {
                         .font(.headline)
                         .fontWeight(.semibold)
                     Spacer()
-                    NavigationLink(destination: LoveLanguagePrompt(onboardingStep: .constant(onboardingStep + 1), user: GlobalObject.shared.partner), tag: "PartnerLoveLanguage", selection: $selectionPage) { }
+                    NavigationLink(destination: LoveLanguagePrompt(user: globalObject.partner), tag: "PartnerLoveLanguage", selection: $selectionPage) { }
                     NavigationLink(destination: HomeScreen(), tag: "HomePage", selection: $selectionPage) { }
                     Button {
                         if onboardingStep == 6 {
+                            globalObject.onboardingStep += 1
                             selectionPage = "PartnerLoveLanguage"
                         } else {
                             if UserDefaults.standard.bool(forKey: "isDoneOnboarding") {
-                                selectionPage = "HomePage"
+//                                selectionPage = "HomePage"
+                                dismiss()
                             } else {
 //                                selectionPage = "HomePage"
                                 UserDefaults.standard.set(true, forKey: "isDoneOnboarding")
                             }
                         }
                     } label: {
-                        Text(onboardingStep == 6 ? "Partner Love Language" : "Continue to Home Page")
+                        Text(onboardingStep == 6 ? "Partner Love Language" : onboardingStep == 1 ? "Back to Profile" : "Continue to Home Page")
                             .fontWeight(.semibold)
                             .frame(width: 300, height: 50)
                             .foregroundColor(.white)
@@ -109,7 +117,7 @@ struct TestResultPage: View {
 
 struct TestResultPage_Previews: PreviewProvider {
     static var previews: some View {
-        TestResultPage(onboardingStep: .constant(6), user: CoreDataPreviewHelper.dummyUser)
+        TestResultPage(user: CoreDataPreviewHelper.dummyUser)
             .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
     }
 }

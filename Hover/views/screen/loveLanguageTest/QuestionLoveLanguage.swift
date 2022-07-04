@@ -11,6 +11,8 @@ struct QuestionLoveLanguage: View {
     @Environment(\.managedObjectContext) var moc
     @EnvironmentObject var globalObject: GlobalObject
     
+    @Binding var showResult: Bool
+//    @Binding var onboardingStep: Int
     @State private var option1Label: String = "Opsi 1"
     @State private var option2Label: String = "Opsi 2"
     @State private var option1Checked: Bool = false
@@ -20,7 +22,10 @@ struct QuestionLoveLanguage: View {
     @State private var isTestDone: Bool = false
     
     var user: User
-    var onboardingStep: Int = 0
+    //    var onboardingStep: Int = 0
+    var onboardingStep: Int {
+        globalObject.onboardingStep
+    }
     var loveLanguageQuestion = LoveLanguageQuestion()
     
     var body: some View {
@@ -75,9 +80,10 @@ struct QuestionLoveLanguage: View {
             updateUI()
         }
         .background(
-            NavigationLink("", isActive: $isTestDone) {
-                TestResultPage(onboardingStep: .constant(onboardingStep + 1), user: user)
-            }
+            //            NavigationLink("", isActive: $isTestDone) {
+            //                LoveLanguagePageController(onboardingStep: .constant(onboardingStep + 1), user: user)
+            //                TestResultPage(onboardingStep: .constant(onboardingStep + 1), user: user)
+            //            }
         )
         .navigationBarHidden(true)
         .navigationBarTitleDisplayMode(.inline)
@@ -85,11 +91,13 @@ struct QuestionLoveLanguage: View {
     
     func processChoice(chosenOption: String) {
         chosenOptions[chosenOption] = (chosenOptions[chosenOption] ?? 0) + 1
-        if counter+1 < loveLanguageQuestion.options.count {
+        if counter + 1 < loveLanguageQuestion.options.count {
             counter += 1
         } else {
             saveUserLL()
-            isTestDone.toggle()
+            globalObject.onboardingStep += 1
+            showResult.toggle()
+            //            isTestDone.toggle()
         }
     }
     
@@ -127,7 +135,7 @@ struct QuestionLoveLanguage: View {
 
 struct QuestionLoveLanguage_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionLoveLanguage(user: GlobalObject.shared.user)
+        QuestionLoveLanguage(showResult: .constant(false), user: GlobalObject.shared.user)
             .environmentObject(GlobalObject.shared)
     }
 }

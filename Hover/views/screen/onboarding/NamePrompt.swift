@@ -11,7 +11,7 @@ struct NamePrompt: View {
     @Environment(\.managedObjectContext) var moc
     @EnvironmentObject var globalObject: GlobalObject
     
-    @Binding var onboardingStep: Int
+//    @Binding var onboardingStep: Int
     @State var username: String = ""
     @State var isNavigateActive: Bool = false
     var user: User = User()
@@ -19,6 +19,10 @@ struct NamePrompt: View {
     
     var disabledForm: Bool {
         username.isEmpty
+    }
+    
+    var onboardingStep: Int {
+        globalObject.onboardingStep
     }
     
     var progress: Int {
@@ -51,15 +55,16 @@ struct NamePrompt: View {
                     .shadow(color: .black, radius: 1)
                 Spacer()
                 NavigationLink(isActive: self.$isNavigateActive) {
-                    if self.onboardingStep == 0 {
-                        NamePrompt(onboardingStep: .constant(onboardingStep + 1))
-                    } else if self.onboardingStep == 1 {
-                        SpecialDatePrompt(onboardingStep: .constant(onboardingStep + 1))
+                    if self.onboardingStep == 1 {
+                        NamePrompt()
+                    } else if self.onboardingStep == 2 {
+                        SpecialDatePrompt()
                     }
                 } label: {
                 }.hidden()
                 Button {
                     saveName()
+                    globalObject.onboardingStep += 1
                     self.isNavigateActive.toggle()
                 } label: {
                     OnboardingNextButton(isDisabled: disabledForm)
@@ -93,7 +98,7 @@ struct NamePrompt: View {
 
 struct NamePrompt_Previews: PreviewProvider {
     static var previews: some View {
-        NamePrompt(onboardingStep: .constant(0))
+        NamePrompt()
             .environmentObject(GlobalObject.shared)
     }
 }
