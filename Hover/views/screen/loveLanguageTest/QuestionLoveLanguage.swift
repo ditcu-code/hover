@@ -39,7 +39,7 @@ struct QuestionLoveLanguage: View {
             Button {
                 option1Checked.toggle()
                 processChoice(chosenOption: loveLanguageQuestion.options[counter].valueOption1)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                     updateUI()
                 }
             } label: {
@@ -49,13 +49,13 @@ struct QuestionLoveLanguage: View {
                     .foregroundColor(.black)
                     .background(.white)
                     .cornerRadius(15)
-                    .shadow(color: option1Checked ? Color.yellowSun: .black, radius: 1)
+                    .shadow(color: option1Checked ? Color.activeButtonColor : .black, radius: 1)
             }
             Button {
                 option2Checked.toggle()
                 processChoice(chosenOption: loveLanguageQuestion.options[counter].valueOption2)
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                     updateUI()
                 }
             } label: {
@@ -65,7 +65,7 @@ struct QuestionLoveLanguage: View {
                     .foregroundColor(.black)
                     .background(.white)
                     .cornerRadius(15)
-                    .shadow(color: option2Checked ? Color.yellowSun: .black, radius: 1)
+                    .shadow(color: option2Checked ? Color.activeButtonColor: .black, radius: 1)
             }
             Spacer()
         }
