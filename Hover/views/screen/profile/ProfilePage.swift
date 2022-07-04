@@ -114,7 +114,7 @@ struct ProfileImage: View {
 
 struct ProfileCard: View {
     @Binding var user: User
-    
+    @EnvironmentObject var globalObject: GlobalObject
     @State private var isNavigationActive: Bool = false
     
     var body: some View {
@@ -131,6 +131,7 @@ struct ProfileCard: View {
                 HStack {
                     Spacer()
                     Button {
+                        globalObject.onboardingStep = 0
                         isNavigationActive.toggle()
                     } label: {
                         Text("Retake the test")
@@ -145,7 +146,8 @@ struct ProfileCard: View {
         }
         .background {
             NavigationLink(isActive: $isNavigationActive) {
-                QuestionLoveLanguage(user: user)
+//                QuestionLoveLanguage(user: user)
+                LoveLanguagePageController(user: user)
             } label: {
                 
             }

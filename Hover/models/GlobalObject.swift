@@ -12,4 +12,6 @@ class GlobalObject: ObservableObject {
     
     @Published var user: User = CoreDataPreviewHelper.initialUser
     @Published var partner: User = CoreDataPreviewHelper.initialUser
+    
+    @Published var onboardingStep: Int = 0
 }

@@ -9,13 +9,18 @@ import SwiftUI
 
 struct SpecialDatePrompt: View {
     @Environment(\.managedObjectContext) var moc
-    @Binding var onboardingStep: Int
+    @EnvironmentObject var globalObject: GlobalObject
+//    @Binding var onboardingStep: Int
     @State var specialDateName: String = ""
     @State var date: Date = Date()
     @State var isNavigateActive: Bool = false
     
     var disabledForm: Bool {
         specialDateName.isEmpty
+    }
+    
+    var onboardingStep: Int {
+        globalObject.onboardingStep
     }
     
     var progress: Int {
@@ -42,6 +47,9 @@ struct SpecialDatePrompt: View {
                 .background(.white)
                 .cornerRadius(5)
                 .shadow(color: .black, radius: 1)
+            Text("Insert special date, such as wedding anniversary, partner’s birthday, valentine’s day, etc")
+                .font(.subheadline)
+                .foregroundColor(Color("CaptionColor"))
             DatePicker(
                 selection: $date,
                 in: ...Date.now,
@@ -54,19 +62,17 @@ struct SpecialDatePrompt: View {
             .background(.white)
             .cornerRadius(5)
             .shadow(color: .black, radius: 1)
-            Text("Insert special date, such as wedding anniversary, partner’s birthday, valentine’s day, etc")
-                .font(.subheadline)
-                .foregroundColor(Color("CaptionColor"))
             Spacer()
             Button {
                 saveSpecialDate()
+                globalObject.onboardingStep += 1
                 self.isNavigateActive.toggle()
             } label: {
                 OnboardingNextButton(isDisabled: disabledForm)
                     .padding(.bottom, 115)
             }.disabled(disabledForm)
             NavigationLink(isActive: self.$isNavigateActive) {
-                IntroLoveLanguagePrompt(onboardingStep: .constant(onboardingStep + 1))
+                IntroLoveLanguagePrompt()
             } label: {
             }
         }
@@ -87,6 +93,7 @@ struct SpecialDatePrompt: View {
 
 struct SpecialDatePrompt_Previews: PreviewProvider {
     static var previews: some View {
-        SpecialDatePrompt(onboardingStep: .constant(3))
+        SpecialDatePrompt()
+            .environmentObject(GlobalObject.shared)
     }
 }

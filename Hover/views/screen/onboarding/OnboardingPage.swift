@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OnboardingPage: View {
-    @State private var onboardingStep: Int = 0
+//    @State private var onboardingStep: Int = 0
     
     var body: some View {
         NavigationView {
@@ -47,7 +47,7 @@ struct OnboardingPage: View {
                         .multilineTextAlignment(.center)
                         .padding(.horizontal)
                     Spacer()
-                    NavigationLink(destination: NamePrompt(onboardingStep: $onboardingStep)) {
+                    NavigationLink(destination: NamePrompt()) {
                         OnboardingNextButton().padding(.bottom, 160)
                     }
                 }.background(
