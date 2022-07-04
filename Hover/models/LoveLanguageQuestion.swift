@@ -30,7 +30,7 @@ struct LoveLanguageQuestion {
         LoveLanguageTestOption(labelOption1: "my partner and I kiss frequently.", valueOption1: "E", labelOption2: "I sense my partner is showing interest in the things I care about.", valueOption2: "B"),
         LoveLanguageTestOption(labelOption1: "my partner works on special projects with me that I have to complete.", valueOption1: "D", labelOption2: "my partner gives me an exciting gift.", valueOption2: "C"),
         LoveLanguageTestOption(labelOption1: "I'm complimented by my partner on my appearance.", valueOption1: "A", labelOption2: "my partner takes the time to listen to me and really understand my feelings.", valueOption2: "B"),
-        LoveLanguageTestOption(labelOption1: "my partner and I shae non-sexual touch in public.", valueOption1: "E", labelOption2: "my partner offers to run errands for me", valueOption2: "D"),
+        LoveLanguageTestOption(labelOption1: "my partner and I share non-sexual touch in public.", valueOption1: "E", labelOption2: "my partner offers to run errands for me", valueOption2: "D"),
         LoveLanguageTestOption(labelOption1: "my partner does a bit more than his/her normal share of the responsibilities we share (around the house, work-related, etc).", valueOption1: "D", labelOption2: "I get a gift that I know my partner put thought into choosing.", valueOption2: "C"),
         
         LoveLanguageTestOption(labelOption1: "my partner doesn't check his/her phone while we're talking.", valueOption1: "B", labelOption2: "my partner goes out of their way to do something that relieves pressure on me.", valueOption2: "D"),

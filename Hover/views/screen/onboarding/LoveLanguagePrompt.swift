@@ -67,7 +67,7 @@ struct LoveLanguagePrompt: View {
                         saveLoveLanguage()
                         self.isNavigationActive.toggle()
                     } label: {
-                        OnboardingNextButton()
+                        OnboardingNextButton(isDisabled: disabledForm)
                             .disabled(disabledForm)
                     }
                     .padding(.bottom, 35)
@@ -137,7 +137,7 @@ private struct LoveLanguageOption: View {
             .frame(height: 44)
             .background(.white)
             .cornerRadius(15)
-            .shadow(color: self.isSelected ? Color.yellowSun : .black, radius: 1)
+            .shadow(color: self.isSelected ? Color.activeButtonColor : .black, radius: 1)
         }
     }
 }

@@ -62,7 +62,7 @@ struct NamePrompt: View {
                     saveName()
                     self.isNavigateActive.toggle()
                 } label: {
-                    OnboardingNextButton()
+                    OnboardingNextButton(isDisabled: disabledForm)
                         .padding(.bottom, 115)
                 }
                 .disabled(disabledForm)

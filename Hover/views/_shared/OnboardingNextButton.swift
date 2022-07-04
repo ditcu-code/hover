@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct OnboardingNextButton: View {
+    var isDisabled: Bool = false
+    
     var body: some View {
         ZStack {
             Circle()
                 .frame(width: 90, height: 90)
-                .foregroundColor(Color.yellowCorn)
+                .foregroundColor(isDisabled ? Color.disabledButtonColor : Color.activeButtonColor)
             Image(systemName: "chevron.right")
                 .font(.title)
                 .padding(10)
                 .frame(width: 37, height: 37)
-                .foregroundColor(Color.yellowSun)
-                .background(Color.black)
+                .foregroundColor(isDisabled ? Color.disabledButtonColor : Color.activeButtonColor)
+                .background(Color.white)
                 .clipShape(Circle())
         }
     }
