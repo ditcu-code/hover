@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct HoverApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 //    @StateObject private var dataController = DataController()
     let persistentController = DataController.shared
     

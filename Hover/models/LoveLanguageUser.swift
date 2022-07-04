@@ -41,10 +41,16 @@ extension LoveLanguageUser {
         return sortedLLs.first?.llName ?? ""
     }
     func getSecondaryLoveLanguage() -> String {
+        var llname : String = ""
         let sortedLLs = lls.sorted { a, b in
             a.point > b.point
         }
-        return sortedLLs[1].llName 
+        if sortedLLs[1].point == 0 {
+            llname = "NoSecondary"
+        }else{
+            llname = sortedLLs[1].llName
+        }
+        return llname
     }
     
     func transformLLPointToRation() throws -> [LoveLanguageRatio] {
