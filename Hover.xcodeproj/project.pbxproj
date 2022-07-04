@@ -10,6 +10,7 @@
 		0E05E94D2872DC2F0059262A /* LoveLanguageLogoBg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E05E94C2872DC2F0059262A /* LoveLanguageLogoBg.swift */; };
 		0E098816286B22DF00469A73 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E098815286B22DF00469A73 /* Colors.swift */; };
 		0E505E77287198240070BEFD /* Activities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E505E76287198240070BEFD /* Activities.swift */; };
+		0ED794DC28730C9500BE09DF /* AddActivityForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED794DB28730C9500BE09DF /* AddActivityForm.swift */; };
 		0EE23A87285F626500ACBD61 /* HoverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23A86285F626500ACBD61 /* HoverApp.swift */; };
 		0EE23A89285F626500ACBD61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE23A88285F626500ACBD61 /* ContentView.swift */; };
 		0EE23A8B285F626700ACBD61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EE23A8A285F626700ACBD61 /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		0E05E94C2872DC2F0059262A /* LoveLanguageLogoBg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoveLanguageLogoBg.swift; path = ../../../../../.Trash/LoveLanguageLogoBg.swift; sourceTree = "<group>"; };
 		0E098815286B22DF00469A73 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0E505E76287198240070BEFD /* Activities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activities.swift; sourceTree = "<group>"; };
+		0ED794DB28730C9500BE09DF /* AddActivityForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityForm.swift; sourceTree = "<group>"; };
 		0EE23A83285F626500ACBD61 /* Hover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EE23A86285F626500ACBD61 /* HoverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverApp.swift; sourceTree = "<group>"; };
 		0EE23A88285F626500ACBD61 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 			children = (
 				FDD705DC2865DBCD0003D311 /* SpecialDatePage.swift */,
 				FDD705DE2865DC100003D311 /* SpecialDateForm.swift */,
+				0ED794DB28730C9500BE09DF /* AddActivityForm.swift */,
 			);
 			path = specialDate;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				FDFDDDE6286F3FFC00E303E3 /* LoveLanguages+CoreDataClass.swift in Sources */,
 				0EE23A89285F626500ACBD61 /* ContentView.swift in Sources */,
 				FD7B63802871CBFD00F019F4 /* datLoveModel.xcdatamodeld in Sources */,
+				0ED794DC28730C9500BE09DF /* AddActivityForm.swift in Sources */,
 				FDD705DA2865DB930003D311 /* QuestionLoveLanguage.swift in Sources */,
 				FDD705F22868B0E00003D311 /* LoveLanguageTestOption.swift in Sources */,
 				FD6D9526286CB4E000A25687 /* Checklist.swift in Sources */,

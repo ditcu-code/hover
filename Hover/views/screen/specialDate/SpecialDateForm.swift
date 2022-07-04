@@ -7,12 +7,10 @@
 
 import SwiftUI
 
-enum RepeatedEnum: String, CaseIterable {
-    case year = "every year", month = "every month", week = "every week"
-}
-
 struct SpecialDateForm: View {
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
+    
     @State var navActive: Bool = false
     
     @State private var specialDayName: String = ""
@@ -32,9 +30,10 @@ struct SpecialDateForm: View {
     
     @State var textEntryFlag = true
     
+    @State var showAddPlan: Bool = false
     
     var body: some View {
-        //        let nameNotEmpty = specialDayName.count > 0
+        let nameNotEmpty = specialDayName.count > 0
         
         NavigationView {
             VStack(alignment: .center) {
@@ -48,99 +47,107 @@ struct SpecialDateForm: View {
                         .overlay(RoundedRectangle(cornerRadius: 8)
                             .stroke(Color.accentColor))
                     
-                    HStack {
+                    if nameNotEmpty {
+                        HStack {
+                            
+                            Text("on").bold()
+                            DatePicker("", selection: $selectedDate, displayedComponents: [.date])
+                                .labelsHidden()
+                                .scaleEffect(1.1)
+                                .padding(.horizontal, 5)
+                            
+                            Text("and")
+                            Button(isRepeated ? "would" : "wouldn't") {
+                                withAnimation(.easeInOut) {
+                                    isRepeated.toggle()
+                                }
+                            }.buttonStyle(.bordered)
+                        }
                         
-                        Text("on").bold()
-                        DatePicker("", selection: $selectedDate, displayedComponents: [.date])
-                            .labelsHidden()
-                            .scaleEffect(1.1)
-                            .padding(.horizontal, 5)
-                        
-                        Text("and")
-                        Button(isRepeated ? "would" : "wouldn't") {
-                            withAnimation(.easeInOut) {
-                                isRepeated.toggle()
+                        HStack {
+                            
+                            Text("be repeated\(isRepeated ? "" : ".")")
+                            if isRepeated {
+                                Menu(selectedRepeat.rawValue) {
+                                    ForEach(Repeat.allCases, id: \.self) { item in
+                                        Button(item.rawValue) {
+                                            selectedRepeat = item
+                                        }
+                                    }
+                                }.menuStyle(GrayButtonStyle())
                             }
-                        }.buttonStyle(.bordered)
-                    }
-                    
-                    HStack {
+                            
+                        }
                         
-                        Text("be repeated\(isRepeated ? "" : ".")")
-                        if isRepeated {
-                            Menu(selectedRepeat.rawValue) {
-                                ForEach(Repeat.allCases, id: \.self) { a in
+                        HStack {
+                            Text("Please **remind** me")
+                            Menu(selectedAlert.rawValue) {
+                                ForEach(Alert.allCases, id: \.self) { a in
                                     Button(a.rawValue) {
-                                        selectedRepeat = a
+                                        selectedAlert = a
                                     }
                                 }
-                            }.menuStyle(GrayButtonStyle())
+                            }.menuStyle(GrayButtonStyle(width: 115))
+                        }
+                        
+                        Text("before the date.")
+                    }
+                    
+                }
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 8).fill(.white))
+                
+                if nameNotEmpty {
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Text("I think, I")
+                            Button(isActivityWanted ? "want" : "haven't") {
+                                withAnimation(.easeInOut) {
+                                    isActivityWanted.toggle()
+                                }
+                            }.buttonStyle(.bordered)
+                            Text("to do some")
+                        }
+                        HStack {
+                            Text("activities during the celebration.")
+                            Spacer()
+                        }
+                        
+                        if isActivityWanted {
+                            ScrollView() {
+                                ForEach((1...10), id: \.self) {_ in
+                                    ActivityItem()
+                                }
+                            }
                         }
                         
                     }
-                    
-                    HStack {
-                        Text("Please **remind** me")
-                        Menu(selectedAlert.rawValue) {
-                            ForEach(Alert.allCases, id: \.self) { a in
-                                Button(a.rawValue) {
-                                    selectedAlert = a
-                                }
-                            }
-                        }.menuStyle(GrayButtonStyle(width: 115))
-                    }
-                    
-                    Text("before the date.")
-                    
+                    .padding()
+                    .background(RoundedRectangle(cornerRadius: 8).fill(.white))
                 }
-                .padding()
-                .background(RoundedRectangle(cornerRadius: 8).fill(.white))
-                
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text("I think, I")
-                        Button(isActivityWanted ? "want" : "haven't") {
-                            withAnimation(.easeInOut) {
-                                isActivityWanted.toggle()
-                            }
-                        }.buttonStyle(.bordered)
-                        Text("to do some")
-                    }
-                    HStack {
-                        Text("activities during the celebration.")
-                        Spacer()
-                    }
-                    
-                    if isActivityWanted {
-                        ScrollView() {
-                            ForEach((1...10), id: \.self) {_ in
-                                ActivityItem()
-                            }
-                        }
-                    }
-                    
-                }
-                .padding()
-                .background(RoundedRectangle(cornerRadius: 8).fill(.white))
-                
                 Spacer()
                 
             }
             .padding()
             .font(.title2)
             .background(Color.backgroundColor)
-            
+            .animation(.default, value: nameNotEmpty)
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancel"){
+                        dismiss()
+                    }
+                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save"){
-                        self.presentationMode.wrappedValue.dismiss()
+                        dismiss()
                     }
                 }
                 
                 ToolbarItem(placement: .bottomBar) {
                     if isActivityWanted {
                         withAnimation {
-                            Button(action: {}) {
+                            Button(action: {showAddPlan.toggle()}) {
                                 Label("I have my own activitiy plan", systemImage: "plus.circle.fill").labelStyle(.titleAndIcon)
                             }
                         }
@@ -151,8 +158,13 @@ struct SpecialDateForm: View {
                         Spacer()
                     }
                 }
-                
             }
+            .navigationTitle("New Special Day")
+            .navigationBarTitleDisplayMode(.inline)
+        }
+        
+        .sheet(isPresented: $showAddPlan) {
+            AddActivityForm()
         }
     }
     
