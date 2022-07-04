@@ -17,6 +17,8 @@ struct ActivityPage: View {
     @State private var randomElement: [(ActivityList,LoveLanguages)] = []
     @State private var filteredActivities: [ActivityList] = []
     @State private var randomActivities: [ActivityList] = []
+    @State private var filteredTwoActivities: [ActivityList] = []
+    @State private var filteredOneActivities: [ActivityList] = []
     @State private var randomTwoActivities: [ActivityList] = []
     @State private var randomOneActivities: [ActivityList] = []
     
@@ -31,6 +33,8 @@ struct ActivityPage: View {
     var body: some View {
         //        NavigationView {
         ZStack(alignment:.topLeading) {
+            Rectangle().fill(.clear)
+            Image("bg-home").resizable().aspectRatio(contentMode: .fit).ignoresSafeArea()
             VStack {
                 HStack{
                     Spacer()
@@ -41,28 +45,26 @@ struct ActivityPage: View {
                 }
                 
                 HStack {
-                    if !filteredActivities.isEmpty {
-                        LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: filteredActivities[0].llArray) , size: 45, cornerRadius: 8)
+                    if !randomTwoActivities.isEmpty {
+                        LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: randomTwoActivities[0].llArray) , size: 45, cornerRadius: 8)
                     }
                     ZStack(alignment: .topLeading) {
                         RoundedCorner(radius: 8, corners: [.topLeft, .bottomLeft]).fill(.black).opacity(0.5)
                         VStack(alignment: .leading) {
-                            if !filteredActivities.isEmpty {
-                                Text(filteredActivities[0].wrappedActivity)
-                            if !filteredActivities.isEmpty {
+                            if !randomTwoActivities.isEmpty {
+                                Text(randomTwoActivities[0].wrappedActivity)
                                     .fontWeight(.semibold)
                                     .shadow(color: .black, radius: 2, x: 1, y: 1)
-                                    .fontWeight(.semibold)
-                                    .shadow(color: .black, radius: 2, x: 1, y: 1)
-                                    ForEach(filteredActivities[0].llArray) { ll in
+                                HStack {
+                                    ForEach(randomTwoActivities[0].llArray) { ll in
                                         HStack {
                                             LoveLanguageLogoBg(loveLanguageName: ll.wrappedLLName, size: 30, cornerRadius: 90)
-                                            Text(ll.wrappedLLName).font(.caption)
+                                            Text(ll.wrappedLLName)
+                                                .font(.caption)
                                         }
-                                            Text(ll.wrappedLLName).font(.caption)
-                                        }
-                            }
+                                    }
                                 }
+                            }
                         }.padding()
                     }
                     .frame(height: 120)
@@ -73,11 +75,9 @@ struct ActivityPage: View {
                     Text("Have you tried these activities to \(globalObject.partner.wrappedName)? \nHe definitely will happy 🤩").font(.headline).padding()
                         .lineLimit(nil)
                     Spacer()
-                        .lineLimit(nil)
-                    Spacer()
                 }
                 VStack {
-                    ForEach(randomActivities, id: \.self) { act in
+                    ForEach(randomOneActivities, id: \.self) { act in
                         ActivityListItem(activity: act)
                     }
                 }.padding(.leading, 20)
@@ -90,15 +90,16 @@ struct ActivityPage: View {
             randomizeOneActivity()
             randomizeTwoActivity()
         }
+    }
     func randomizeOneActivity() {
         randomOneActivities = []
-        while randomOneActivities.count < 3 {
+        while randomOneActivities.count < 2 {
             let random = filteredOneActivities.randomElement()!
             let isExist = randomOneActivities.filter { activity in
                 activity.wrappedActivity == random.wrappedActivity || random.wrappedActivity == filteredOneActivities[0].wrappedActivity
             }
             if isExist.count == 0 {
-                if random.llArray.count<2{
+                if random.llArray.count < 2 {
                     randomOneActivities.append(random)
                 }
             }
@@ -110,11 +111,10 @@ struct ActivityPage: View {
             let random = filteredTwoActivities.randomElement()!
             let isExist = randomTwoActivities.filter { activity in
                 activity.wrappedActivity == random.wrappedActivity || random.wrappedActivity == filteredTwoActivities[0].wrappedActivity
-            let isExist = randomActivities.filter { activity in
-                activity.wrappedActivity == random.wrappedActivity || random.wrappedActivity == filteredActivities[0].wrappedActivity
-                if random.llArray.count == 2{
-                    randomTwoActivities.append(random)
-                }
+            }
+            if random.llArray.count == 2 {
+                randomTwoActivities.append(random)
+            }
             if isExist.count == 0 {
                 randomActivities.append(random)
             }
