@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SpecialDateForm: View {
-    @Environment(\.presentationMode) var presentationMode
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var globalObject: GlobalObject
     
     @State var navActive: Bool = false
     
@@ -196,13 +196,15 @@ struct SpecialDateForm: View {
             specialDay.addToSpecialToActivity(act)
         }
         try?moc.save()
+        
+        globalObject.showCongrats.toggle()
     }
     
 }
 
 struct SpecialDateForm_Previews: PreviewProvider {
     static var previews: some View {
-        SpecialDateForm()
+        SpecialDateForm().environmentObject(GlobalObject.shared)
     }
 }
 
@@ -282,6 +284,7 @@ struct MultipleSelectionRow: View {
             .animation(.default, value: self.isSelected)
         }
     }
+    
     func getLLLogo()-> String{
         var counter: Int = 1
         var LLName: String = ""
