@@ -12,14 +12,19 @@ struct ActivityPage: View {
     @EnvironmentObject var globalObject: GlobalObject
     @FetchRequest(sortDescriptors: []) var activities : FetchedResults <ActivityList>
     @FetchRequest(sortDescriptors: []) var loveLanguages : FetchedResults <LoveLanguages>
+    @FetchRequest(sortDescriptors: []) var users : FetchedResults <User>
     @State private var selectedActivity: [(ActivityList,LoveLanguages)] = []
+    @State private var selectedActivity1: [(ActivityList,LoveLanguages)] = []
+    @State private var selectedActivity2: [(ActivityList,LoveLanguages)] = []
+    @State private var selectedActivity3: [(ActivityList,LoveLanguages)] = []
     @State private var listActivities : [[(ActivityList,LoveLanguages)]] = [[]]
+    @State private var randomElement: [(ActivityList,LoveLanguages)] = []
 //    [
 //      [(ActivityList, LoveLanguages)],
 //      [(ActivityList, LoveLanguages)]
 //    ]
 //    [(ActivityList, LoveLanguages)]
-    
+//    @Binding var partner: User
     var loveLanguageUser: LoveLanguageUser {
         LoveLanguageUser(user: globalObject.user)
     }
@@ -34,7 +39,7 @@ struct ActivityPage: View {
                 
                
                 VStack(alignment: .leading) {
-                    Text("Have you done this together 👩‍❤️‍👨 \nwith Rahul?").font(.headline).padding(.horizontal)
+                    Text("Have you done this together 👩‍❤️‍👨 \nwith \(globalObject.partner.wrappedName)?").font(.headline).padding(.horizontal)
                     
                     HStack {
                     IconLL()
@@ -56,20 +61,62 @@ struct ActivityPage: View {
                         .frame(height: 120)
                         .foregroundColor(.white)
                     }.padding(.leading)
-                    Text("Have you tried these activities to Rahul? \nHe definitely will happy 🤩").font(.headline).padding()
+                    Text("Have you tried these activities to \(globalObject.partner.wrappedName)? \nHe definitely will happy 🤩").font(.headline).padding()
                     HStack {
                         IconLL()
                         ZStack {
-                            Image("bg-act-wordsofaffirmation").resizable().aspectRatio(contentMode: .fit)
-                            
-                            VStack(alignment: .leading) {
-                                Text("Netflix and Chills at home sweet home").font(.title3).bold().padding(.leading, 15)
-                                Spacer()
-                                HStack {
+                            if !selectedActivity1.isEmpty {
+                                Image("bg-act-wordsofaffirmation").resizable().aspectRatio(contentMode: .fit)
+                                
+                                VStack(alignment: .leading) {
+                                    Text(selectedActivity1[0].0.wrappedActivity).font(.title3).bold().padding(.leading, 15)
                                     Spacer()
-                                    Text(LoveLanguageEnum.physicalTouch.rawValue).font(.subheadline)
-                                }
-                            }.padding(10)
+                                    HStack {
+                                        Spacer()
+                                        ForEach(selectedActivity1[0].0.llArray) { ll in
+                                            Text(ll.wrappedLLName).font(.subheadline)
+                                        }
+                                    }
+                                }.padding(10)
+                            }
+                        }
+                    }.padding(.leading).frame(height: 120)
+                    HStack {
+                        IconLL()
+                        ZStack {
+                            if !selectedActivity2.isEmpty {
+                                Image("bg-act-wordsofaffirmation").resizable().aspectRatio(contentMode: .fit)
+                                
+                                VStack(alignment: .leading) {
+                                    Text(selectedActivity2[0].0.wrappedActivity).font(.title3).bold().padding(.leading, 15)
+                                    Spacer()
+                                    HStack {
+                                        Spacer()
+                                        ForEach(selectedActivity2[0].0.llArray) { ll in
+                                            Text(ll.wrappedLLName).font(.subheadline)
+                                        }
+                                    }
+                                }.padding(10)
+                            }
+                        }
+                    }.padding(.leading).frame(height: 120)
+                    HStack {
+                        IconLL()
+                        ZStack {
+                            if !selectedActivity3.isEmpty {
+                                Image("bg-act-wordsofaffirmation").resizable().aspectRatio(contentMode: .fit)
+                                
+                                VStack(alignment: .leading) {
+                                    Text(selectedActivity3[0].0.wrappedActivity).font(.title3).bold().padding(.leading, 15)
+                                    Spacer()
+                                    HStack {
+                                        Spacer()
+                                        ForEach(selectedActivity3[0].0.llArray) { ll in
+                                            Text(ll.wrappedLLName).font(.subheadline)
+                                        }
+                                    }
+                                }.padding(10)
+                            }
                         }
                     }.padding(.leading).frame(height: 120)
                     
@@ -81,15 +128,18 @@ struct ActivityPage: View {
                 getActivity()
 //                print(listActivities)
 //                print("=========================")
+//                randomize()
                 self.selectedActivity = self.listActivities.randomElement()!
+                self.selectedActivity1 = self.listActivities.randomElement()!
+                self.selectedActivity2 = self.listActivities.randomElement()!
+                self.selectedActivity3 = self.listActivities.randomElement()!
+                
 //                print(selectedActivity[0].0)
 //                print(selectedActivity[0].0.llArray[0].)
             }
 //        }
     }
     func getActivity(){
-        print(globalObject.user)
-        print(globalObject.partner)
         let userPrimaryLL = getPrimaryLoveLanguageUser()
         let partnerPrimaryLL = getPrimaryLoveLanguagePartner()
         let partnerSecondaryLL = getSecondaryLoveLanguagePartner()
@@ -99,14 +149,28 @@ struct ActivityPage: View {
         
         for activity in activities {
             for loveLanguage in selectedLL {
-//                if loveLanguage.wrappedLLName == userPrimaryLL || loveLanguage.wrappedLLName == partnerPrimaryLL || loveLanguage.wrappedLLName == partnerSecondaryLL{
                     if !loveLanguage.wrappedLLName.isEmpty && !activity.wrappedActivity.isEmpty{
                         listActivities.append([(activity,loveLanguage)])
-                    }
-//                }
+                }
             }
         }
     }
+//    func randomize(){
+////        var random : (ActivityList,LoveLanguages) =  (ActivityList(), LoveLanguages())
+//        for _ in 0...2{
+//            let randomIndex = Int.random(in: 0..<listActivities.count-1)
+//            print(listActivities[randomIndex].count)
+//            print(listActivities[randomIndex])
+//            for i in 0...listActivities[randomIndex].count-1{
+//                print(listActivities[randomIndex][i])
+//                selectedActivity.append(listActivities[randomIndex][i])
+//            }
+//
+////                selectedActivity.append(listActivities[randomIndex])
+////            }
+//        }
+//
+//    }
     func getPrimaryLoveLanguageUser() -> String {
         return loveLanguageUser.getPrimaryLoveLanguage()
     }

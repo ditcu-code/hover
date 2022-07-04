@@ -92,6 +92,24 @@ func getLoveLanguageIcon(loveLanguage: String) -> Image {
         return Image(systemName: "hourglass")
     }
 }
+func getLLIcon(loveLanguage: String) -> String {
+    switch loveLanguage {
+    case LoveLanguageEnum.actOfService.rawValue:
+        return "fork.knife"
+    case LoveLanguageEnum.receivingGift.rawValue:
+        return "gift.fill"
+    case LoveLanguageEnum.physicalTouch.rawValue:
+        return "hand.point.up.fill"
+    case LoveLanguageEnum.qualityTime.rawValue:
+        return "clock.fill"
+    case LoveLanguageEnum.wordsOfAffirmation.rawValue:
+        return "character.bubble.fill"
+    case LoveLanguageEnum.combination.rawValue:
+        return "heart.fill"
+    default:
+        return "hourglass"
+    }
+}
 
 func getLoveLanguageColor(loveLanguage: String) -> Color {
     switch loveLanguage {
