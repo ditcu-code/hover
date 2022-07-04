@@ -26,7 +26,11 @@ struct HomeScreen: View {
                 }
             }
             NavigationView {
-                SpecialDatePage()
+//                if globalObject.showCongrats {
+//                    Congrats()
+//                } else {
+                    SpecialDatePage()
+//                }
             }
             .tabItem {
                 VStack {
