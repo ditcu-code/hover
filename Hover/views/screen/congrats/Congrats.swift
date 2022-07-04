@@ -20,6 +20,17 @@ struct Congrats: View {
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 8).fill(.white))
                 
+                Button {
+                    
+                } label: {
+                    Text("Got it")
+                        .bold()
+                        .frame(width: 300, height: 50)
+                        .foregroundColor(.white)
+                        .background(Color.activeButtonColor)
+                        .cornerRadius(30)
+                        .padding(.top, 10)
+                }
             }.padding()
         }
     }
