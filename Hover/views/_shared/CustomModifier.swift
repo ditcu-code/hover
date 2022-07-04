@@ -33,3 +33,13 @@ struct ClearButton: ViewModifier
         }
     }
 }
+
+struct GrayButtonStyle: MenuStyle {
+    var width: CGFloat = 130
+    func makeBody(configuration: Configuration) -> some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 8).fill(Color.bgButton).frame(width: width, height: 38)
+            Menu(configuration)
+        }
+    }
+}

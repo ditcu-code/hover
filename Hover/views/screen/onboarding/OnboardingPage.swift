@@ -14,9 +14,9 @@ struct OnboardingPage: View {
         NavigationView {
             VStack {
                 ZStack {
-                    Image("BackgroundImage")
-                        .resizable()
-                        .frame(height: screenHeight / 2)
+//                    Image("BackgroundImage")
+//                        .resizable()
+//                        .frame(height: screenHeight / 2)
                     VStack(spacing: 20) {
                         VStack {
                             Image("Wordmarks")
@@ -27,12 +27,12 @@ struct OnboardingPage: View {
                         HStack(spacing: 20) {
                             LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.combination.rawValue)
                             LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.actOfService.rawValue)
-                            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.physicalTouch.rawValue)
+                            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.wordsOfAffirmation.rawValue)
                         }.offset(x: -50)
                         HStack(spacing: 20) {
                             LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.receivingGift.rawValue)
                             LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.qualityTime.rawValue)
-                            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.wordsOfAffirmation.rawValue)
+                            LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.physicalTouch.rawValue)
                         }.offset(x: 50)
                     }
                 }
