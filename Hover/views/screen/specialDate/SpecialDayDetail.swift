@@ -95,6 +95,7 @@ struct SpecialDayDetail: View {
                         .cornerRadius(30)
                 }
             }
+            .padding(.bottom)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
