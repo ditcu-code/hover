@@ -31,16 +31,18 @@ struct ActivityPage: View {
         LoveLanguageUser(user: globalObject.partner)
     }
     var body: some View {
-        //        NavigationView {
         ZStack(alignment:.topLeading) {
             Rectangle().fill(.clear)
             Image("bg-home").resizable().aspectRatio(contentMode: .fit).ignoresSafeArea()
-            VStack {
+            
+            VStack(alignment: .leading) {
                 HStack{
                     Spacer()
                 }.frame(height: UINavigationBar.appearance().bounds.height)
                 HStack {
-                    Text("Have you done this together 👩‍❤️‍👨 \nwith \(globalObject.partner.wrappedName)?").font(.headline).padding(.horizontal)
+                    Text("Have you done this together 👩‍❤️‍👨 \nwith \(globalObject.partner.wrappedName)?")
+                        .font(.headline)
+                        .padding(.horizontal)
                     Spacer()
                 }
                 
@@ -55,7 +57,8 @@ struct ActivityPage: View {
                                 Text(randomTwoActivities[0].wrappedActivity)
                                     .fontWeight(.semibold)
                                     .shadow(color: .black, radius: 2, x: 1, y: 1)
-                                HStack {
+                                Spacer()
+                                HStack(alignment: .center, spacing: 20) {
                                     ForEach(randomTwoActivities[0].llArray) { ll in
                                         HStack {
                                             LoveLanguageLogoBg(loveLanguageName: ll.wrappedLLName, size: 30, cornerRadius: 90)
@@ -67,23 +70,23 @@ struct ActivityPage: View {
                             }
                         }.padding()
                     }
-                    .frame(height: 120)
+                    .frame(height: 140)
                     .foregroundColor(.white)
                 }.padding(.leading)
                 
                 HStack {
-                    Text("Have you tried these activities to \(globalObject.partner.wrappedName)? \nHe definitely will happy 🤩").font(.headline).padding()
-                        .lineLimit(nil)
-                    Spacer()
-                }
-                VStack {
+                    Text("Have you tried these activities to \(globalObject.partner.wrappedName)?")
+                        .font(.headline)
+                        .padding()
+                }.padding(.top)
+                VStack(alignment: .leading, spacing: 25) {
                     ForEach(randomOneActivities, id: \.self) { act in
                         ActivityListItem(activity: act)
                     }
                 }.padding(.leading, 20)
-            }
+            }.padding(.leading)
             
-            .navigationTitle("Activities")
+                .navigationTitle("Activities")
         }
         .onAppear{
             getActivity()
