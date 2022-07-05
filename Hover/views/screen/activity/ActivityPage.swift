@@ -49,6 +49,7 @@ struct ActivityPage: View {
                 HStack {
                     if !randomTwoActivities.isEmpty {
                         LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: randomTwoActivities[0].llArray) , size: 45, cornerRadius: 8)
+                            .shadow(color: .black.opacity(0.4), radius: 1, x: 1, y: 1)
                     }
                     ZStack(alignment: .topLeading) {
                         RoundedCorner(radius: 8, corners: [.topLeft, .bottomLeft]).fill(.black).opacity(0.5)
@@ -63,6 +64,7 @@ struct ActivityPage: View {
                                     ForEach(randomTwoActivities[0].llArray) { ll in
                                         HStack {
                                             LoveLanguageLogoBg(loveLanguageName: ll.wrappedLLName, size: 30, cornerRadius: 90)
+                                                .shadow(color: .black.opacity(0.1), radius: 1, x: 1, y: 1)
                                             Text(ll.wrappedLLName)
                                                 .font(.caption)
                                         }
