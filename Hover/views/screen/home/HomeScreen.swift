@@ -21,8 +21,8 @@ struct HomeScreen: View {
             }
             .tabItem {
                 VStack {
-                    Image(systemName: "house.fill")
-                    Text("Home")
+                    Image(systemName: "lightbulb")
+                    Text("Activities")
                 }
             }
             NavigationView {
@@ -31,7 +31,7 @@ struct HomeScreen: View {
             .tabItem {
                 VStack {
                     Image(systemName: "calendar.badge.exclamationmark")
-                    Text("Special Date")
+                    Text("Special Day")
                 }
             }
             NavigationView {
