@@ -160,7 +160,7 @@ struct ActivityListItem: View {
     
     var body: some View {
         HStack {
-            LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: activity.llArray) , size: 45, cornerRadius: 8).padding()
+            LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: activity.llArray) , size: 45, cornerRadius: 8)
             ZStack {
                 getLoveLanguageBg(loveLanguage: getLLLogo(llData: activity.llArray))
                     .resizable()
