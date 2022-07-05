@@ -8,10 +8,16 @@
 import SwiftUI
 
 struct IntroLoveLanguagePrompt: View {
-    @Binding var onboardingStep: Int
+//    @Binding var onboardingStep: Int
+    @EnvironmentObject var globalObject: GlobalObject
     @State private var skip: Bool = false
+    @State private var isGoNext: Bool = false
     let userSentence = "Next,\nWe need to know\nyour Love Language so\nwe can recommend\nsome activities to you."
     let partnerSentence = "Next,\nWe need to know your partner Love Language so we can recommend some activities to you.\n\nPlease pass the phone to your partner."
+    
+    var onboardingStep: Int {
+        globalObject.onboardingStep
+    }
     
     var progress: Int {
         onboardingStep + 1
@@ -39,16 +45,25 @@ struct IntroLoveLanguagePrompt: View {
                     }
                     Spacer()
                     VStack {
-                        NavigationLink(destination: LoveLanguagePrompt(onboardingStep: .constant(onboardingStep + 1), user: currentUser)) {
+                        NavigationLink(isActive: $isGoNext) {
+                            LoveLanguagePrompt(user: currentUser)
+                        } label: {
+                            
+                        }
+                        Button {
+                            globalObject.onboardingStep += 1
+                            isGoNext.toggle()
+                        } label: {
                             OnboardingNextButton()
                         }.padding(.bottom, 35)
                         NavigationLink(isActive: $skip) {
-                            IntroLoveLanguagePrompt(onboardingStep: .constant(onboardingStep + 3))
+                            IntroLoveLanguagePrompt()
                         } label: {
                         }
                         
                         Button {
                             if onboardingStep == 3 {
+                                globalObject.onboardingStep += 3
                                 skip.toggle()
                             } else {
                                 UserDefaults.standard.set(true, forKey: "isDoneOnboarding")
@@ -70,6 +85,7 @@ struct IntroLoveLanguagePrompt: View {
 
 struct IntroLoveLanguagePrompt_Previews: PreviewProvider {
     static var previews: some View {
-        IntroLoveLanguagePrompt(onboardingStep: .constant(3))
+        IntroLoveLanguagePrompt()
+            .environmentObject(GlobalObject.shared)
     }
 }

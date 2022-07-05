@@ -13,11 +13,15 @@ struct LoveLanguagePrompt: View {
     
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \LoveLanguages.llName, ascending: true)]) var loveLanguages : FetchedResults <LoveLanguages>
     
-    @Binding var onboardingStep: Int
+//    @Binding var onboardingStep: Int
     var user: User = GlobalObject.shared.user
     @State var isNavigationActive: Bool = false
     @State var isGotoTest: Bool = false
     @State var llselections: [LoveLanguages] = []
+    
+    var onboardingStep: Int {
+        globalObject.onboardingStep
+    }
     
     var progress: Int {
         onboardingStep + 1
@@ -59,12 +63,13 @@ struct LoveLanguagePrompt: View {
                 }
                 Spacer().frame(height: 20)
                 NavigationLink(isActive: $isNavigationActive) {
-                    TestResultPage(onboardingStep: .constant(self.onboardingStep + 2), user: user)
+                    TestResultPage(user: user)
                 } label: {
                 }
                 VStack {
                     Button {
                         saveLoveLanguage()
+                        globalObject.onboardingStep += 2
                         self.isNavigationActive.toggle()
                     } label: {
                         OnboardingNextButton(isDisabled: disabledForm)
@@ -74,8 +79,14 @@ struct LoveLanguagePrompt: View {
                     Text("Don't know your Love Language yet?")
                         .font(.subheadline)
                         .foregroundColor(Color("CaptionColor"))
-                    NavigationLink {
-                        QuestionLoveLanguage(user: user, onboardingStep: onboardingStep + 1)
+                    NavigationLink(isActive: $isGotoTest) {
+                        LoveLanguagePageController(user: user)
+//                        QuestionLoveLanguage(user: user, onboardingStep: onboardingStep + 1)
+                    } label: {
+                    }
+                    Button {
+                        globalObject.onboardingStep += 1
+                        isGotoTest.toggle()
                     } label: {
                         Text("Take the test now")
                             .foregroundColor(.black)
@@ -144,7 +155,7 @@ private struct LoveLanguageOption: View {
 
 struct LoveLanguagePrompt_Previews: PreviewProvider {
     static var previews: some View {
-        LoveLanguagePrompt(onboardingStep: .constant(4))
+        LoveLanguagePrompt()
             .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
             .environmentObject(GlobalObject.shared)
     }
