@@ -21,21 +21,17 @@ struct HomeScreen: View {
             }
             .tabItem {
                 VStack {
-                    Image(systemName: "house.fill")
-                    Text("Home")
+                    Image(systemName: "lightbulb")
+                    Text("Activities")
                 }
             }
             NavigationView {
-//                if globalObject.showCongrats {
-//                    Congrats()
-//                } else {
-                    SpecialDatePage()
-//                }
+                SpecialDatePage()
             }
             .tabItem {
                 VStack {
                     Image(systemName: "calendar.badge.exclamationmark")
-                    Text("Special Date")
+                    Text("Special Day")
                 }
             }
             NavigationView {
