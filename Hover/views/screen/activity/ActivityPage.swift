@@ -55,8 +55,9 @@ struct ActivityPage: View {
                         VStack(alignment: .leading) {
                             if !randomTwoActivities.isEmpty {
                                 Text(randomTwoActivities[0].wrappedActivity)
+                                    .font(.title3)
                                     .fontWeight(.semibold)
-                                    .shadow(color: .black, radius: 2, x: 1, y: 1)
+                                    .shadow(color: .black.opacity(0.5), radius: 1, x: 1, y: 1)
                                 Spacer()
                                 HStack(alignment: .center, spacing: 20) {
                                     ForEach(randomTwoActivities[0].llArray) { ll in
@@ -77,7 +78,8 @@ struct ActivityPage: View {
                 HStack {
                     Text("Have you tried these activities to \(globalObject.partner.wrappedName)?")
                         .font(.headline)
-                        .padding()
+                        .padding(.horizontal)
+                        .padding(.top)
                 }.padding(.top)
                 VStack(alignment: .leading, spacing: 25) {
                     ForEach(randomOneActivities, id: \.self) { act in
@@ -158,18 +160,19 @@ struct ActivityListItem: View {
     
     var body: some View {
         HStack {
-            LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: activity.llArray) , size: 45, cornerRadius: 8)
+            LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: activity.llArray) , size: 45, cornerRadius: 8).padding()
             ZStack {
                 getLoveLanguageBg(loveLanguage: getLLLogo(llData: activity.llArray))
                     .resizable()
                     .frame(width: 308, height: 120)
+                    .shadow(color: .black.opacity(0.5), radius: 2, x: 2, y: 2)
                     .overlay {
                         VStack {
                             HStack {
                                 Text(activity.wrappedActivity)
                                     .font(.title3)
                                     .fontWeight(.semibold)
-                                    .padding(.leading, 15)
+                                    .padding(.leading, 25)
                                 Spacer()
                             }
                             Spacer()
@@ -177,11 +180,13 @@ struct ActivityListItem: View {
                                 Spacer()
                                 ForEach(activity.llArray, id: \.self) { ll in
                                     Text(ll.wrappedLLName).font(.subheadline)
-                                        .padding(.trailing, 5)
+                                        .padding(.trailing, 10)
                                 }
                             }
                         }
-                        .padding(.vertical, 10)
+                        
+                        .padding(.vertical, 5)
+                        .padding(.top, 10)
                     }
                     .padding(.horizontal)
                     .padding(.top, 5)
