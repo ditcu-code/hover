@@ -84,4 +84,30 @@ class CoreDataPreviewHelper {
         
         return user
     }()
+    
+    static var dummySpecialDayEmptyActivity: SpecialDay = {
+        let controller = DataController.shared
+        let specialDay = SpecialDay(context: controller.container.viewContext)
+        specialDay.id = UUID()
+        specialDay.name = "Special Day Name"
+        specialDay.date = Date.now
+        
+        return specialDay
+    }()
+    
+    static var dummySpecialDayWithActivity: SpecialDay = {
+        let controller = DataController.shared
+        let specialDay = SpecialDay(context: controller.container.viewContext)
+        let dummyActivity = ActivityList(context: controller.container.viewContext)
+        dummyActivity.activity = "Isi Activity"
+        let dummyLL = LoveLanguages(context: controller.container.viewContext)
+        dummyLL.llName = LoveLanguageEnum.qualityTime.rawValue
+        dummyActivity.activityToLL = [dummyLL]
+        specialDay.id = UUID()
+        specialDay.name = "Special Day Name"
+        specialDay.date = Date.now
+        specialDay.specialToActivity = [dummyActivity]
+        
+        return specialDay
+    }()
 }

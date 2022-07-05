@@ -14,7 +14,6 @@ struct LoveLanguagePageController: View {
     var user: User
     
     var body: some View {
-        let _ = print(globalObject.onboardingStep)
         if showResult {
             TestResultPage(user: user)
         } else {

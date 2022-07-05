@@ -19,6 +19,7 @@ extension Color {
     static let receivingGift = Color("ReceivingGift")
     static let combination = Color("Combination")
     static let wordsOfAffirmation = Color("WordsOfAffirmation")
+    static let hourglass = Color("Hourglass")
     
     static let bgActOfService = Color("ActOfServiceBg")
     static let bgPhysicalTouch = Color("PhysicalTouchBg")
@@ -26,6 +27,7 @@ extension Color {
     static let bgReceivingGift = Color("ReceivingGiftBg")
     static let bgCombination = Color("CombinationBg")
     static let bgWordsOfAffirmation = Color("WordsOfAffirmationBg")
+    static let bgHourglass = Color("HourglassBg")
     
     static let backgroundColor = Color("BackgroundColor")
     static let bgButton = Color("BgButtonColor")

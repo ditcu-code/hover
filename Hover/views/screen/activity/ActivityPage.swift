@@ -55,6 +55,7 @@ struct ActivityPage: View {
                                 Text(randomTwoActivities[0].wrappedActivity)
                                     .fontWeight(.semibold)
                                     .shadow(color: .black, radius: 2, x: 1, y: 1)
+                                Spacer()
                                 HStack {
                                     ForEach(randomTwoActivities[0].llArray) { ll in
                                         HStack {
