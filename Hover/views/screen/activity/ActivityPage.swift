@@ -31,34 +31,40 @@ struct ActivityPage: View {
         LoveLanguageUser(user: globalObject.partner)
     }
     var body: some View {
-        //        NavigationView {
         ZStack(alignment:.topLeading) {
             Rectangle().fill(.clear)
             Image("bg-home").resizable().aspectRatio(contentMode: .fit).ignoresSafeArea()
-            VStack {
+            
+            VStack(alignment: .leading) {
                 HStack{
                     Spacer()
                 }.frame(height: UINavigationBar.appearance().bounds.height)
                 HStack {
-                    Text("Have you done this together 👩‍❤️‍👨 \nwith \(globalObject.partner.wrappedName)?").font(.headline).padding(.horizontal)
+                    Text("Have you done this together 👩‍❤️‍👨 \nwith \(globalObject.partner.wrappedName)?")
+                        .font(.headline)
+                        .padding(.horizontal)
                     Spacer()
                 }
                 
                 HStack {
                     if !randomTwoActivities.isEmpty {
                         LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: randomTwoActivities[0].llArray) , size: 45, cornerRadius: 8)
+                            .shadow(color: .black.opacity(0.4), radius: 1, x: 1, y: 1)
                     }
                     ZStack(alignment: .topLeading) {
                         RoundedCorner(radius: 8, corners: [.topLeft, .bottomLeft]).fill(.black).opacity(0.5)
                         VStack(alignment: .leading) {
                             if !randomTwoActivities.isEmpty {
                                 Text(randomTwoActivities[0].wrappedActivity)
+                                    .font(.title3)
                                     .fontWeight(.semibold)
-                                    .shadow(color: .black, radius: 2, x: 1, y: 1)
-                                HStack {
+                                    .shadow(color: .black.opacity(0.5), radius: 1, x: 1, y: 1)
+                                Spacer()
+                                HStack(alignment: .center, spacing: 20) {
                                     ForEach(randomTwoActivities[0].llArray) { ll in
                                         HStack {
                                             LoveLanguageLogoBg(loveLanguageName: ll.wrappedLLName, size: 30, cornerRadius: 90)
+                                                .shadow(color: .black.opacity(0.1), radius: 1, x: 1, y: 1)
                                             Text(ll.wrappedLLName)
                                                 .font(.caption)
                                         }
@@ -67,23 +73,24 @@ struct ActivityPage: View {
                             }
                         }.padding()
                     }
-                    .frame(height: 120)
+                    .frame(height: 140)
                     .foregroundColor(.white)
                 }.padding(.leading)
                 
                 HStack {
-                    Text("Have you tried these activities to \(globalObject.partner.wrappedName)? \nHe definitely will happy 🤩").font(.headline).padding()
-                        .lineLimit(nil)
-                    Spacer()
-                }
-                VStack {
+                    Text("Have you tried these activities to \(globalObject.partner.wrappedName)?")
+                        .font(.headline)
+                        .padding(.horizontal)
+                        .padding(.top)
+                }.padding(.top)
+                VStack(alignment: .leading, spacing: 25) {
                     ForEach(randomOneActivities, id: \.self) { act in
                         ActivityListItem(activity: act)
                     }
                 }.padding(.leading, 20)
-            }
+            }.padding(.leading)
             
-            .navigationTitle("Activities")
+                .navigationTitle("Activities")
         }
         .onAppear{
             getActivity()
@@ -160,13 +167,14 @@ struct ActivityListItem: View {
                 getLoveLanguageBg(loveLanguage: getLLLogo(llData: activity.llArray))
                     .resizable()
                     .frame(width: 308, height: 120)
+                    .shadow(color: .black.opacity(0.5), radius: 2, x: 2, y: 2)
                     .overlay {
                         VStack {
                             HStack {
                                 Text(activity.wrappedActivity)
                                     .font(.title3)
                                     .fontWeight(.semibold)
-                                    .padding(.leading, 15)
+                                    .padding(.leading, 25)
                                 Spacer()
                             }
                             Spacer()
@@ -174,11 +182,13 @@ struct ActivityListItem: View {
                                 Spacer()
                                 ForEach(activity.llArray, id: \.self) { ll in
                                     Text(ll.wrappedLLName).font(.subheadline)
-                                        .padding(.trailing, 5)
+                                        .padding(.trailing, 10)
                                 }
                             }
                         }
-                        .padding(.vertical, 10)
+                        
+                        .padding(.vertical, 5)
+                        .padding(.top, 10)
                     }
                     .padding(.horizontal)
                     .padding(.top, 5)

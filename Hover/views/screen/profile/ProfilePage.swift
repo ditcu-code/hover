@@ -35,8 +35,9 @@ struct ProfileDetail: View {
             ProfilePicture(user: $user)
             VStack {
                 Text(user.wrappedName)
-                    .font(.callout)
+                    .font(.title2)
                     .fontWeight(.semibold)
+                    .padding(.leading, 5)
             }
             Spacer()
         }

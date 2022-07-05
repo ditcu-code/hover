@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SpecialDayDetail: View {
+    var selectedSpecialDay: SpecialDay
+    
     var body: some View {
         ZStack {
             Image("bgSpecialDayDetail")
@@ -16,11 +18,11 @@ struct SpecialDayDetail: View {
             VStack {
                 VStack {
                     VStack {
-                        Text("AUG")
+                        Text(dateToString(selectedSpecialDay.wrappedDate, dateFormat: "MMM").uppercased())
                             .font(.largeTitle)
                             .bold()
                             .foregroundColor(.white)
-                        Text("02")
+                        Text(dateToString(selectedSpecialDay.wrappedDate, dateFormat: "dd"))
                             .font(Font.system(size: 90))
                             .bold()
                             .foregroundColor(.white)
@@ -28,7 +30,7 @@ struct SpecialDayDetail: View {
                     .frame(width: 200, height: 200)
                     .background(Color("CaptionColor"))
                     .cornerRadius(12)
-                    Text("Our First Dating")
+                    Text(selectedSpecialDay.wrappedName)
                         .font(.largeTitle)
                         .bold()
                     VStack {
@@ -43,22 +45,24 @@ struct SpecialDayDetail: View {
                                         .fontWeight(.semibold)
                                 }
                                 VStack(alignment: .leading) {
-                                    HStack {
-                                        LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.qualityTime.rawValue, size: 40, cornerRadius: 8)
-                                        Text("Spend Time Together All Day")
-                                            .lineLimit(nil)
-                                    }
-                                    HStack {
-                                        LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.combination.rawValue, size: 40, cornerRadius: 8)
-                                        Text("Giving Surprise Dinner at The Most Famous Restaurant in The Town and Giving a Warm Hug")
-                                            .lineLimit(nil)
+                                    if selectedSpecialDay.activityInSDArray.isEmpty {
+                                        Text("Have you planned activities?")
+                                    } else {
+                                        ForEach(selectedSpecialDay.activityInSDArray, id: \.self) {
+                                            act in
+                                            HStack {
+                                                LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: act.llArray), size: 40, cornerRadius: 8)
+                                                Text(act.wrappedActivity)
+                                                    .lineLimit(nil)
+                                            }
+                                        }
                                     }
                                 }
                                 HStack {
                                     Image(systemName: "repeat.circle.fill")
                                         .resizable()
                                         .frame(width: 17, height: 17)
-                                    Text("Repeat: Every year")
+                                    Text("Repeat: \(selectedSpecialDay.wrappedRepeatNotif)")
                                         .font(.headline)
                                         .fontWeight(.semibold)
                                 }
@@ -66,7 +70,7 @@ struct SpecialDayDetail: View {
                                     Image(systemName: "alarm.fill")
                                         .resizable()
                                         .frame(width: 17, height: 17)
-                                    Text("Remainder: 1 day before")
+                                    Text("Remainder: \(selectedSpecialDay.wrappedAlert)")
                                         .font(.headline)
                                         .fontWeight(.semibold)
                                 }
@@ -91,12 +95,22 @@ struct SpecialDayDetail: View {
                         .cornerRadius(30)
                 }
             }
+            .padding(.bottom)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {}) {
+                        Text("Delete")
+                            .fontWeight(.semibold)
+                    }
+                }
+            }
         }
     }
 }
 
 struct SpecialDayDetail_Previews: PreviewProvider {
     static var previews: some View {
-        SpecialDayDetail()
+        SpecialDayDetail(selectedSpecialDay: GlobalObject.shared.specialDayWithAct)
     }
 }

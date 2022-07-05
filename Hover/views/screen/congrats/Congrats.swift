@@ -18,7 +18,7 @@ struct Congrats: View {
             VStack {
                 Image("congrats").resizable().aspectRatio(contentMode: .fit)
                 VStack(alignment: .leading) {
-                    Text("Nice Job, \(name)!").font(.title).bold()
+                    Text("Nice Job, \(name)!").font(.title).bold().padding(.bottom, 10)
                     Text("You have succeeded in making a special day plan to get closer to your partner.\n\nDon't forget to prepare yourself for the special day ✨")
                 }
                 .padding()
