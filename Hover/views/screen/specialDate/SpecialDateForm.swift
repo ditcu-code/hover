@@ -167,7 +167,7 @@ struct SpecialDateForm: View {
         }
         
         .sheet(isPresented: $showAddPlan) {
-            AddActivityForm( actSelections: $actSelections)
+            AddActivityForm(actSelections: $actSelections)
         }
     }
     
@@ -194,10 +194,11 @@ struct SpecialDateForm: View {
         specialDay.repeatNotif = selectedRepeat.rawValue
         specialDay.alert = selectedAlert.rawValue
         let sdActivity = Set(actSelections)
+        print(sdActivity)
         for act in sdActivity{
             specialDay.addToSpecialToActivity(act)
         }
-        try?moc.save()
+        try? moc.save()
         
         globalObject.showCongrats.toggle()
     }
@@ -221,14 +222,17 @@ struct ActivityItem: View {
         LoveLanguageUser(user: globalObject.partner)
     }
     @Binding var actSelections: [ActivityList]
+    
     var body: some View {
         ForEach(activities){activity in
             if checkActivityToShow(llList: activity.llArray){
                 MultipleSelectionRow(title: activity.activity ?? "Unknown", isSelected: self.actSelections.contains(activity ), llData: activity.llArray) {
                     if self.actSelections.contains(activity) {
+                        let _ = print("engga")
                         self.actSelections.removeAll(where: { $0.id?.uuidString == activity.id?.uuidString ?? "Unknown" })
                     }
                     else {
+                        let _ = print("NAMBAAAH")
                         self.actSelections.append(activity)
                     }
                 }
@@ -262,7 +266,7 @@ struct ActivityItem: View {
 }
 struct MultipleSelectionRow: View {
     var title: String
-    @State var isSelected: Bool
+    var isSelected: Bool
     @State var llData:[LoveLanguages]
     var action: () -> Void
     
@@ -279,10 +283,6 @@ struct MultipleSelectionRow: View {
             .padding()
             .overlay(RoundedRectangle(cornerRadius: 8)
                 .stroke(self.isSelected ? Color.accentColor : Color.gray))
-            
-            .onTapGesture {
-                self.isSelected.toggle()
-            }
             .animation(.default, value: self.isSelected)
         }
     }

@@ -158,7 +158,7 @@ func getLoveLanguageColor(loveLanguage: String) -> Color {
     case LoveLanguageEnum.combination.rawValue:
         return Color.combination
     default:
-        return Color.primary
+        return Color.hourglass
     }
 }
 
@@ -177,6 +177,6 @@ func getLoveLanguageBackgroundColor(loveLanguage: String) -> Color {
     case LoveLanguageEnum.combination.rawValue:
         return Color.bgCombination
     default:
-        return Color.primary
+        return Color.bgHourglass
     }
 }
