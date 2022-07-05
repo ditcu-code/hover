@@ -13,18 +13,17 @@ struct ActivityPage: View {
     @FetchRequest(sortDescriptors: []) var activities : FetchedResults <ActivityList>
     @FetchRequest(sortDescriptors: []) var loveLanguages : FetchedResults <LoveLanguages>
     @FetchRequest(sortDescriptors: []) var users : FetchedResults <User>
-    @State private var selectedActivity: [(ActivityList,LoveLanguages)] = []
-    @State private var selectedActivity1: [(ActivityList,LoveLanguages)] = []
-    @State private var selectedActivity2: [(ActivityList,LoveLanguages)] = []
-    @State private var selectedActivity3: [(ActivityList,LoveLanguages)] = []
     @State private var listActivities : [[(ActivityList,LoveLanguages)]] = [[]]
     @State private var randomElement: [(ActivityList,LoveLanguages)] = []
-//    [
-//      [(ActivityList, LoveLanguages)],
-//      [(ActivityList, LoveLanguages)]
-//    ]
-//    [(ActivityList, LoveLanguages)]
-//    @Binding var partner: User
+    @State private var filteredActivities: [ActivityList] = []
+    @State private var randomActivities: [ActivityList] = []
+    @State private var filteredTwoActivities: [ActivityList] = []
+    @State private var filteredOneActivities: [ActivityList] = []
+    @State private var randomTwoActivities: [ActivityList] = []
+    @State private var randomOneActivities: [ActivityList] = []
+    
+    let maximumRecommendation = 2
+    
     var loveLanguageUser: LoveLanguageUser {
         LoveLanguageUser(user: globalObject.user)
     }
@@ -32,146 +31,114 @@ struct ActivityPage: View {
         LoveLanguageUser(user: globalObject.partner)
     }
     var body: some View {
-//        NavigationView {
-            ZStack(alignment:.topLeading) {
-                Rectangle().fill(.clear)
-                Image("bg-home").resizable().aspectRatio(contentMode: .fit).ignoresSafeArea()
-                
-               
-                VStack(alignment: .leading) {
+        //        NavigationView {
+        ZStack(alignment:.topLeading) {
+            Rectangle().fill(.clear)
+            Image("bg-home").resizable().aspectRatio(contentMode: .fit).ignoresSafeArea()
+            VStack {
+                HStack{
+                    Spacer()
+                }.frame(height: UINavigationBar.appearance().bounds.height)
+                HStack {
                     Text("Have you done this together 👩‍❤️‍👨 \nwith \(globalObject.partner.wrappedName)?").font(.headline).padding(.horizontal)
-                    
-                    HStack {
-                    IconLL()
-                        ZStack(alignment: .topLeading) {
-                            RoundedCorner(radius: 8, corners: [.topLeft, .bottomLeft]).fill(.black).opacity(0.5)
-                            VStack(alignment: .leading) {
-                                if !selectedActivity.isEmpty {
-                                    Text(selectedActivity[0].0.wrappedActivity).font(.title3).bold().shadow(color: .black, radius: 2, x: 1, y: 1)
-                                        Spacer()
-                                    HStack {
-                                        Spacer()
-                                        ForEach(selectedActivity[0].0.llArray) { ll in
-                                            Text(ll.wrappedLLName).font(.subheadline)
+                    Spacer()
+                }
+                
+                HStack {
+                    if !randomTwoActivities.isEmpty {
+                        LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: randomTwoActivities[0].llArray) , size: 45, cornerRadius: 8)
+                    }
+                    ZStack(alignment: .topLeading) {
+                        RoundedCorner(radius: 8, corners: [.topLeft, .bottomLeft]).fill(.black).opacity(0.5)
+                        VStack(alignment: .leading) {
+                            if !randomTwoActivities.isEmpty {
+                                Text(randomTwoActivities[0].wrappedActivity)
+                                    .fontWeight(.semibold)
+                                    .shadow(color: .black, radius: 2, x: 1, y: 1)
+                                HStack {
+                                    ForEach(randomTwoActivities[0].llArray) { ll in
+                                        HStack {
+                                            LoveLanguageLogoBg(loveLanguageName: ll.wrappedLLName, size: 30, cornerRadius: 90)
+                                            Text(ll.wrappedLLName)
+                                                .font(.caption)
                                         }
                                     }
                                 }
-                            }.padding()
-                        }
-                        .frame(height: 120)
-                        .foregroundColor(.white)
-                    }.padding(.leading)
+                            }
+                        }.padding()
+                    }
+                    .frame(height: 120)
+                    .foregroundColor(.white)
+                }.padding(.leading)
+                
+                HStack {
                     Text("Have you tried these activities to \(globalObject.partner.wrappedName)? \nHe definitely will happy 🤩").font(.headline).padding()
                         .lineLimit(nil)
-                    HStack {
-                        IconLL()
-                        ZStack {
-                            if !selectedActivity1.isEmpty {
-                                Image("bg-act-wordsofaffirmation").resizable().aspectRatio(contentMode: .fit)
-                                
-                                VStack(alignment: .leading) {
-                                    Text(selectedActivity1[0].0.wrappedActivity).font(.title3).bold().padding(.leading, 15)
-                                    Spacer()
-                                    HStack {
-                                        Spacer()
-                                        ForEach(selectedActivity1[0].0.llArray) { ll in
-                                            Text(ll.wrappedLLName).font(.subheadline)
-                                        }
-                                    }
-                                }.padding(10)
-                            }
-                        }
-                    }.padding(.leading).frame(height: 120)
-                    HStack {
-                        IconLL()
-                        ZStack {
-                            if !selectedActivity2.isEmpty {
-                                Image("bg-act-wordsofaffirmation").resizable().aspectRatio(contentMode: .fit)
-                                
-                                VStack(alignment: .leading) {
-                                    Text(selectedActivity2[0].0.wrappedActivity).font(.title3).bold().padding(.leading, 15)
-                                    Spacer()
-                                    HStack {
-                                        Spacer()
-                                        ForEach(selectedActivity2[0].0.llArray) { ll in
-                                            Text(ll.wrappedLLName).font(.subheadline)
-                                        }
-                                    }
-                                }.padding(10)
-                            }
-                        }
-                    }.padding(.leading).frame(height: 120)
-                    HStack {
-                        IconLL()
-                        ZStack {
-                            if !selectedActivity3.isEmpty {
-                                Image("bg-act-wordsofaffirmation").resizable().aspectRatio(contentMode: .fit)
-                                
-                                VStack(alignment: .leading) {
-                                    Text(selectedActivity3[0].0.wrappedActivity).font(.title3).bold().padding(.leading, 15)
-                                    Spacer()
-                                    HStack {
-                                        Spacer()
-                                        ForEach(selectedActivity3[0].0.llArray) { ll in
-                                            Text(ll.wrappedLLName).font(.subheadline)
-                                        }
-                                    }
-                                }.padding(10)
-                            }
-                        }
-                    }.padding(.leading).frame(height: 120)
-                    
-                }.border(.red)
-                
-                .navigationTitle("Activities")
+                    Spacer()
+                }
+                VStack {
+                    ForEach(randomOneActivities, id: \.self) { act in
+                        ActivityListItem(activity: act)
+                    }
+                }.padding(.leading, 20)
             }
-            .onAppear{
-                getActivity()
-//                print(listActivities)
-//                print("=========================")
-//                randomize()
-                self.selectedActivity = self.listActivities.randomElement()!
-                self.selectedActivity1 = self.listActivities.randomElement()!
-                self.selectedActivity2 = self.listActivities.randomElement()!
-                self.selectedActivity3 = self.listActivities.randomElement()!
-                
-//                print(selectedActivity[0].0)
-//                print(selectedActivity[0].0.llArray[0].)
-            }
-//        }
-    }
-    func getActivity(){
-        let userPrimaryLL = getPrimaryLoveLanguageUser()
-        let partnerPrimaryLL = getPrimaryLoveLanguagePartner()
-        let partnerSecondaryLL = getSecondaryLoveLanguagePartner()
-        let selectedLL = loveLanguages.filter { ll in
-            ll.wrappedLLName == userPrimaryLL || ll.wrappedLLName == partnerPrimaryLL || ll.wrappedLLName == partnerSecondaryLL
+            
+            .navigationTitle("Activities")
         }
-        
-        for activity in activities {
-            for loveLanguage in selectedLL {
-                    if !loveLanguage.wrappedLLName.isEmpty && !activity.wrappedActivity.isEmpty{
-                        listActivities.append([(activity,loveLanguage)])
+        .onAppear{
+            getActivity()
+            randomizeOneActivity()
+            randomizeTwoActivity()
+        }
+    }
+    func randomizeOneActivity() {
+        randomOneActivities = []
+        while randomOneActivities.count < 2 {
+            let random = filteredOneActivities.randomElement()!
+            let isExist = randomOneActivities.filter { activity in
+                activity.wrappedActivity == random.wrappedActivity || random.wrappedActivity == filteredOneActivities[0].wrappedActivity
+            }
+            if isExist.count == 0 {
+                if random.llArray.count < 2 {
+                    randomOneActivities.append(random)
                 }
             }
         }
     }
-//    func randomize(){
-////        var random : (ActivityList,LoveLanguages) =  (ActivityList(), LoveLanguages())
-//        for _ in 0...2{
-//            let randomIndex = Int.random(in: 0..<listActivities.count-1)
-//            print(listActivities[randomIndex].count)
-//            print(listActivities[randomIndex])
-//            for i in 0...listActivities[randomIndex].count-1{
-//                print(listActivities[randomIndex][i])
-//                selectedActivity.append(listActivities[randomIndex][i])
-//            }
-//
-////                selectedActivity.append(listActivities[randomIndex])
-////            }
-//        }
-//
-//    }
+    func randomizeTwoActivity() {
+        randomTwoActivities = []
+        while randomTwoActivities.count < 1 {
+            let random = filteredTwoActivities.randomElement()!
+            let isExist = randomTwoActivities.filter { activity in
+                activity.wrappedActivity == random.wrappedActivity || random.wrappedActivity == filteredTwoActivities[0].wrappedActivity
+            }
+            if random.llArray.count == 2 {
+                randomTwoActivities.append(random)
+            }
+            if isExist.count == 0 {
+                randomActivities.append(random)
+            }
+        }
+    }
+    
+    func getActivity(){
+        let userPrimaryLL = getPrimaryLoveLanguageUser()
+        let partnerPrimaryLL = getPrimaryLoveLanguagePartner()
+        let partnerSecondaryLL = getSecondaryLoveLanguagePartner()
+        
+        let filteredActivites = activities.filter { activity in
+            return activity.llArray.filter{ loveLanguage in
+                loveLanguage.wrappedLLName == userPrimaryLL || loveLanguage.wrappedLLName == partnerPrimaryLL || loveLanguage.wrappedLLName == partnerSecondaryLL
+            }.count > 0
+        }
+        
+        let sortBasedOnLL = filteredActivites.sorted { a, b in
+            a.llArray.count > b.llArray.count
+        }
+        
+        self.filteredTwoActivities = sortBasedOnLL
+        self.filteredOneActivities = sortBasedOnLL
+    }
     func getPrimaryLoveLanguageUser() -> String {
         return loveLanguageUser.getPrimaryLoveLanguage()
     }
@@ -183,9 +150,48 @@ struct ActivityPage: View {
     }
 }
 
+struct ActivityListItem: View {
+    let activity: ActivityList
+    
+    var body: some View {
+        HStack {
+            LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: activity.llArray) , size: 45, cornerRadius: 8)
+            ZStack {
+                getLoveLanguageBg(loveLanguage: getLLLogo(llData: activity.llArray))
+                    .resizable()
+                    .frame(width: 308, height: 120)
+                    .overlay {
+                        VStack {
+                            HStack {
+                                Text(activity.wrappedActivity)
+                                    .font(.title3)
+                                    .fontWeight(.semibold)
+                                    .padding(.leading, 15)
+                                Spacer()
+                            }
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                ForEach(activity.llArray, id: \.self) { ll in
+                                    Text(ll.wrappedLLName).font(.subheadline)
+                                        .padding(.trailing, 5)
+                                }
+                            }
+                        }
+                        .padding(.vertical, 10)
+                    }
+                    .padding(.horizontal)
+                    .padding(.top, 5)
+            }
+        }
+    }
+}
+
 struct ActivityPage_Previews: PreviewProvider {
     static var previews: some View {
         ActivityPage()
+            .environmentObject(GlobalObject.shared)
+            .environment(\.managedObjectContext, CoreDataPreviewHelper.preview.container.viewContext)
     }
 }
 
@@ -196,10 +202,10 @@ extension View {
 }
 
 struct RoundedCorner: Shape {
-
+    
     var radius: CGFloat = .infinity
     var corners: UIRectCorner = .allCorners
-
+    
     func path(in rect: CGRect) -> Path {
         let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         return Path(path.cgPath)
@@ -207,10 +213,14 @@ struct RoundedCorner: Shape {
 }
 
 struct IconLL: View {
+    var loveLanguage: [LoveLanguages]
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8).fill(Color.bgCombination).frame(width: 45, height: 45)
-            Image(systemName: "heart.fill").foregroundColor(.combination).font(.title2)
+            
+            LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: loveLanguage) , size: 45, cornerRadius: 8)
+            
         }
     }
 }
+

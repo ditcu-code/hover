@@ -13,7 +13,7 @@ let screenHeight = UIScreen.main.bounds.height
 let onboardingTotalStep = 10
 
 enum LoveLanguageEnum: String, CaseIterable {
-    case actOfService = "Acts of Service", qualityTime = "Quality Time", receivingGift = "Receiving Gifts", physicalTouch = "Physical Touch", wordsOfAffirmation = "Words of Affirmation", combination = "Our Combination"
+    case actOfService = "Acts of Service", qualityTime = "Quality Time", receivingGift = "Receiving Gifts", physicalTouch = "Physical Touch", wordsOfAffirmation = "Words of Affirmation", combination = "Combination"
 }
 
 func dateToString(_ date: Date, dateFormat: String = "dd MMM yyyy") -> String {
@@ -91,6 +91,38 @@ func getLoveLanguageIcon(loveLanguage: String) -> Image {
     default:
         return Image(systemName: "hourglass")
     }
+}
+
+func getLoveLanguageBg(loveLanguage: String) -> Image {
+    switch loveLanguage {
+    case LoveLanguageEnum.actOfService.rawValue:
+        return Image("bg-act-actofservices")
+    case LoveLanguageEnum.receivingGift.rawValue:
+        return Image("bg-act-receivinggift")
+    case LoveLanguageEnum.physicalTouch.rawValue:
+        return Image("bg-act-physicaltouch")
+    case LoveLanguageEnum.qualityTime.rawValue:
+        return Image("bg-act-qualitytime")
+    case LoveLanguageEnum.wordsOfAffirmation.rawValue:
+        return Image("bg-act-wordsofaffirmation")
+    case LoveLanguageEnum.combination.rawValue:
+        return Image("bg-act-combination")
+    default:
+        return Image(systemName:"hourglass")
+    }
+}
+func getLLLogo(llData : [LoveLanguages])-> String{
+    var counter: Int = 1
+    var LLName: String = ""
+    for ll in llData{
+        if counter == 1{
+            LLName = ll.wrappedLLName
+        }else if counter == 2{
+            LLName = LoveLanguageEnum.combination.rawValue
+        }
+        counter += 1
+    }
+    return LLName
 }
 func getLLIcon(loveLanguage: String) -> String {
     switch loveLanguage {
