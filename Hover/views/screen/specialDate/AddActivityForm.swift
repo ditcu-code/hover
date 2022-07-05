@@ -11,7 +11,7 @@ struct AddActivityForm: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var globalObject: GlobalObject
     @Environment(\.managedObjectContext) var moc
-    @Binding var actSelections: [ActivityList] 
+    @Binding var actSelections: [ActivityList]
     @State var activityName: String = ""
     @State var llSelections: [LoveLanguageEnum] = []
     @FetchRequest(sortDescriptors: []) var loveLanguages : FetchedResults <LoveLanguages>
@@ -43,7 +43,7 @@ struct AddActivityForm: View {
                             }
                             
                         }
-                    }.menuStyle(GrayButtonStyle(width: 220)) 
+                    }.menuStyle(GrayButtonStyle(width: 220))
                     Text("love language.")
                     
                 }
@@ -62,9 +62,11 @@ struct AddActivityForm: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Save"){
+                    Button(action: {
                         saveActivity()
                         dismiss()
+                    }){
+                        Text("Save").bold()
                     }
                 }
             }

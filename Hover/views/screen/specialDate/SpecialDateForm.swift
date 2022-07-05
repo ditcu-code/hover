@@ -137,9 +137,11 @@ struct SpecialDateForm: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Save"){
+                    Button(action: {
                         saveData()
                         dismiss()
+                    }){
+                        Text("Save").bold()
                     }
                 }
                 
