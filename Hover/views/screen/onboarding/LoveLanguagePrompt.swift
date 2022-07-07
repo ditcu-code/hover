@@ -19,9 +19,7 @@ struct LoveLanguagePrompt: View {
     @State var isGotoTest: Bool = false
     @State var llselections: [LoveLanguages] = []
     
-    var onboardingStep: Int {
-        globalObject.onboardingStep
-    }
+    var onboardingStep: Int = 4
     
     var progress: Int {
         onboardingStep + 1
@@ -63,13 +61,13 @@ struct LoveLanguagePrompt: View {
                 }
                 Spacer().frame(height: 20)
                 NavigationLink(isActive: $isNavigationActive) {
-                    TestResultPage(user: user)
+                    TestResultPage(user: user, onboardingStep: self.onboardingStep + 2)
                 } label: {
                 }
                 VStack {
                     Button {
                         saveLoveLanguage()
-                        globalObject.onboardingStep += 2
+//                        globalObject.onboardingStep += 2
                         self.isNavigationActive.toggle()
                     } label: {
                         OnboardingNextButton(isDisabled: disabledForm)
@@ -80,12 +78,12 @@ struct LoveLanguagePrompt: View {
                         .font(.subheadline)
                         .foregroundColor(Color("CaptionColor"))
                     NavigationLink(isActive: $isGotoTest) {
-                        LoveLanguagePageController(user: user)
+                        LoveLanguagePageController(user: user, onboardingStep: self.onboardingStep + 1)
 //                        QuestionLoveLanguage(user: user, onboardingStep: onboardingStep + 1)
                     } label: {
                     }
                     Button {
-                        globalObject.onboardingStep += 1
+//                        globalObject.onboardingStep += 1
                         isGotoTest.toggle()
                     } label: {
                         Text("Take the test now")
@@ -101,7 +99,7 @@ struct LoveLanguagePrompt: View {
     }
     
     func saveLoveLanguage() {
-        let updatedUser = self.onboardingStep == 4 ? GlobalObject.shared.user : GlobalObject.shared.partner
+        let updatedUser = self.onboardingStep == 4 ? globalObject.user : globalObject.partner
 
         switch(llselections[0].llName) {
         case LoveLanguageEnum.actOfService.rawValue:
@@ -118,6 +116,7 @@ struct LoveLanguagePrompt: View {
             print(llselections[0].llName ?? "")
             print("Do Nothing")
         }
+//        print(updatedUser)
         
         try? moc.save()
         if self.onboardingStep == 4 {

@@ -23,9 +23,7 @@ struct QuestionLoveLanguage: View {
     
     var user: User
     //    var onboardingStep: Int = 0
-    var onboardingStep: Int {
-        globalObject.onboardingStep
-    }
+    var onboardingStep: Int = 5
     var loveLanguageQuestion = LoveLanguageQuestion()
     
     var body: some View {
@@ -95,7 +93,7 @@ struct QuestionLoveLanguage: View {
             counter += 1
         } else {
             saveUserLL()
-            globalObject.onboardingStep += 1
+//            globalObject.onboardingStep += 1
             showResult.toggle()
             //            isTestDone.toggle()
         }

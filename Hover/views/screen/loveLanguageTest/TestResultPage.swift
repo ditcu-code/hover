@@ -16,9 +16,7 @@ struct TestResultPage: View {
     
     var user: User
     
-    var onboardingStep: Int {
-        globalObject.onboardingStep
-    }
+    var onboardingStep: Int = 6
     var progress: Int {
         onboardingStep + 1
     }
@@ -72,11 +70,11 @@ struct TestResultPage: View {
                         .font(.headline)
                         .fontWeight(.semibold)
                     Spacer()
-                    NavigationLink(destination: LoveLanguagePrompt(user: globalObject.partner), tag: "PartnerLoveLanguage", selection: $selectionPage) { }
+                    NavigationLink(destination: LoveLanguagePrompt(user: globalObject.partner, onboardingStep: self.onboardingStep + 1), tag: "PartnerLoveLanguage", selection: $selectionPage) { }
                     NavigationLink(destination: HomeScreen(), tag: "HomePage", selection: $selectionPage) { }
                     Button {
                         if onboardingStep == 6 {
-                            globalObject.onboardingStep += 1
+//                            globalObject.onboardingStep += 1
                             selectionPage = "PartnerLoveLanguage"
                         } else {
                             if UserDefaults.standard.bool(forKey: "isDoneOnboarding") {

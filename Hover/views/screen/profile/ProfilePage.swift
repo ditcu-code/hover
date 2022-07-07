@@ -132,7 +132,7 @@ struct ProfileCard: View {
                 HStack {
                     Spacer()
                     Button {
-                        globalObject.onboardingStep = 0
+//                        globalObject.onboardingStep = 0
                         isNavigationActive.toggle()
                     } label: {
                         Text("Retake the test")
@@ -150,7 +150,6 @@ struct ProfileCard: View {
 //                QuestionLoveLanguage(user: user)
                 LoveLanguagePageController(user: user)
             } label: {
-                
             }
         }
     }

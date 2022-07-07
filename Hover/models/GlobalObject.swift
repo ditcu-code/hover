@@ -16,7 +16,8 @@ class GlobalObject: ObservableObject {
     @Published var specialDayNoAct : SpecialDay = CoreDataPreviewHelper.dummySpecialDayEmptyActivity
     @Published var specialDayWithAct : SpecialDay = CoreDataPreviewHelper.dummySpecialDayWithActivity
     
-    @Published var onboardingStep: Int = 0
+//    @Published var onboardingStep: Int = 0
     @Published var showCongrats: Bool = false
+    @Published var showResult: Bool = false
 
 }

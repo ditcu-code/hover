@@ -12,12 +12,13 @@ struct LoveLanguagePageController: View {
 //    @Binding var onboardingStep: Int
     @State private var showResult: Bool = false
     var user: User
+    var onboardingStep: Int = 0
     
     var body: some View {
         if showResult {
-            TestResultPage(user: user)
+            TestResultPage(user: user, onboardingStep: self.onboardingStep + 1)
         } else {
-            QuestionLoveLanguage(showResult: $showResult, user: user)
+            QuestionLoveLanguage(showResult: $showResult, user: user, onboardingStep: self.onboardingStep)
         }
     }
 }
