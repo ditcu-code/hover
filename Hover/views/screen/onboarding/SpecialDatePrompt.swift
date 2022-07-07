@@ -19,9 +19,7 @@ struct SpecialDatePrompt: View {
         specialDateName.isEmpty
     }
     
-    var onboardingStep: Int {
-        globalObject.onboardingStep
-    }
+    var onboardingStep: Int = 2
     
     var progress: Int {
         onboardingStep + 1
@@ -65,14 +63,14 @@ struct SpecialDatePrompt: View {
             Spacer()
             Button {
                 saveSpecialDate()
-                globalObject.onboardingStep += 1
+//                globalObject.onboardingStep += 1
                 self.isNavigateActive.toggle()
             } label: {
                 OnboardingNextButton(isDisabled: disabledForm)
                     .padding(.bottom, 115)
             }.disabled(disabledForm)
             NavigationLink(isActive: self.$isNavigateActive) {
-                IntroLoveLanguagePrompt()
+                IntroLoveLanguagePrompt(onboardingStep: 3)
             } label: {
             }
         }

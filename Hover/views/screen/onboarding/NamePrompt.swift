@@ -21,9 +21,7 @@ struct NamePrompt: View {
         username.isEmpty
     }
     
-    var onboardingStep: Int {
-        globalObject.onboardingStep
-    }
+    var onboardingStep: Int = 0
     
     var progress: Int {
         onboardingStep + 1
@@ -55,16 +53,15 @@ struct NamePrompt: View {
                     .shadow(color: .black, radius: 1)
                 Spacer()
                 NavigationLink(isActive: self.$isNavigateActive) {
-                    if self.onboardingStep == 1 {
-                        NamePrompt()
-                    } else if self.onboardingStep == 2 {
-                        SpecialDatePrompt()
+                    if self.onboardingStep == 0 {
+                        NamePrompt(onboardingStep: 1)
+                    } else if self.onboardingStep == 1 {
+                        SpecialDatePrompt(onboardingStep: 2)
                     }
                 } label: {
                 }.hidden()
                 Button {
                     saveName()
-                    globalObject.onboardingStep += 1
                     self.isNavigateActive.toggle()
                 } label: {
                     OnboardingNextButton(isDisabled: disabledForm)

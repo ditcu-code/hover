@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 class CoreDataPreviewHelper {
     static var preview: DataController = {
@@ -21,7 +22,7 @@ class CoreDataPreviewHelper {
         user.qt = 20
         user.rg = 14
         
-        let llName = ["Physical Touch", "Word of Affirmation", "Quality Time", "Receiving Gifts", "Acts of Service"]
+        let llName = [LoveLanguageEnum.physicalTouch.rawValue, LoveLanguageEnum.wordsOfAffirmation.rawValue, LoveLanguageEnum.qualityTime.rawValue, LoveLanguageEnum.receivingGift.rawValue, LoveLanguageEnum.actOfService.rawValue]
         let detail = ["To this person, nothing speaks more deeply than appropriate physical touch.","This language uses words to affirm other people.", "This language is all about giving the other person your undivided attention.", "For some people, receiving a heartfelt gift is what makes them feel most loved.", "For these people, actions speak louder than words."]
         
         for i in 0...llName.count - 1 {
@@ -110,4 +111,18 @@ class CoreDataPreviewHelper {
         
         return specialDay
     }()
+    
+    static func rollbackForApp() {
+        let context = DataController.shared.container.viewContext
+        context.rollback()
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "LoveLanguages")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try context.execute(deleteRequest)
+        } catch {
+            // TODO: handle the error
+            print(error)
+        }
+    }
 }
