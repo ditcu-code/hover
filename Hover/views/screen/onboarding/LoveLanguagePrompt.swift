@@ -38,7 +38,7 @@ struct LoveLanguagePrompt: View {
                         .animation(.easeInOut(duration: 1), value: onboardingTotalStep)
                         .padding(.bottom, 50)
                     HStack {
-                        Text("What is your\nLove Language? \(self.onboardingStep)")
+                        Text("What is your\nLove Language?")
                             .font(.title)
                             .bold()
                         Spacer()
