@@ -46,6 +46,9 @@ struct HomeScreen: View {
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
         }
+        .onAppear {
+            loadCurrentUser()
+        }
         .onChange(of: scenePhase) { _ in
             loadCurrentUser()
         }
