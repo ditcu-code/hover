@@ -54,12 +54,16 @@ struct SpecialDayDetail: View {
                                     if selectedSpecialDay.activityInSDArray.isEmpty {
                                         Text("Have you planned activities?")
                                     } else {
-                                        ForEach(selectedSpecialDay.activityInSDArray, id: \.self) {
-                                            act in
-                                            HStack {
-                                                LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: act.llArray), size: 40, cornerRadius: 8)
-                                                Text(act.wrappedActivity)
-                                                    .lineLimit(nil)
+                                        ScrollView {
+                                            VStack(alignment: .leading) {
+                                                ForEach(selectedSpecialDay.activityInSDArray, id: \.self) {
+                                                    act in
+                                                    HStack {
+                                                        LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: act.llArray), size: 40, cornerRadius: 8)
+                                                        Text(act.wrappedActivity)
+                                                            .lineLimit(nil)
+                                                    }
+                                                }
                                             }
                                         }
                                     }
