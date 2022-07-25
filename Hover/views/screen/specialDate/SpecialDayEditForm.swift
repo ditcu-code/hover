@@ -176,6 +176,10 @@ struct SpecialDayEditForm: View {
         selectedSpecialDay.name = specialDayName
         selectedSpecialDay.repeatNotif = selectedRepeat.rawValue
         selectedSpecialDay.alert = selectedAlert.rawValue
+        let allActivities = Set(activities)
+        for act in allActivities {
+            selectedSpecialDay.removeFromSpecialToActivity(act)
+        }
         let sdActivity = Set(actSelections)
         for act in sdActivity{
             selectedSpecialDay.addToSpecialToActivity(act)

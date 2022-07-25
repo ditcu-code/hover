@@ -163,7 +163,7 @@ struct WithActivitySpecialDayCard: View {
                 RoundedCorner(radius: 8, corners: [.topLeft, .bottomLeft]).fill(Color.white).offset(x: 10, y:0).scaleEffect(0.99)
                 
                 HStack {
-                    LoveLanguageLogoBg(loveLanguageName: LoveLanguageEnum.combination.rawValue, size: 45, cornerRadius: 8)
+                    LoveLanguageLogoBg(loveLanguageName: getLLFromActivities(activities: specialDayItem.activityInSDArray), size: 45, cornerRadius: 8)
                     VStack(alignment: .leading) {
                         Text(specialDayItem.wrappedName).font(.headline)
                         Text(specialDayItem.activityInSDArray.first?.wrappedActivity ?? "" ).lineLimit(1)

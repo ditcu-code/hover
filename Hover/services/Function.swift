@@ -111,6 +111,7 @@ func getLoveLanguageBg(loveLanguage: String) -> Image {
         return Image(systemName:"hourglass")
     }
 }
+
 func getLLLogo(llData : [LoveLanguages])-> String{
     if llData.count == 1 {
         return llData[0].wrappedLLName
@@ -119,6 +120,16 @@ func getLLLogo(llData : [LoveLanguages])-> String{
     }
     return "Default"
 }
+
+func getLLFromActivities(activities : [ActivityList]) -> String {
+    let dictionaryByLL = Dictionary(grouping: activities, by: { getLLLogo(llData: $0.llArray) })
+    if dictionaryByLL.count > 1 {
+        return LoveLanguageEnum.combination.rawValue
+    } else {
+        return dictionaryByLL.first?.key ?? "Default"
+    }
+}
+
 func getLLIcon(loveLanguage: String) -> String {
     switch loveLanguage {
     case LoveLanguageEnum.actOfService.rawValue:
