@@ -12,11 +12,13 @@ struct HoverApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 //    @StateObject private var dataController = DataController()
     let persistentController = DataController.shared
+    @StateObject var specialDayVM = SpecialDayViewModel()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistentController.container.viewContext )
+                .environment(\.managedObjectContext, persistentController.container.viewContext)
+                .environmentObject(specialDayVM)
         }
     }
 }

@@ -45,6 +45,7 @@
 		FDAF4E5A28735F030023E153 /* SpecialDayDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF4E5928735F030023E153 /* SpecialDayDetail.swift */; };
 		FDAF4E5D28736BE70023E153 /* LoveLanguagePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF4E5C28736BE70023E153 /* LoveLanguagePageController.swift */; };
 		FDAFBBCD286F89D700627BA6 /* CoreDataPreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAFBBCC286F89D700627BA6 /* CoreDataPreviewHelper.swift */; };
+		FDCE4446288EF83200A02299 /* SpecialDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCE4445288EF83200A02299 /* SpecialDayViewModel.swift */; };
 		FDD705D12865DAE80003D311 /* NamePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D02865DAE80003D311 /* NamePrompt.swift */; };
 		FDD705D52865DB060003D311 /* SpecialDatePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D42865DB060003D311 /* SpecialDatePrompt.swift */; };
 		FDD705D72865DB6C0003D311 /* LoveLanguagePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD705D62865DB6C0003D311 /* LoveLanguagePrompt.swift */; };
@@ -113,6 +114,7 @@
 		FDAF4E5B287367890023E153 /* datLoveModelver2.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = datLoveModelver2.2.xcdatamodel; sourceTree = "<group>"; };
 		FDAF4E5C28736BE70023E153 /* LoveLanguagePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguagePageController.swift; sourceTree = "<group>"; };
 		FDAFBBCC286F89D700627BA6 /* CoreDataPreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPreviewHelper.swift; sourceTree = "<group>"; };
+		FDCE4445288EF83200A02299 /* SpecialDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialDayViewModel.swift; sourceTree = "<group>"; };
 		FDD705D02865DAE80003D311 /* NamePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamePrompt.swift; sourceTree = "<group>"; };
 		FDD705D42865DB060003D311 /* SpecialDatePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialDatePrompt.swift; sourceTree = "<group>"; };
 		FDD705D62865DB6C0003D311 /* LoveLanguagePrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLanguagePrompt.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 		0EE23A85285F626500ACBD61 /* Hover */ = {
 			isa = PBXGroup;
 			children = (
+				FDCE4444288EF7FE00A02299 /* ViewModel */,
 				FD7B63852871DF1E00F019F4 /* Info.plist */,
 				FD7B637C2871CBFD00F019F4 /* datLoveModel.xcdatamodeld */,
 				930DAED328709EC400059842 /* Notification */,
@@ -299,6 +302,14 @@
 				93DBDADF286CD13300F6AA47 /* AddSpecialDateTest.swift */,
 			);
 			path = CoreDataTest;
+			sourceTree = "<group>";
+		};
+		FDCE4444288EF7FE00A02299 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FDCE4445288EF83200A02299 /* SpecialDayViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		FDD705CF2865DAB10003D311 /* onboarding */ = {
@@ -444,6 +455,7 @@
 				0EE23A89285F626500ACBD61 /* ContentView.swift in Sources */,
 				FD11BBA62877FA8400885EFE /* SpecialDayEditForm.swift in Sources */,
 				FDAF4E56287337510023E153 /* LoveLanguageLogoBg.swift in Sources */,
+				FDCE4446288EF83200A02299 /* SpecialDayViewModel.swift in Sources */,
 				FD7B63802871CBFD00F019F4 /* datLoveModel.xcdatamodeld in Sources */,
 				0ED794DC28730C9500BE09DF /* AddActivityForm.swift in Sources */,
 				FDD705DA2865DB930003D311 /* QuestionLoveLanguage.swift in Sources */,

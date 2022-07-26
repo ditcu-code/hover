@@ -10,30 +10,21 @@ import SwiftUI
 struct SpecialDateForm: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var globalObject: GlobalObject
+    @EnvironmentObject var specialDayVM: SpecialDayViewModel
     
     @State var navActive: Bool = false
     
-    @State private var specialDayName: String = ""
     @State private var isRepeated: Bool = true
     @State private var isActivityWanted: Bool = true
     
-    @State var selectedDate = Date()
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) var activities : FetchedResults <ActivityList>
     @State var actSelections: [ActivityList] = []
-    @State private var selectedRepeat: Repeat = .monthly
-    @State private var selectedAlert: Alert = .oneDay
-    
-    @State var chatTextInput: String = ""
-    @State var oldChatValue: String = ""
-    @State var newChatValue: String = ""
-    
-    @State var textEntryFlag = true
     
     @State var showAddPlan: Bool = false
     
     var body: some View {
-        let nameNotEmpty = specialDayName.count > 0
+        let nameNotEmpty = specialDayVM.name.count > 0
         
         NavigationView {
             VStack(alignment: .center) {
@@ -42,7 +33,7 @@ struct SpecialDateForm: View {
                     
                     Text("I want to **celebrate**")
                     
-                    TextField("", text: $specialDayName)
+                    TextField("", text: $specialDayVM.name)
                         .textFieldStyle(.roundedBorder)
                         .overlay(RoundedRectangle(cornerRadius: 8)
                             .stroke(Color.accentColor))
@@ -51,7 +42,7 @@ struct SpecialDateForm: View {
                         HStack {
                             
                             Text("on").bold()
-                            DatePicker("", selection: $selectedDate, displayedComponents: [.date])
+                            DatePicker("", selection: $specialDayVM.date, displayedComponents: [.date])
                                 .labelsHidden()
                                 .scaleEffect(1.1)
                                 .padding(.horizontal, 5)
@@ -68,10 +59,10 @@ struct SpecialDateForm: View {
                             
                             Text("be repeated\(isRepeated ? "" : ".")")
                             if isRepeated {
-                                Menu(selectedRepeat.rawValue) {
+                                Menu(specialDayVM.repeatNotif.rawValue) {
                                     ForEach(Repeat.allCases, id: \.self) { item in
                                         Button(item.rawValue) {
-                                            selectedRepeat = item
+                                            specialDayVM.repeatNotif = item
                                         }
                                     }
                                 }.menuStyle(GrayButtonStyle())
@@ -81,10 +72,10 @@ struct SpecialDateForm: View {
                         
                         HStack {
                             Text("Please **remind** me")
-                            Menu(selectedAlert.rawValue) {
+                            Menu(specialDayVM.alert.rawValue) {
                                 ForEach(Alert.allCases, id: \.self) { a in
                                     Button(a.rawValue) {
-                                        selectedAlert = a
+                                        specialDayVM.alert = a
                                     }
                                 }
                             }.menuStyle(GrayButtonStyle(width: 115))
@@ -115,7 +106,7 @@ struct SpecialDateForm: View {
                         
                         if isActivityWanted {
                             ScrollView() {
-                                ActivityItem(actSelections: $actSelections)
+                                ActivityItem(actSelections: $specialDayVM.actSelections)
                             }
                         }
                         
@@ -138,7 +129,11 @@ struct SpecialDateForm: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        saveData()
+//                        saveData()
+                        specialDayVM.createSpecialDay()
+                        if specialDayVM.selectedSpecialDay == nil {
+                            globalObject.showCongrats.toggle()
+                        }
                         dismiss()
                     }){
                         Text("Save").bold()
@@ -162,12 +157,12 @@ struct SpecialDateForm: View {
                     }
                 }
             }
-            .navigationTitle("New Special Day")
+            .navigationTitle("\(specialDayVM.selectedSpecialDay == nil ? "New" : "Edit") Special Day")
             .navigationBarTitleDisplayMode(.inline)
         }
         
         .sheet(isPresented: $showAddPlan) {
-            AddActivityForm(actSelections: $actSelections)
+            AddActivityForm(actSelections: $specialDayVM.actSelections)
         }
     }
     
@@ -185,23 +180,23 @@ struct SpecialDateForm: View {
         //        }
     }
     
-    func saveData(){
-        let specialDay = SpecialDay(context: moc)
-        specialDay.id = UUID()
-        specialDay.notificationID = UUID().uuidString
-        specialDay.date = selectedDate
-        specialDay.name = specialDayName
-        specialDay.repeatNotif = selectedRepeat.rawValue
-        specialDay.alert = selectedAlert.rawValue
-        let sdActivity = Set(actSelections)
-        print(sdActivity)
-        for act in sdActivity{
-            specialDay.addToSpecialToActivity(act)
-        }
-        try? moc.save()
-        
-        globalObject.showCongrats.toggle()
-    }
+//    func saveData(){
+//        let specialDay = SpecialDay(context: moc)
+//        specialDay.id = UUID()
+//        specialDay.notificationID = UUID().uuidString
+//        specialDay.date = selectedDate
+//        specialDay.name = specialDayName
+//        specialDay.repeatNotif = selectedRepeat.rawValue
+//        specialDay.alert = selectedAlert.rawValue
+//        let sdActivity = Set(actSelections)
+//        print(sdActivity)
+//        for act in sdActivity{
+//            specialDay.addToSpecialToActivity(act)
+//        }
+//        try? moc.save()
+//
+//        globalObject.showCongrats.toggle()
+//    }
     
 }
 
@@ -228,11 +223,9 @@ struct ActivityItem: View {
             if checkActivityToShow(llList: activity.llArray){
                 MultipleSelectionRow(title: activity.activity ?? "Unknown", isSelected: self.actSelections.contains(activity ), llData: activity.llArray) {
                     if self.actSelections.contains(activity) {
-                        let _ = print("engga")
                         self.actSelections.removeAll(where: { $0.id?.uuidString == activity.id?.uuidString ?? "Unknown" })
                     }
                     else {
-                        let _ = print("NAMBAAAH")
                         self.actSelections.append(activity)
                     }
                 }

@@ -13,9 +13,14 @@ struct SpecialDatePage: View {
     @State var navActive : Bool = false
     @State var selectedSpecialDay : SpecialDay?
     @State var goToDetail : Bool = false
+    @EnvironmentObject var specialDayVM : SpecialDayViewModel
     
-    var upcomingDay: SpecialDay {
-        specialDays.sortedByIncomingEvent()[0]
+    var upcomingDay: SpecialDay? {
+        if specialDays.isEmpty {
+            return nil
+        } else {
+            return specialDays.sortedByIncomingEvent().first ?? nil
+        }
     }
     
     var body: some View {
@@ -32,71 +37,78 @@ struct SpecialDatePage: View {
                         .fill(.white)
                         .opacity(0.3)
                         .frame(height: 120)
-                    
-                    HStack(alignment: .center, spacing: 40) {
-                        VStack(alignment: .center) {
-                            Text("\(dateToString(upcomingDay.wrappedDate, dateFormat: "MMM").uppercased())")
-                                .font(.title2)
-                                .bold()
-                            Text("\(dateToString(upcomingDay.wrappedDate, dateFormat: "dd"))")
-                                .font(.system(size: 36, weight: .bold))
-                        }
-                        .foregroundColor(.white)
-                        .background(
-                            RoundedRectangle(cornerRadius: 12)
-                                .fill(Color.captionColor)
-                                .frame(width: 90, height: 90)
-                        )
-                        
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text(upcomingDay.wrappedName)
-                                    .font(.title3)
+                    if upcomingDay != nil {
+                        HStack(alignment: .center, spacing: 40) {
+                            VStack(alignment: .center) {
+                                Text("\(dateToString(upcomingDay!.wrappedDate, dateFormat: "MMM").uppercased())")
+                                    .font(.title2)
                                     .bold()
-                                if !upcomingDay.activityInSDArray.isEmpty {
-                                    Text(upcomingDay.activityInSDArray[0].wrappedActivity)
-                                        .font(.subheadline)
-                                }
+                                Text("\(dateToString(upcomingDay!.wrappedDate, dateFormat: "dd"))")
+                                    .font(.system(size: 36, weight: .bold))
                             }
-                            Spacer()
+                            .foregroundColor(.white)
+                            .background(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .fill(Color.captionColor)
+                                    .frame(width: 90, height: 90)
+                            )
                             
-                            Image(systemName: "chevron.forward")
-                                .font(.title2)
-                        }.padding(.trailing, 10)
-                    }
-                    .padding(.leading, 50)
-                    .onTapGesture {
-                        selectedSpecialDay = upcomingDay
-                        goToDetail.toggle()
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(upcomingDay?.wrappedName ?? "")
+                                        .font(.title3)
+                                        .bold()
+                                    if !(upcomingDay?.activityInSDArray.isEmpty ?? true) {
+                                        Text(upcomingDay?.activityInSDArray[0].wrappedActivity ?? "")
+                                            .font(.subheadline)
+                                    }
+                                }
+                                Spacer()
+                                
+                                Image(systemName: "chevron.forward")
+                                    .font(.title2)
+                            }.padding(.trailing, 10)
+                        }
+                        .padding(.leading, 50)
+                        .onTapGesture {
+                            specialDayVM.setSelectedSpecialDay(specialDay: upcomingDay!)
+                            //                        selectedSpecialDay = upcomingDay
+                            goToDetail.toggle()
+                        }
                     }
                 }.padding(.top, 15)
             }.frame(height: 150)
             NavigationLink(isActive: $goToDetail) {
-                SpecialDayDetail(selectedSpecialDay: selectedSpecialDay ?? SpecialDay())
+                //                SpecialDayDetail(selectedSpecialDay: selectedSpecialDay ?? SpecialDay())
+                SpecialDayDetail()
             } label: {
                 
             }
+            
             ScrollView {
-                ForEach(specialDays.sortedByIncomingEvent().filter({ specialDay in
-                    specialDay.id != upcomingDay.id ?? UUID()
-                })) { specialDayItem in
-                    if specialDayItem.activityInSDArray.isEmpty {
-                        EmptyActivitySpecialDayCard(specialDayItem: specialDayItem)
-                            .onTapGesture {
-                                selectedSpecialDay = specialDayItem
-                                goToDetail.toggle()
-                            }
-                    }
-                    else {
-                        WithActivitySpecialDayCard(specialDayItem: specialDayItem)
-                            .onTapGesture {
-                                selectedSpecialDay = specialDayItem
-                                goToDetail.toggle()
-                            }
+                if !specialDays.isEmpty {
+                    ForEach(specialDays.sortedByIncomingEvent().filter({ specialDay in
+                        specialDay.id != upcomingDay?.id ?? UUID()
+                    })) { specialDayItem in
+                        if specialDayItem.activityInSDArray.isEmpty {
+                            EmptyActivitySpecialDayCard(specialDayItem: specialDayItem)
+                                .onTapGesture {
+                                    //                                selectedSpecialDay = specialDayItem
+                                    specialDayVM.setSelectedSpecialDay(specialDay: specialDayItem)
+                                    goToDetail.toggle()
+                                }
+                        }
+                        else {
+                            WithActivitySpecialDayCard(specialDayItem: specialDayItem)
+                                .onTapGesture {
+                                    //                                selectedSpecialDay = specialDayItem
+                                    specialDayVM.setSelectedSpecialDay(specialDay: specialDayItem)
+                                    goToDetail.toggle()
+                                }
+                        }
                     }
                 }
             }
-            
         }
         
         .toolbar {

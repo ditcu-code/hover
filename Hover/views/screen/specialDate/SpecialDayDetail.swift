@@ -11,10 +11,12 @@ struct SpecialDayDetail: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.managedObjectContext) var moc
     
-    var selectedSpecialDay: SpecialDay
+    //    var selectedSpecialDay: SpecialDay
     
     @State private var isShowEdit: Bool = false
     @State private var isShowAlert: Bool = false
+    
+    @EnvironmentObject var specialDayVM : SpecialDayViewModel
     
     var body: some View {
         ZStack {
@@ -24,11 +26,11 @@ struct SpecialDayDetail: View {
             VStack {
                 VStack {
                     VStack {
-                        Text(dateToString(selectedSpecialDay.wrappedDate, dateFormat: "MMM").uppercased())
+                        Text(dateToString(specialDayVM.selectedSpecialDay.wrappedDate, dateFormat: "MMM").uppercased())
                             .font(.largeTitle)
                             .bold()
                             .foregroundColor(.white)
-                        Text(dateToString(selectedSpecialDay.wrappedDate, dateFormat: "dd"))
+                        Text(dateToString(specialDayVM.selectedSpecialDay.wrappedDate, dateFormat: "dd"))
                             .font(Font.system(size: 90))
                             .bold()
                             .foregroundColor(.white)
@@ -36,7 +38,7 @@ struct SpecialDayDetail: View {
                     .frame(width: 200, height: 200)
                     .background(Color("CaptionColor"))
                     .cornerRadius(12)
-                    Text(selectedSpecialDay.wrappedName)
+                    Text(specialDayVM.selectedSpecialDay.wrappedName)
                         .font(.largeTitle)
                         .bold()
                     VStack {
@@ -51,13 +53,12 @@ struct SpecialDayDetail: View {
                                         .fontWeight(.semibold)
                                 }
                                 VStack(alignment: .leading) {
-                                    if selectedSpecialDay.activityInSDArray.isEmpty {
+                                    if specialDayVM.selectedSpecialDay.activityInSDArray.isEmpty {
                                         Text("Have you planned activities?")
                                     } else {
                                         ScrollView {
                                             VStack(alignment: .leading) {
-                                                ForEach(selectedSpecialDay.activityInSDArray, id: \.self) {
-                                                    act in
+                                                ForEach(specialDayVM.selectedSpecialDay.activityInSDArray, id: \.self) { act in
                                                     HStack {
                                                         LoveLanguageLogoBg(loveLanguageName: getLLLogo(llData: act.llArray), size: 40, cornerRadius: 8)
                                                         Text(act.wrappedActivity)
@@ -72,7 +73,7 @@ struct SpecialDayDetail: View {
                                     Image(systemName: "repeat.circle.fill")
                                         .resizable()
                                         .frame(width: 17, height: 17)
-                                    Text("Repeat: \(selectedSpecialDay.wrappedRepeatNotif)")
+                                    Text("Repeat: \(specialDayVM.selectedSpecialDay.wrappedRepeatNotif)")
                                         .font(.headline)
                                         .fontWeight(.semibold)
                                 }
@@ -80,7 +81,7 @@ struct SpecialDayDetail: View {
                                     Image(systemName: "alarm.fill")
                                         .resizable()
                                         .frame(width: 17, height: 17)
-                                    Text("Remainder: \(selectedSpecialDay.wrappedAlert)")
+                                    Text("Remainder: \(specialDayVM.selectedSpecialDay.wrappedAlert)")
                                         .font(.headline)
                                         .fontWeight(.semibold)
                                 }
@@ -118,7 +119,8 @@ struct SpecialDayDetail: View {
                 }
             }
             .sheet(isPresented: $isShowEdit) {
-                SpecialDayEditForm(selectedSpecialDay: selectedSpecialDay)
+                //                SpecialDayEditForm(selectedSpecialDay: selectedSpecialDay)
+                SpecialDateForm()
             }
             .alert("Are You Sure Want To Delete?", isPresented: $isShowAlert) {
                 Button(role: .cancel) {
@@ -127,8 +129,9 @@ struct SpecialDayDetail: View {
                     Text("Cancel")
                 }
                 Button(role: .destructive) {
-                    moc.delete(selectedSpecialDay)
-                    try? moc.save()
+                    //                    moc.delete(specialDayVM.selectedSpecialDay)
+                    //                    try? moc.save()
+                    specialDayVM.deleteSpecialDay()
                     dismiss()
                 } label: {
                     Text("Delete")
